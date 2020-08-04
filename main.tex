@@ -51,17 +51,14 @@
 \usepackage[list=true,listformat=simple]{subcaption} 
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
-\usepackage{tikz}
-	\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
-	\usetikzlibrary{arrows, shapes, calc, positioning}
-	\usetikzlibrary{circuits.logic.US}
-	\tikzstyle{gnd}=[fill, pattern = north east lines, draw = none, minimum width = 1.00cm, minimum height = 0.05cm]
-	\usetikzlibrary{shadings, calc, decorations.markings}
-    \tikzset{->-/.style={decoration={
-      markings,
-      mark=at position #1 with {\arrow{>}}},postaction={decorate}},
-      ->-/.default=0.5,
-      }
+
+\usepackage{tikz}	\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
+\usetikzlibrary{arrows, shapes, calc, positioning}
+\usetikzlibrary{circuits.logic.US}
+\tikzstyle{gnd}=[fill, pattern = north east lines, draw = none, minimum width = 1.00cm, minimum height = 0.05cm]
+\usetikzlibrary{shadings, calc, decorations.markings}
+\tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}},>-/.default=0.5,}
+
 \usepackage{multirow}
 \usepackage{pdflscape}
 \usepackage{listings}
@@ -163,6 +160,15 @@
 \let\DiffSpace\relax
 \fi\fi\fi\DiffSpace}
 
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=gray, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=gray, 
+    text width=10em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
 \bibliographystyle{ieeetr}
 
 \begin{document}
@@ -232,7 +238,7 @@ Kod zvuchnih glasova, vazduh prelazi preko zategnutih glasnih zhica koje po\-chi
 Problem govorne analize predstavlja odredjivanje parametara eksitacije i parametara implusnog odziva vokalnog trakta. Ovaj problem se mozhe nazvati i problemom razdvajanja konvolucionih komponenti, shto je poznato pod nazivom dekonvolucija.
 
 \section{Kepstrum}
-Kepstrum diskretnog signala $s[n]$ se mozhe izrachunati pomoc1u formule \cite{kepstri}
+Kepstrum diskretnog signala $s[n]$ se mozhe izrachunati pomoc1u formule \cite{kepstrum}
 \begin{equation}
 c_s[n] = \boldsymbol{\mathcal{F}^{-1}}(\log(|\boldsymbol{\mathcal{F}}(s[n])|)
 \end{equation}
@@ -396,7 +402,56 @@ U ovom radu, kao vektor ulaznih parametara, korish\-c1eno je 13 kepstralnih koef
 \chapter{Obelezhja videa}
 
 \chapter{Rekurentne neuralne mrezhe}
+Neuralne mrezhe su modeli uchenja koji ostvaraju ogroman uspeh u shirokom spektru zadataka superviziranog i nesuperviziranog mashinskog uchenja. Klasichne ($feedforward$) neuralne mrezhe se posebno izdvajaju u problemima klasifikacije. Uprkos njihovoj moc1i, standardne neuralne mrezhe imaju ogranichenja, od kojih je naznachajnije da primeri iz baze podataka moraju biti medjusobno nezavisni. U sluchaju kada su podaci zavisni u vremenu i prostoru ovo nije prihvatljivo. Frejmovi videa, delovi audio signala, rechi iz rechenice predstavljaju primere podataka gde zahtev o medjusobnoj nezavisnosti nije zadovoljen. Rekurentne neuralne mrezhe prevazilaze taj nedostatak i koriste se u sluchahevima kada se podaci mogu prikazati u formi sekvence. One imaju osobinu da selektivno prosledjuju informaciju izmedju koraka sekvence, dok i dalje procesuju jedan po jedan korak.\\
+U ovom poglavlju c1e se prvo baciti kratak osrt na klasichne neuralne mrezhe, a zatim c1e biti detaljnije obradjen pojam razlichitih vrsta rekurentnih neuralnih mrezha.
 
+\section{Klasichne neuralne mrezhe}
+Neuralne mrezhe su modeli izrachunavanja inspirasni bioloshkim neuralnim sistemom. Neuralna mrezha se sastoji od skupa veshtachkih neurona, koji se josh i nazivaju chvorovima, koji su medjusobno povezani sinapsama (vezama). Za svaki neuron $j$ se definishe funkcija aktivacije $l_j(*)$ i integraciona funkcija $f_j(*)$. Veza od chvora $j'$ ka chvoru $j$ je opisana tezhinskim koeficijentom $w_{jj'}$.
+\begin{figure}[!h]
+\hspace*{0.1\linewidth}
+\begin{tikzpicture}
+	\tikzstyle{rectangle_style}=[rectangle, draw]
+	\tikzstyle{dividedrectangle_style}=[draw, rectangle split, rectangle split parts=2, rotate = 90, minimum height = 15mm, minimum width = 10mm]
+	% neuron i
+	\foreach \x in {0,...,2}
+		\draw node at (0, -\x) [rectangle_style] (neuron_i_\x) {$v_\x$};
+	\foreach \x in {1,...,3}
+		\fill (0, -2.5 - \x*0.15) circle (1pt);
+	\draw node at (0, -3.5) [rectangle_style] (neuron_i_3) {$v_i$};
+	% w_ji
+	\foreach \x in {0,...,2}
+		\draw node at (1.5, -\x) [] (w_ji_\x) {$w_{j\x}$};
+	\draw node at (1.5, -3.5) [] (w_ji_i) {$w_{ji}$};
+	\foreach \x in {1,...,3}
+		\fill (1.5, -2.5 - \x*0.15) circle (1pt);
+	% neuron j
+	\node at (6.5, -1.5) [dividedrectangle_style] (neuron_j){\rotatebox{-90}{$s_j = f_j (w_{ji}v_i)$} \nodepart{second} \rotatebox{-90}{$v_j = l_j (s_j)$}};
+	% error
+	\node at (10, -1.5) [] (error) {$v_j$};
+	% connect: y_i -> w_ji
+	\foreach \i in {0,...,2}
+		\path[-] (neuron_i_\i) edge node[] {} (w_ji_\i);
+	\path[-] (neuron_i_3) edge node[] {} (w_ji_i);
+	\begin{scope}[decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ] 
+	% connect: w_ji -> neuron j
+	\foreach \i in {0,...,2}
+		\draw[postaction={decorate}] (w_ji_\i) -- (neuron_j.north);
+	\draw[postaction={decorate}] (w_ji_i)--(neuron_j.north);
+	\end{scope}
+	% connect: neuron j -> output
+	\path[->] (neuron_j) edge node[above, midway] {$ $} (error);
+\end{tikzpicture}
+\caption{Shemat\-ski prikaz veshtachkog neurona}
+\label{fig:7}
+\end{figure}\\
+Za integracionu funkciju se najchesh\-c1e uzima linearna suma, te se vrednost na izlazu jednog chvora mozhe izrachunati kao
+\begin{equation}
+v_j = l_j\left(\sum^{i}_{k=0}w_{ji}v_i\right)
+\end{equation}
+Chesti izbori aktivacione funckije su sigmoid $\sigma(z)=1/(1+e^{-z})$ i hiperbolichki tangens $\tanh(z) = (e^z-e^{-z})/(e^z-e^{-z})$. Od skora, u modelima dubokih neuralnih mrezha, aktivaciona funkcija $ReLU(z)=max(0,z)$ koja je pokazala znachajno poboljshanje performansi.
 \chapter{Obuchavanje modela}
 
 \chapter{Sinteza videa}
