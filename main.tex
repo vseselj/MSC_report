@@ -403,9 +403,9 @@ U ovom radu, kao vektor ulaznih parametara, korish\-c1eno je 13 kepstralnih koef
 
 \chapter{Rekurentne neuralne mrezhe}
 Neuralne mrezhe su modeli uchenja koji ostvaraju ogroman uspeh u shirokom spektru zadataka superviziranog i nesuperviziranog mashinskog uchenja. Klasichne ($feedforward$) neuralne mrezhe se posebno izdvajaju u problemima klasifikacije. Uprkos njihovoj moc1i, standardne neuralne mrezhe imaju ogranichenja, od kojih je naznachajnije da primeri iz baze podataka moraju biti medjusobno nezavisni. U sluchaju kada su podaci zavisni u vremenu i prostoru ovo nije prihvatljivo. Frejmovi videa, delovi audio signala, rechi iz rechenice predstavljaju primere podataka gde zahtev o medjusobnoj nezavisnosti nije zadovoljen. Rekurentne neuralne mrezhe prevazilaze taj nedostatak i koriste se u sluchahevima kada se podaci mogu prikazati u formi sekvence. One imaju osobinu da selektivno prosledjuju informaciju izmedju koraka sekvence, dok i dalje procesuju jedan po jedan korak.\\
-U ovom poglavlju c1e se prvo baciti kratak osrt na klasichne neuralne mrezhe, a zatim c1e biti detaljnije obradjen pojam razlichitih vrsta rekurentnih neuralnih mrezha.
+U ovom poglavlju c1e se prvo baciti kratak osvrt na klasichne ($feedforward$) neuralne mrezhe, a zatim c1e biti detaljnije obradjen pojam razlichitih vrsta rekurentnih neuralnih mrezha.
 
-\section{Klasichne neuralne mrezhe}
+\section{Pregled veshtachkih neuralnih mrezha}
 Neuralne mrezhe su modeli izrachunavanja inspirasni bioloshkim neuralnim sistemom. Neuralna mrezha se sastoji od skupa veshtachkih neurona, koji se josh i nazivaju chvorovima, koji su medjusobno povezani sinapsama (vezama). Za svaki neuron $j$ se definishe funkcija aktivacije $l_j(*)$ i integraciona funkcija $f_j(*)$. Veza od chvora $j'$ ka chvoru $j$ je opisana tezhinskim koeficijentom $w_{jj'}$.
 \begin{figure}[!h]
 \hspace*{0.1\linewidth}
@@ -451,7 +451,80 @@ Za integracionu funkciju se najchesh\-c1e uzima linearna suma, te se vrednost na
 \begin{equation}
 v_j = l_j\left(\sum^{i}_{k=0}w_{ji}v_i\right)
 \end{equation}
-Chesti izbori aktivacione funckije su sigmoid $\sigma(z)=1/(1+e^{-z})$ i hiperbolichki tangens $\tanh(z) = (e^z-e^{-z})/(e^z-e^{-z})$. Od skora, u modelima dubokih neuralnih mrezha, aktivaciona funkcija $ReLU(z)=max(0,z)$ koja je pokazala znachajno poboljshanje performansi.
+Chesti izbori aktivacione funckije su sigmoid $\sigma(z)=1/(1+e^{-z})$ i hiperbolichki tangens $\tanh(z) = (e^z-e^{-z})/(e^z-e^{-z})$. Od skora, u modelima dubokih neuralnih mrezha koristi se aktivaciona funkcija $ReLU(z)=max(0,z)$ koja je pokazala zna\-chajno poboljshanje performansi.\\
+$Feedforward$ neurlne mrezhe su vrsta veshtachkih neuralnih mrezha chiji usmereni grafovi ne smeju da sadrzhe petlje. Zbog odsustva petlji, chvorove  mrezhe je moguc1e organizovati u slojeve. Izlaz jednog sloja se dobija na osnovu izlaza nizhih slojeva.
+\begin{figure}[h]
+\begin{center}
+    \begin{tikzpicture}
+    	\tikzstyle{place}=[circle, draw=black, minimum size = 8mm]
+    	
+    	% Input
+    	\foreach \x in {1,...,3}
+    		\draw node at (0, -\x*1.25) [place] (first_\x) {$x_\x$};
+    	\foreach \x in {1,...,3}
+    		\fill (0, -4.5 -\x*0.3) circle (2pt);
+    	\draw node at (0, -5*1.25) [place] (first_n) {$x_n$};
+    	
+    	% Hidden 1
+    	\foreach \x in {1,...,3}
+    		\node at (4, -\x*1.25) [place] (second_\x){$a_\x$};
+    	\foreach \x in {1,...,3}
+    		\fill (4, -4.5 -\x*0.3) circle (2pt);
+    	\draw node at (4, -5*1.25) [place] (second_m) {$a_m$};
+    	
+    	% Output
+	\foreach \x in {1,...,3}
+    		\node at (8, -\x*1.25) [place] (fourth_\x){$y_\x$};
+	\foreach \x in {1,...,3}
+    		\fill (8, -4.5 -\x*0.3) circle (2pt);
+    	\node at (8, -5*1.25) [place] (fourth_m) {$y_k$};
+    		
+    	% Input -> Hidden
+    	\foreach \i in {1,...,3}
+    		\foreach \j in {1,...,3}
+    			\draw [->] (first_\i) to (second_\j);
+    	\foreach \i in {1,...,3}
+    		\draw [->] (first_\i) to (second_m);
+    	\foreach \i in {1,...,3}
+    		\draw [->] (first_n) to (second_\i);
+	\draw [->] (first_n) to (second_m);
+    	
+    	% Hidden -> Output
+    	\foreach \i in {1,...,3}
+		\foreach \j in {1,...,3}
+    			\draw [->] (second_\i) to (fourth_\j);
+	\foreach \i in {1,...,3}
+    		\draw [->] (second_\i) to (fourth_m);
+    	\draw [->] (second_m) to (fourth_m);
+    	
+    	% Text
+    	\node at (0, -8) [black, ] {Ulazni sloj};
+    	\node at (4, -8) [black, ] {Skriveni sloj};
+    	\node at (8, -8) [black, ] {Izlazni sloj};
+    \end{tikzpicture}
+    \caption{Shemtaski prikaz visheslojne $feedforward$ neuralne mrezhe}
+    \label{fig:8}
+\end{center}
+\end{figure}\\
+Vektor obelezhja $\mathbf{x}$ se dovodi na najnizhi (ulazni) sloj. Izlazi chvorova u narednim slojevima se sukcesivno izrachunavaju, dok se ne dobije izlaz najvisheg (izlaznog) sloja mrezhe $\mathbf{\hat{y}}$. $Feedforward$ mrezhe se koriste u supervizovanom uchenju na zadacima klasifikacije i regresije. Uchenje se ostvaruje azhuriranjem tezhinskih koeficijenata $w_{jj'}$ sa ciljem da se optimizuje kriterijumska funkcija $\mathfrak{L}(\mathbf{\hat{y}}, \mathbf{y})$, koja penalizuje distancu izmedju izlaznog vektora $\mathbf{\hat{y}}$ i vektora cilja $\mathbf{y}$.\\
+Najuspeshniji algoritam za traniranje neuralnih mrezha je algoritam bekpropagacije \cite{Backprog}. Algoritam bekpropagacije koristi lanchano pravilo za rachunanje izvoda kriterijumske funkcije $\mathfrak{L}$. Tezhinski koeficijenti se popravljaju koristec1i algoritam gradijentnog spusta. Najchesh\-c1e korish\-c1en algoritam gradijentnog spusta je gradijentni spust koji koristi mini šarže (eng. $batch$) obuchavajuc1eg skupa. Taj algoritam kombinuje prednosti sharzhnog i stohastichkog gradijentnog spusta. Primenom tog algoritma koeficijenti se azhuriraju na osnovu akumulirane greshke svih primeraka iz mini sharzhe. Za sharzhu duzhine $n$ pravilo azhuriranja tezhinskih koeficijenata se mozhe zapisati ovako
+\begin{equation}\label{SGD}
+w := w- \eta\nabla_w\mathfrak{L}\left(\mathbf{\hat{y}^{i:i+n}}, \mathbf{y^{i:i+n}}\right)
+\end{equation}
+gde je sa $\eta$ oznachena brzina obuchavanja (eng. $learning\ rate$).
+U opstem sluchaju, kriterijumska funkcija nije konveksna, i ne postoji garant da c1e gradijentni spust dovesti do globalnog minimuma. Mnoge varijante gradijentnog spusta se uvode kako bi se ubrzalo obuchavanje. Neke od najpopularnijih su: $AdaDelta$ \cite{AdaDelta}, $AdaGrad$ \cite{AdaGrad}, $RMSprop$ \cite{RMSprop} i $Adam$ \cite{Adam}. Uglavnom se zasnivaju na menjanju brzine obuchavanja kao i na momentumu koji predstavlja promenu tezhinskog koeficijenta u prethodnoj iteraciji algoritma.\\
+Da bi se izrachunao gradijent u jednachini \ref{SGD} koristi se, vec1 pomenut, algoritam bekpropagacije. Kao shto joj samo ime kazhe, algoritam zapochinje od izlaznog sloja i krec1e unazad ka nizhim slojevima. Za tezhinske koeficijente za veze izmedju izlaznog i skrivenog sloja mozhe se pisati
+\begin{align}
+\Delta w_{oh} &= -\eta\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial w_{oh}}\\
+&=-\eta\left[\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial \mathbf{\hat{y}}}\right]\left[\frac{\partial \mathbf{\hat{y}}}{\partial s_j}\right]\left[\frac{\partial s_j}{\partial w_{oh}}\right]\\
+&=\eta \delta_{oh}v_h
+\end{align}
+Za tezhinski koeficijent za veze izmedju dva izlazna sloja mozhe se pitati
+\begin{align}
+\Delta w_{oh} &= -\eta\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial w_{oh}}\\
+&=-\eta\left[\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial \mathbf{\hat{y}}}\right]\left[\frac{\partial \mathbf{\hat{y}}}{\partial s_j}\right]\left[\frac{\partial s_j}{\partial w_{oh}}\right]\\
+&=\eta \delta_{oh}v_h
+\end{align}
 \chapter{Obuchavanje modela}
 
 \chapter{Sinteza videa}
@@ -470,5 +543,20 @@ Delic1, V. Analiza mel-frekvencijskih kepstralnih koeficijenata kao obelezhja ko
 \url{https://ffmpeg.org/}
 \bibitem{FFmpegN}
 \url{https://github.com/slhck/ffmpeg-normalize}
+\bibitem{Backprog}
+David E. Rumelhart, Geoffrey E. Hinton, and Ronald J. Williams. Learning
+internal representations by error propagation. Technical report, DTIC Document, 1985.
+\bibitem{AdaDelta}
+Matthew D. Zeiler. Adadelta: an adaptive learning rate method. arXiv preprint arXiv:1212.5701, 2012.
+\bibitem{AdaGrad}
+John Duchi, Elad Hazan, and Yoram Singer. Adaptive subgradient methods for
+online learning and stochastic optimization. The Journal of Machine Learning Research, 12:2121–2159, 2011.
+\bibitem{RMSprop}
+Tijmen Tieleman and Geoffrey E. Hinton. Lecture 6.5- RMSprop: Divide
+the gradient by a running average of its recent magnitude, 2012.
+\bibitem{Adam}
+Diederik P. Kingma, Jimmy Ba, Adam: A Method for Stochastic Optimization, 2014.
+
+
 \end{thebibliography}
 \end{document}
