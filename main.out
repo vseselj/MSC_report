@@ -11,6 +11,8 @@
 \BOOKMARK [0][-]{chapter.2}{Obelezhja videa}{}% 11
 \BOOKMARK [0][-]{chapter.3}{Rekurentne neuralne mrezhe}{}% 12
 \BOOKMARK [1][-]{section.3.1}{Pregled veshtachkih neuralnih mrezha}{chapter.3}% 13
-\BOOKMARK [0][-]{chapter.4}{Obuchavanje modela}{}% 14
-\BOOKMARK [0][-]{chapter.5}{Sinteza videa}{}% 15
-\BOOKMARK [0][-]{chapter*.13}{Literatura}{}% 16
+\BOOKMARK [1][-]{section.3.2}{Rekurentne neuralne mrezhe}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.2.1}{Rane rekurentne neuralne mrezhe}{section.3.2}% 15
+\BOOKMARK [0][-]{chapter.4}{Obuchavanje modela}{}% 16
+\BOOKMARK [0][-]{chapter.5}{Sinteza videa}{}% 17
+\BOOKMARK [0][-]{chapter*.15}{Literatura}{}% 18

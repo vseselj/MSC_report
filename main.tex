@@ -53,7 +53,7 @@
 \usepackage{pgfplotstable}
 
 \usepackage{tikz}	\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
-\usetikzlibrary{arrows, shapes, calc, positioning}
+\usetikzlibrary{arrows, shapes, calc, positioning, chains}
 \usetikzlibrary{circuits.logic.US}
 \tikzstyle{gnd}=[fill, pattern = north east lines, draw = none, minimum width = 1.00cm, minimum height = 0.05cm]
 \usetikzlibrary{shadings, calc, decorations.markings}
@@ -448,7 +448,7 @@ Neuralne mrezhe su modeli izrachunavanja inspirasni bioloshkim neuralnim sistemo
 \label{fig:7}
 \end{figure}\\
 Za integracionu funkciju se najchesh\-c1e uzima linearna suma, te se vrednost na izlazu jednog chvora mozhe izrachunati kao
-\begin{equation}
+\begin{equation}\label{node}
 v_j = l_j\left(\sum^{i}_{k=0}w_{ji}v_i\right)
 \end{equation}
 Chesti izbori aktivacione funckije su sigmoid $\sigma(z)=1/(1+e^{-z})$ i hiperbolichki tangens $\tanh(z) = (e^z-e^{-z})/(e^z-e^{-z})$. Od skora, u modelima dubokih neuralnih mrezha koristi se aktivaciona funkcija $ReLU(z)=max(0,z)$ koja je pokazala zna\-chajno poboljshanje performansi.\\
@@ -507,24 +507,97 @@ $Feedforward$ neurlne mrezhe su vrsta veshtachkih neuralnih mrezha chiji usmeren
 \end{center}
 \end{figure}\\
 Vektor obelezhja $\mathbf{x}$ se dovodi na najnizhi (ulazni) sloj. Izlazi chvorova u narednim slojevima se sukcesivno izrachunavaju, dok se ne dobije izlaz najvisheg (izlaznog) sloja mrezhe $\mathbf{\hat{y}}$. $Feedforward$ mrezhe se koriste u supervizovanom uchenju na zadacima klasifikacije i regresije. Uchenje se ostvaruje azhuriranjem tezhinskih koeficijenata $w_{jj'}$ sa ciljem da se optimizuje kriterijumska funkcija $\mathfrak{L}(\mathbf{\hat{y}}, \mathbf{y})$, koja penalizuje distancu izmedju izlaznog vektora $\mathbf{\hat{y}}$ i vektora cilja $\mathbf{y}$.\\
-Najuspeshniji algoritam za traniranje neuralnih mrezha je algoritam bekpropagacije \cite{Backprog}. Algoritam bekpropagacije koristi lanchano pravilo za rachunanje izvoda kriterijumske funkcije $\mathfrak{L}$. Tezhinski koeficijenti se popravljaju koristec1i algoritam gradijentnog spusta. Najchesh\-c1e korish\-c1en algoritam gradijentnog spusta je gradijentni spust koji koristi mini šarže (eng. $batch$) obuchavajuc1eg skupa. Taj algoritam kombinuje prednosti sharzhnog i stohastichkog gradijentnog spusta. Primenom tog algoritma koeficijenti se azhuriraju na osnovu akumulirane greshke svih primeraka iz mini sharzhe. Za sharzhu duzhine $n$ pravilo azhuriranja tezhinskih koeficijenata se mozhe zapisati ovako
+Najuspeshniji algoritam za traniranje neuralnih mrezha je algoritam propagacije u nazad (eng. $backpropagation$)\cite{Backprog}. Algoritam propagacije u nazad koristi lanchano pravilo za rachunanje izvoda kriterijumske funkcije $\mathfrak{L}$. Tezhinski koeficijenti se popravljaju koristec1i algoritam gradijentnog spusta. Najchesh\-c1e korish\-c1en algoritam gradijentnog spusta je gradijentni spust koji koristi mini šarže (eng. $batch$) obuchavajuc1eg skupa. Taj algoritam kombinuje prednosti sharzhnog i stohastichkog gradijentnog spusta. Primenom tog algoritma koeficijenti se azhuriraju na osnovu akumulirane greshke svih primeraka iz mini sharzhe. Za sharzhu duzhine $n$ pravilo azhuriranja tezhinskih koeficijenata se mozhe zapisati ovako
 \begin{equation}\label{SGD}
 w := w- \eta\nabla_w\mathfrak{L}\left(\mathbf{\hat{y}^{i:i+n}}, \mathbf{y^{i:i+n}}\right)
 \end{equation}
 gde je sa $\eta$ oznachena brzina obuchavanja (eng. $learning\ rate$).
 U opstem sluchaju, kriterijumska funkcija nije konveksna, i ne postoji garant da c1e gradijentni spust dovesti do globalnog minimuma. Mnoge varijante gradijentnog spusta se uvode kako bi se ubrzalo obuchavanje. Neke od najpopularnijih su: $AdaDelta$ \cite{AdaDelta}, $AdaGrad$ \cite{AdaGrad}, $RMSprop$ \cite{RMSprop} i $Adam$ \cite{Adam}. Uglavnom se zasnivaju na menjanju brzine obuchavanja kao i na momentumu koji predstavlja promenu tezhinskog koeficijenta u prethodnoj iteraciji algoritma.\\
-Da bi se izrachunao gradijent u jednachini \ref{SGD} koristi se, vec1 pomenut, algoritam bekpropagacije. Kao shto joj samo ime kazhe, algoritam zapochinje od izlaznog sloja i krec1e unazad ka nizhim slojevima. Za tezhinske koeficijente za veze izmedju izlaznog i skrivenog sloja mozhe se pisati
+Da bi se izrachunao gradijent u jednachini \ref{SGD} koristi se, vec1 pomenut, algoritam propagacije u nazad. Kao shto joj samo ime kazhe, algoritam zapochinje od izlaznog sloja i krec1e unazad ka nizhim slojevima. 
+Za chvor $j$, koji se nalazi u izlaznom sloju, aktivacione funkcije $l_j(*)$ i linearnom integracionom funcijom $s_j(*)$, vazhi jednachina \ref{node}
 \begin{align}
-\Delta w_{oh} &= -\eta\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial w_{oh}}\\
-&=-\eta\left[\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial \mathbf{\hat{y}}}\right]\left[\frac{\partial \mathbf{\hat{y}}}{\partial s_j}\right]\left[\frac{\partial s_j}{\partial w_{oh}}\right]\\
-&=\eta \delta_{oh}v_h
+y_j=v_j &= l_j\left(s(w_{ji},v_i)\right)\\
+&=l_j\left(\sum^{i}_{k=0}w_{ji}v_i\right)
 \end{align}
-Za tezhinski koeficijent za veze izmedju dva izlazna sloja mozhe se pitati
+Za tezhinski koeficijent veze izmedju chvora $j$ iz izlaznog sloja i cvora $i$ iz skrivenog sloja, promena se mozhe dobiti na sledec1i nachin
 \begin{align}
-\Delta w_{oh} &= -\eta\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial w_{oh}}\\
-&=-\eta\left[\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial \mathbf{\hat{y}}}\right]\left[\frac{\partial \mathbf{\hat{y}}}{\partial s_j}\right]\left[\frac{\partial s_j}{\partial w_{oh}}\right]\\
-&=\eta \delta_{oh}v_h
+\Delta w_{ji} &= -\eta\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial w_{ji}}\\
+&=-\eta\left[\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial y_j}\right]\left[\frac{\partial y_j}{\partial s(w_{ji},v_i)}\right]\left[\frac{\partial s(w_{ji},v_i)}{\partial w_{ji}}\right]\\
+&=\eta \delta_{ji}v_h\\
+\delta_{ji} &=-\left[\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial y_j}\right]\left[\frac{\partial y_j}{\partial s(w_{ji},v_i)}\right] \label{delta}\\
+&= -\left[\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial y_j}\right]l'_j(s_j)
 \end{align}
+Velichina $\delta_{ji}$ se naziva i signalom greshke. Prvi chinilac u izrazu \ref{delta} zavisi od izbora kriterijumske funkcije, a drugi predstavlja izvod aktivacione funkcije $l'_j(*)$. Za tezhinski koeficijent veze izmedju chvora koji pripada skrivenom sloju $i$ i chvora koji se nalazi u sloju iza $l$ vazhi
+\begin{align}
+\Delta w_{il} &= -\eta\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial w_{il}}\\
+&=-\eta\left[\frac{\partial \mathfrak{L}\left(\mathbf{\hat{y}}, \mathbf{y}\right)}{\partial v_i}\right]\left[\frac{\partial v_i}{\partial s_l}\right]\left[\frac{\partial s_l}{\partial w_{il}}\right]\\
+&=\eta \delta_{il}v_l\\
+\delta_{il} &= l'_l(s_l)\sum_{k}\delta_{kl}w_{kl}\label{delta1}
+\end{align}
+Jednachina \ref{delta1} se sukcesivno primenjuje za sve nizhe slojeve, chime se uz sachuvane vrednosti izlaza chvorova dobijaju gradijenti pojedinachnih tezhinskih koeficijenata.
+\section{Rekurentne neuralne mrezhe}
+Rekurentne neuralne mrezhe su mrezhe chiji usmereni grafovi dozovljavaju petlje, chime se uvodi pojam vremena u model. U trenutku $t$, chvorovi sa rekurentnim vezama zavise od trenutnog ulaznog vektora $\mathbf{x}^{(t)}$ i vrednosti stanja chvora u prethodnom trenutku $\mathbf{h}^{(t-1)}$. Izlaz chvora $\mathbf{\hat{y}^{(t)}}$, zavisi od vrednosti stanja chvora $\mathbf{h}^{(t)}$ i posredstvom rekurentnih veza ulaz ulaz u trenutku $t-1$ 
+$\mathbf{x}^{(t-1)}$ mozhe uticati na izlaz u trenutku $t$.
+\newpage
+\begin{figure}[!h]
+\hspace*{0.1\linewidth}
+\begin{tikzpicture}[item/.style={circle,draw,thick,align=center},
+itemc/.style={item,on chain,join}]
+ \begin{scope}[start chain=going right,nodes=itemc,every
+ join/.style={-latex,very thick},local bounding box=chain]
+ \path node (A0) {$\mathbf{h}^0$} node (A1) {$\mathbf{h}^{1}$} node (A2) {$\mathbf{h}^{2}$} node[xshift=2em] (At)
+ {$\mathbf{h}^{3}$};
+ \end{scope}
+ \node[left=1em of chain,scale=2] (eq) {$=$};
+ \node[left=2em of eq,item] (AL) {$\mathbf{h}$};
+ \path (AL.west) ++ (-1em,2em) coordinate (aux);
+ \draw[very thick,-latex,rounded corners] (AL.east) -| ++ (1em,2em) -- (aux) 
+ |- (AL.west);
+ \foreach \X in {0,1,2,t} 
+ {\draw[very thick,-latex] (A\X.north) -- ++ (0,2em)
+ node[above,item,fill=gray!10] (h\X) {$\mathbf{y}^\X$};
+ \draw[very thick,latex-] (A\X.south) -- ++ (0,-2em)
+ node[below,item,fill=gray!10] (x\X) {$\mathbf{x}^\X$};}
+ \draw[white,line width=0.8ex] (AL.north) -- ++ (0,1.9em);
+ \draw[very thick,-latex] (AL.north) -- ++ (0,2em)
+ node[above,item,fill=gray!10] {$\mathbf{y}^t$};
+ \draw[very thick,latex-] (AL.south) -- ++ (0,-2em)
+ node[below,item,fill=gray!10] {$\mathbf{x}^t$};
+ \path (x2) -- (xt) node[midway,scale=2,font=\bfseries] {\dots};
+\end{tikzpicture}
+\caption{Shemat\-ski prikaz odmotane rekurentne neuralne mrezhe u vremenu}
+\label{fig:9}
+\end{figure}
+Mrezha sa slike \ref{fig:9} se mozhe opisati jednachinama
+\begin{align}
+\mathbf{h}^t &= l_h(\mathbf{W_{hx}}\mathbf{x}^t+\mathbf{W_{hh}}\mathbf{h}^{t-1}+\mathbf{b_h})\\
+\mathbf{y}^t &= l_y(\mathbf{W_{yh}}\mathbf{h}^t+\mathbf{b_y})
+\end{align}
+gde su sa $\mathbf{W_{hx}}$, $\mathbf{W_{yh}}$ i $\mathbf{W_{hh}}$ matrice koje sadrzhe tezhinske koeficijente, a $l_h$ i $l_y$ neke aktivacione funkcije. Vektori $b_h$ i $b_y$ omoguc1avaju uchenje ofseta.
+
+\subsection{Rane rekurentne neuralne mrezhe}
+Istrazhivanja na temu rekurentnih neuralnih mrezha su zapochela osadesetih godina prošloga veka. Prvo je Hopfild predstavio familiju rekurentnih neuralnih mrezha koja je imala moguc1nosti prepoznavanja shablona \cite{Hopfild}. Struktura mrezhe je ista kao na slici \ref{fig:9}, s tim da se ulazni shablon $\mathbf{x}$ primeni samo u pochetnom trenutku, nakon koga se mrezha prepusti izrachunavanjima  sve dok se na izlazu ne dobije stacionarna vrednost. Hopfildove mrezhe imaju moguc1nost da reprodukuje memorisane shablone iz zashumljenih shablona koje dobiju na ulazi i predstavljaju pretechu Bolcmanovih mashina i auto-enkodera.\\
+Rani model za supervizovano uchenje sekvenci je predstavio D2ordan u \cite{jordan}. Model je $feedforward$ mrezha koja se sastoji od jednog skrivenog sloja koji sadrzhi specijalne chvorove. Izlaz mrezhe je rekurentnim vezama spojen sa specijalnim chvorovima, koji u narednom trenutku dostavljaju vrednosti ostalim chvorovima skrivenog sloja. U sluchaju da izlaz mrezhe predstavlja neke akcije, ovakav model omoguc1ava m
+pamec1enje akcije iz prethodnog vremensog trenutka. Nekoliko modernih modela koristi ovu ideju. Jedan takav primerak je rad \cite{Sutskever} gde se na primeru prevodioca jezika, pri generisanju teksta prevedenih rechenica, rechi sa kraja se vrac1aju i koriste kao ulaz za naredni korak. Specijalni chvorovi mogu da sadrzhe i dodatnu rekurentnu vezu tako da za ulaz imaju i svoje prethodno stanje.
+\begin{figure}[!h]
+\hspace*{0.3\linewidth}
+\begin{tikzpicture}[item/.style={circle,draw,thick,align=center}]
+ \node[left=0,item, inner sep=2pt, minimum size=2cm] (AL) {$\mathbf{h}$};
+ 
+ \draw[white,line width=0.8ex] (AL.north) -- ++ (0,1.9em);
+ \draw[very thick,-latex] (AL.north) -- ++ (0,2em)
+ node[above,item,fill=gray!10,inner sep=2pt, minimum size=2cm](y) {$\mathbf{y}^t$};
+ \draw[very thick,latex-] (AL.south) -- ++ (0,-2em)
+ node[below,item,fill=gray!10,inner sep=2pt, minimum size=2cm] {$\mathbf{x}^t$};
+ 
+ \node[right=2, item, fill=gray!10,inner sep=2pt, minimum size=2cm](s) {$\mathbf{s}$};
+ \draw[very thick,-latex] (s.west) to [out=-150,in=-30] (AL.east);
+ \draw[very thick,-latex](y.east) to (s.north);
+ \draw[very thick,-latex](s.east) to [out=0,in=-90,distance=3cm](s.south);
+\end{tikzpicture}
+\caption{Shemat\-ski prikaz D2ordanovog modela}
+\label{fig:10}
+\end{figure}
 \chapter{Obuchavanje modela}
 
 \chapter{Sinteza videa}
@@ -556,6 +629,17 @@ Tijmen Tieleman and Geoffrey E. Hinton. Lecture 6.5- RMSprop: Divide
 the gradient by a running average of its recent magnitude, 2012.
 \bibitem{Adam}
 Diederik P. Kingma, Jimmy Ba, Adam: A Method for Stochastic Optimization, 2014.
+\bibitem{Hopfild}
+John J. Hopfield. Neural networks and physical systems with emergent collective
+computational abilities. Proceedings of the National Academy of Sciences, 79(8):2554–2558, 1982.
+\bibitem{jordan}
+Michael I. Jordan. Serial order: A parallel distributed processing approach.
+Technical Report 8604, Institute for Cognitive Science, University of California, San Diego, 1986.
+\bibitem{Sutskever}
+Ilya Sutskever, Oriol Vinyals, and Quoc V. Le. Sequence to sequence learning
+with neural networks. In Advances in Neural Information Processing Systems,
+pages 3104–3112, 2014.
+
 
 
 \end{thebibliography}
