@@ -591,12 +591,12 @@ Elmanov model iz \cite{Elman} predstavlja arhitekturu koja lichi na mrezhu sa sl
  
  \node[right=1cm, item,inner sep=2pt, minimum size=1cm](s) {$\mathbf{s}$};
  \draw[very thick,-latex, dotted] (s.west) to [out=-150,in=-30] (AL.east);
- \draw[very thick,-latex, color=blue!60](y.east) to (s.north);
+ \draw[very thick,-latex, red](y.east) to (s.north);
  \draw[very thick,-latex,dotted](s.east) to [out=0,in=-90,distance=2cm](s.south);
  \node[text width=4cm] at (5,2)(t1) {rekurentna veza};
  \draw [very thick,-latex,dotted] (2,2.05) to (3,2.05);
  \node[text width=4cm] at (5,1.5)(t2) {$\mathbf{W}=1$};
- \draw [very thick,-latex, color=blue!60] (2,1.54) to (3,1.54);
+ \draw [very thick,-latex, red] (2,1.54) to (3,1.54);
 \end{tikzpicture}
 \vspace{0pt}
 \caption{Shemat\-ski prikaz D2ordanovog modela}
@@ -615,11 +615,11 @@ Elmanov model iz \cite{Elman} predstavlja arhitekturu koja lichi na mrezhu sa sl
  
  \node[right=1cm, item,inner sep=2pt, minimum size=1cm](s) {$\mathbf{s}$};
  \draw[very thick,-latex, dotted] (s.west) to [out=-120,in=-60] (AL.east);
- \draw[very thick,-latex, color=blue!60](AL.east) to [out=60,in=120](s.west);
+ \draw[very thick,-latex, red](AL.east) to [out=60,in=120](s.west);
  \node[text width=4cm] at (5,2)(t1) {rekurentna veza};
  \draw [very thick,-latex,dotted] (2,2.05) to (3,2.05);
  \node[text width=4cm] at (5,1.5)(t2) {$\mathbf{W}=1$};
- \draw [very thick,-latex, color=blue!60] (2,1.54) to (3,1.54);
+ \draw [very thick,-latex, red] (2,1.54) to (3,1.54);
 \end{tikzpicture}
 \vspace{0pt}
 \caption{Shemat\-ski prikaz Elmanovog modela}
@@ -1175,6 +1175,7 @@ itemc/.style={item,on chain,join}]
 \caption{Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mrezhe u vremenu}
 \label{fig:12}
 \end{figure}
+Bidirekcione mrezhe mogu da se kombinuju sa $LSTM$ modelom tako shto se umesto obichnih $RNN$ chvorova koriste $LSTM$ c1elije.
 \chapter{Rezultati obuchavanja modela}
 
 \chapter{Sinteza videa}
