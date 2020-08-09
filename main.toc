@@ -14,6 +14,7 @@
 \contentsline {section}{\numberline {3.1}Pregled veshtachkih neuralnih mrezha}{14}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Rekurentne neuralne mrezhe}{16}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Rane rekurentne neuralne mrezhe}{17}{subsection.3.2.1}%
-\contentsline {chapter}{\numberline {4}Obuchavanje modela}{19}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Sinteza videa}{20}{chapter.5}%
-\contentsline {chapter}{Literatura}{21}{chapter*.15}%
+\contentsline {subsection}{\numberline {3.2.2}Obuchavanje rekurentnih neuralnih mrezha}{18}{subsection.3.2.2}%
+\contentsline {chapter}{\numberline {4}Obuchavanje modela}{20}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Sinteza videa}{21}{chapter.5}%
+\contentsline {chapter}{Literatura}{22}{chapter*.16}%

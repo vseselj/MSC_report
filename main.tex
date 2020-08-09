@@ -543,10 +543,8 @@ $\mathbf{x}^{(t-1)}$ mozhe uticati na izlaz u trenutku $t$.
 \hspace*{0.1\linewidth}
 \begin{tikzpicture}[item/.style={circle,draw,thick,align=center},
 itemc/.style={item,on chain,join}]
- \begin{scope}[start chain=going right,nodes=itemc,every
- join/.style={-latex,very thick},local bounding box=chain]
- \path node (A0) {$\mathbf{h}^0$} node (A1) {$\mathbf{h}^{1}$} node (A2) {$\mathbf{h}^{2}$} node[xshift=2em] (At)
- {$\mathbf{h}^{3}$};
+ \begin{scope}[start chain=going right,nodes=itemc,every join/.style={-latex,very thick},local bounding box=chain]
+ \path node (A0) {$\mathbf{h}^0$} node (A1) {$\mathbf{h}^{1}$} node (A2) {$\mathbf{h}^{2}$} node[xshift=2em] (At){$\mathbf{h}^{3}$};
  \end{scope}
  \node[left=1em of chain,scale=2] (eq) {$=$};
  \node[left=2em of eq,item] (AL) {$\mathbf{h}$};
@@ -570,34 +568,104 @@ itemc/.style={item,on chain,join}]
 \end{figure}
 Mrezha sa slike \ref{fig:9} se mozhe opisati jednachinama
 \begin{align}
-\mathbf{h}^t &= l_h(\mathbf{W_{hx}}\mathbf{x}^t+\mathbf{W_{hh}}\mathbf{h}^{t-1}+\mathbf{b_h})\\
-\mathbf{y}^t &= l_y(\mathbf{W_{yh}}\mathbf{h}^t+\mathbf{b_y})
+\mathbf{h}^t &= l_h(\mathbf{W_{hx}}\mathbf{x}^t+\mathbf{W_{hh}}\mathbf{h}^{t-1}+\mathbf{b_h})\label{RNN1}\\ 
+\mathbf{y}^t &= l_y(\mathbf{W_{yh}}\mathbf{h}^t+\mathbf{b_y})\label{RNN2}
 \end{align}
 gde su sa $\mathbf{W_{hx}}$, $\mathbf{W_{yh}}$ i $\mathbf{W_{hh}}$ matrice koje sadrzhe tezhinske koeficijente, a $l_h$ i $l_y$ neke aktivacione funkcije. Vektori $b_h$ i $b_y$ omoguc1avaju uchenje ofseta.
 
 \subsection{Rane rekurentne neuralne mrezhe}
 Istrazhivanja na temu rekurentnih neuralnih mrezha su zapochela osadesetih godina prošloga veka. Prvo je Hopfild predstavio familiju rekurentnih neuralnih mrezha koja je imala moguc1nosti prepoznavanja shablona \cite{Hopfild}. Struktura mrezhe je ista kao na slici \ref{fig:9}, s tim da se ulazni shablon $\mathbf{x}$ primeni samo u pochetnom trenutku, nakon koga se mrezha prepusti izrachunavanjima  sve dok se na izlazu ne dobije stacionarna vrednost. Hopfildove mrezhe imaju moguc1nost da reprodukuje memorisane shablone iz zashumljenih shablona koje dobiju na ulazi i predstavljaju pretechu Bolcmanovih mashina i auto-enkodera.\\
-Rani model za supervizovano uchenje sekvenci je predstavio D2ordan u \cite{jordan}. Model je $feedforward$ mrezha koja se sastoji od jednog skrivenog sloja koji sadrzhi specijalne chvorove. Izlaz mrezhe je rekurentnim vezama spojen sa specijalnim chvorovima, koji u narednom trenutku dostavljaju vrednosti ostalim chvorovima skrivenog sloja. U sluchaju da izlaz mrezhe predstavlja neke akcije, ovakav model omoguc1ava m
-pamec1enje akcije iz prethodnog vremensog trenutka. Nekoliko modernih modela koristi ovu ideju. Jedan takav primerak je rad \cite{Sutskever} gde se na primeru prevodioca jezika, pri generisanju teksta prevedenih rechenica, rechi sa kraja se vrac1aju i koriste kao ulaz za naredni korak. Specijalni chvorovi mogu da sadrzhe i dodatnu rekurentnu vezu tako da za ulaz imaju i svoje prethodno stanje.
+Rani model za supervizovano uchenje sekvenci je predstavio D2ordan u \cite{jordan}. Model je $feedforward$ mrezha koja se sastoji od jednog skrivenog sloja koji sadrzhi specijalne chvorove. Izlaz mrezhe je vezama spojen sa specijalnim chvorovima, koji rekurentnim vezama, u narednom vremenskom trenutku, dostavljaju vrednosti ostalim chvorovima skrivenog sloja. U sluchaju da izlaz mrezhe predstavlja neke akcije, ovakav model omoguc1ava pamec1enje akcije iz prethodnog vremensog trenutka. Nekoliko modernih modela koristi ovu ideju. Jedan takav primerak je rad \cite{Sutskever} gde se na primeru prevodioca jezika, pri generisanju teksta prevedenih rechenica, rechi sa kraja se vrac1aju i koriste kao ulaz za naredni korak. Specijalni chvorovi mogu da sadrzhe i dodatnu rekurentnu vezu tako da za ulaz imaju i svoje prethodno stanje (slika \ref{fig:10}).\\
+Elmanov model iz \cite{Elman} predstavlja arhitekturu koja lichi na mrezhu sa slike \ref{fig:9}. Za razliku od D2ordanovog modela, koji chuva trenutnu vrednost izlaza u specijalnim chvorovima, Elmanov model chuva trenutnu vrednost chvorova skrivenog sloja, koju u narednom vremenskom trenutku vrac1a tim skrivenim chvorovima (slika \ref{fig:11}). Elman je u svom radu trenirao mrezhu algoritmom propagacije u nazad i dokazao da mrezha mozhhe nauchiti zavisnosti od vremena.
+\newpage
 \begin{figure}[!h]
-\hspace*{0.3\linewidth}
+\hspace*{0.4\linewidth}
 \begin{tikzpicture}[item/.style={circle,draw,thick,align=center}]
- \node[left=0,item, inner sep=2pt, minimum size=2cm] (AL) {$\mathbf{h}$};
+ \node[left=0,item, inner sep=2pt, minimum size=1cm] (AL) {$\mathbf{h}$};
  
  \draw[white,line width=0.8ex] (AL.north) -- ++ (0,1.9em);
  \draw[very thick,-latex] (AL.north) -- ++ (0,2em)
- node[above,item,fill=gray!10,inner sep=2pt, minimum size=2cm](y) {$\mathbf{y}^t$};
+ node[above,item,fill=gray!10,inner sep=2pt, minimum size=1cm](y) {$\mathbf{y}^t$};
  \draw[very thick,latex-] (AL.south) -- ++ (0,-2em)
- node[below,item,fill=gray!10,inner sep=2pt, minimum size=2cm] {$\mathbf{x}^t$};
+ node[below,item,fill=gray!10,inner sep=2pt, minimum size=1cm] {$\mathbf{x}^t$};
  
- \node[right=2, item, fill=gray!10,inner sep=2pt, minimum size=2cm](s) {$\mathbf{s}$};
- \draw[very thick,-latex] (s.west) to [out=-150,in=-30] (AL.east);
- \draw[very thick,-latex](y.east) to (s.north);
- \draw[very thick,-latex](s.east) to [out=0,in=-90,distance=3cm](s.south);
+ \node[right=1cm, item,inner sep=2pt, minimum size=1cm](s) {$\mathbf{s}$};
+ \draw[very thick,-latex, dotted] (s.west) to [out=-150,in=-30] (AL.east);
+ \draw[very thick,-latex, color=blue!60](y.east) to (s.north);
+ \draw[very thick,-latex,dotted](s.east) to [out=0,in=-90,distance=2cm](s.south);
+ \node[text width=4cm] at (5,2)(t1) {rekurentna veza};
+ \draw [very thick,-latex,dotted] (2,2.05) to (3,2.05);
+ \node[text width=4cm] at (5,1.5)(t2) {$\mathbf{W}=1$};
+ \draw [very thick,-latex, color=blue!60] (2,1.54) to (3,1.54);
 \end{tikzpicture}
+\vspace{0pt}
 \caption{Shemat\-ski prikaz D2ordanovog modela}
 \label{fig:10}
 \end{figure}
+\begin{figure}[!h]
+\hspace*{0.4\linewidth}
+\begin{tikzpicture}[item/.style={circle,draw,thick,align=center}]
+ \node[left=0,item, inner sep=2pt, minimum size=1cm] (AL) {$\mathbf{h}$};
+ 
+ \draw[white,line width=0.8ex] (AL.north) -- ++ (0,1.9em);
+ \draw[very thick,-latex] (AL.north) -- ++ (0,2em)
+ node[above,item,fill=gray!10,inner sep=2pt, minimum size=1cm](y) {$\mathbf{y}^t$};
+ \draw[very thick,latex-] (AL.south) -- ++ (0,-2em)
+ node[below,item,fill=gray!10,inner sep=2pt, minimum size=1cm] {$\mathbf{x}^t$};
+ 
+ \node[right=1cm, item,inner sep=2pt, minimum size=1cm](s) {$\mathbf{s}$};
+ \draw[very thick,-latex, dotted] (s.west) to [out=-120,in=-60] (AL.east);
+ \draw[very thick,-latex, color=blue!60](AL.east) to [out=60,in=120](s.west);
+ \node[text width=4cm] at (5,2)(t1) {rekurentna veza};
+ \draw [very thick,-latex,dotted] (2,2.05) to (3,2.05);
+ \node[text width=4cm] at (5,1.5)(t2) {$\mathbf{W}=1$};
+ \draw [very thick,-latex, color=blue!60] (2,1.54) to (3,1.54);
+\end{tikzpicture}
+\vspace{0pt}
+\caption{Shemat\-ski prikaz Elmanovog modela}
+\label{fig:11}
+\end{figure}
+\subsection{Obuchavanje rekurentnih neuralnih mrezha}
+Dok su u nachelu rekurentne neuralne jednostavan i moc1an model, u praksi njihovo obuchavanje je kompleksan proces. Medju glavnim razlozima su problemu nestajuc1eg i eksplodirajuc1eg gradijenta, koji su predstavljeni u radu \cite{Bengio}. Kriterijumska funckija za rekurentnu neuralnu mrezhu predstavlja sumu gubitaka u pojedinachnim vremenskim trenucima. Ako je duzhina sekvence $T$, ona se rachuna 
+\begin{equation}
+\mathfrak{L}(\mathbf{\hat{y}},\mathbf{y}) = \sum^{T}_{t=1}\mathfrak{L}(\mathbf{\hat{y}},\mathbf{y})
+\end{equation}
+Radi optimizacije kriterijumske funckije i dalje se mozhe koristiti gradijenti spust, ali za rachunanje gradijenta potrebno je izmeniti algoritam propagacije u nazad. Modifikovan algoritam se naziva algoritam propagacije u nazad kroz vreme \cite{BPTT} (eng. $Backpropagation\ Through\ Time - BPTT$). Posmatrajmo jednostavnu rekurentnu mrezhu sa slike \ref{fig:9}, sa jednim skrivenim rekurentnim slojem. Za nju vazhe jednachine \ref{RNN1} i \ref{RNN2}.
+\begin{align}
+\mathbf{h}^t &= l_h(u_t)\\
+\mathbf{y}^t &= l_y(\mathbf{o}^t)\\
+\mathbf{o}^t &= \mathbf{W_{yh}}\mathbf{h}^t+\mathbf{b_y}\\
+\mathbf{u}^t &= \mathbf{W_{hx}}\mathbf{x}^t+\mathbf{W_{hh}}\mathbf{h}^{t-1}+\mathbf{b_h} 
+\end{align}
+Jedna iteracija algoritma $BPTT$ se mozhe prikazati kroz sledec1e postupke:
+\renewcommand{\labelenumii}{\arabic{enumii}.}
+\begin{enumerate}
+\item Inicijalizuju se vrednosti promena tezhinskih matrica i vektora odstupanja: $\Delta\mathbf{W}_{hx},\ \Delta\mathbf{W}_{hh},\ \Delta\mathbf{W}_{yh}, \Delta\mathbf{b}_h$  i $\Delta\mathbf{b}_y$ na nula vektore/matrice.
+\item Za svaki trenutak $t$ od $T$ do 1:
+\begin{enumerate}
+\item  $\Delta\mathbf{o}^t \Leftarrow l'_y(\mathbf{o}^t)\frac{\partial\mathfrak{L}(\mathbf{\hat{y}},\mathbf{y})}{\partial\mathbf{\hat{y}}^t}$
+\item $\Delta\mathbf{b}_y \Leftarrow \Delta\mathbf{b}_y+\Delta\mathbf{o}^t$
+\item $\Delta\mathbf{W}_{yh} \Leftarrow \Delta\mathbf{W}_{yh}+\Delta\mathbf{o}^t(\mathbf{h}^t)^T$
+\item $\Delta\mathbf{h}^t \Leftarrow \Delta\mathbf{h}^t+\mathbf{W}_{yh}^T\Delta\mathbf{o}^t$
+\item $\Delta\mathbf{u}^t \Leftarrow l'_h(\mathbf{u}^t)\Delta\mathbf{h}^t$
+\item $\Delta\mathbf{W}_{hx} \Leftarrow \Delta\mathbf{W}_{hx}+\Delta\mathbf{u}^t(\mathbf{v}^t)^T$
+\item $\Delta\mathbf{b}_h \Leftarrow \Delta\mathbf{b}_h + \Delta\mathbf{u}^t$
+\item $\Delta\mathbf{W}_{hh} \Leftarrow \Delta\mathbf{W}_{hh}+\Delta\mathbf{u}^t(\mathbf{h}^{t-1})^T$
+\item $\Delta\mathbf{h}^{t+1} \Leftarrow \mathbf{W}_{hh}^T\Delta\mathbf{u}^t  $
+\end{enumerate}
+\item Dobijene vrednosti gradijenta iskoristiti za algoritam gradijentnog spusta.
+\end{enumerate}
+Posmatrajmo izvod
+\begin{equation}\label{VG1}
+\frac{\partial\mathfrak{L}(\mathbf{\hat{y}},\mathbf{y})}{\partial \mathbf{W}_{hh}} = \sum^{T}_{t=1}\Delta\mathbf{u}^t(\mathbf{h}^{t-1})^T
+\end{equation}
+Vrednost $\Delta\mathbf{u}^t $ se mozhe analitichki zapisati
+\begin{equation}\label{VG2}
+\Delta\mathbf{u}^t = \mathbf{W}_{yh}^T l'_y(\mathbf{o}^t)\frac{\partial\mathfrak{L}(\mathbf{\hat{y}},\mathbf{y})}{\partial\mathbf{\hat{y}}^t}\prod^T_{\tau=t+1}\mathbf{W}_{hh}^Tl'_h(\mathbf{u}^{\tau})
+\end{equation}
+Ako su sve sopstvene vrednosti matrice $\mathbf{W}_{yh}$ manje od 1 , onda c1e proizvod u jednachini \ref{VG2} sa povec1anjem broja chinilaca tezhiti nuli, i doprinos sumi u jednachini \ref{VG1} c1e tezhiti nuli. Drugim rechima greshka nec1e ispropagirati do nizhih vremenskih trenutaka, te se ovaj problem naziva problem nestajuc1eg gradijenta. Problem eksplodirajuc1eg gradijenta nastaje u sluchaju kada su sopstvene vrednosti matrice vec1 od 1, ali on mozhe da se regulishe izborom pogodnih aktivacionih funkcija i ogranichavanjem gradijenta pomoc1u regularizacije (eng. $gradient\ clipping$).\\
+Jedno reshenje problema nestajuc1eg gradijenta je skrec1ena propagacija u nazad kroz vreme (enl. $Truncated\ Backpropagation\ Through\ Time-TBPTT$ u kome se postavi broj koraka u kojima c1e greshka propagirati u nazad \cite{TBPTT}. Time se utiche na problem nestajuc1eg gradijenta, ali se onemogucuje uchenje duzhih vremenskih zavisnosti. Uchenje duzhih vremenskih zavisnosti omoguc1uju modernije arhitekture rekurentnih neuralnih mrezha.
+\subsection{Moderne rekurentne neuralne mrezhe} 
 \chapter{Obuchavanje modela}
 
 \chapter{Sinteza videa}
@@ -639,8 +707,16 @@ Technical Report 8604, Institute for Cognitive Science, University of California
 Ilya Sutskever, Oriol Vinyals, and Quoc V. Le. Sequence to sequence learning
 with neural networks. In Advances in Neural Information Processing Systems,
 pages 3104–3112, 2014.
-
-
+\bibitem{Elman}
+Jeffrey L. Elman. Finding structure in time. Cognitive science, 14(2):179–211,1990.
+\bibitem{Bengio}
+Bengio, Y., Simard, P., and Frasconi, P. (1994). Learning long-term dependencies with gradient descent is
+difficult. IEEE Transactions on Neural Networks,5(2), 157–166
+\bibitem{BPTT}
+Werbos, P. (1990). Backpropagation through time: what it does and how to do it. Proceedings of the
+IEEE, 78(10):1550–1560.
+\bibitem{TBPTT}
+Ronald J. Williams and David Zipser. A learning algorithm for continually running fully recurrent neural networks. Neural Computation, 1(2):270–280,1989.
 
 \end{thebibliography}
 \end{document}
