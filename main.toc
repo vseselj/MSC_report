@@ -12,9 +12,11 @@
 \contentsline {chapter}{\numberline {2}Obelezhja videa}{13}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Rekurentne neuralne mrezhe}{14}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Pregled veshtachkih neuralnih mrezha}{14}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Rekurentne neuralne mrezhe}{16}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Rane rekurentne neuralne mrezhe}{17}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Obuchavanje rekurentnih neuralnih mrezha}{18}{subsection.3.2.2}%
-\contentsline {chapter}{\numberline {4}Obuchavanje modela}{20}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Sinteza videa}{21}{chapter.5}%
-\contentsline {chapter}{Literatura}{22}{chapter*.16}%
+\contentsline {section}{\numberline {3.2}Rani modeli rekurentnih neuralnih mrezha}{16}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Obuchavanje rekurentnih neuralnih mrezha}{18}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Moderne arhitekture rekurentnih neuralnih mrezha}{19}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}$LSTM$ model}{20}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}$BRNN$ model}{22}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}Rezultati obuchavanja modela}{24}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Sinteza videa}{25}{chapter.5}%
+\contentsline {chapter}{Literatura}{26}{chapter*.21}%

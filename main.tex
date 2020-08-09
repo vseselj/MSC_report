@@ -52,8 +52,9 @@
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 
-\usepackage{tikz}	\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
-\usetikzlibrary{arrows, shapes, calc, positioning, chains}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
+\usetikzlibrary{arrows, shapes, calc, positioning, chains, backgrounds}
 \usetikzlibrary{circuits.logic.US}
 \tikzstyle{gnd}=[fill, pattern = north east lines, draw = none, minimum width = 1.00cm, minimum height = 0.05cm]
 \usetikzlibrary{shadings, calc, decorations.markings}
@@ -535,7 +536,8 @@ Velichina $\delta_{ji}$ se naziva i signalom greshke. Prvi chinilac u izrazu \re
 \delta_{il} &= l'_l(s_l)\sum_{k}\delta_{kl}w_{kl}\label{delta1}
 \end{align}
 Jednachina \ref{delta1} se sukcesivno primenjuje za sve nizhe slojeve, chime se uz sachuvane vrednosti izlaza chvorova dobijaju gradijenti pojedinachnih tezhinskih koeficijenata.
-\section{Rekurentne neuralne mrezhe}
+
+\section{Rani modeli rekurentnih neuralnih mrezha}
 Rekurentne neuralne mrezhe su mrezhe chiji usmereni grafovi dozovljavaju petlje, chime se uvodi pojam vremena u model. U trenutku $t$, chvorovi sa rekurentnim vezama zavise od trenutnog ulaznog vektora $\mathbf{x}^{(t)}$ i vrednosti stanja chvora u prethodnom trenutku $\mathbf{h}^{(t-1)}$. Izlaz chvora $\mathbf{\hat{y}^{(t)}}$, zavisi od vrednosti stanja chvora $\mathbf{h}^{(t)}$ i posredstvom rekurentnih veza ulaz ulaz u trenutku $t-1$ 
 $\mathbf{x}^{(t-1)}$ mozhe uticati na izlaz u trenutku $t$.
 \newpage
@@ -544,7 +546,7 @@ $\mathbf{x}^{(t-1)}$ mozhe uticati na izlaz u trenutku $t$.
 \begin{tikzpicture}[item/.style={circle,draw,thick,align=center},
 itemc/.style={item,on chain,join}]
  \begin{scope}[start chain=going right,nodes=itemc,every join/.style={-latex,very thick},local bounding box=chain]
- \path node (A0) {$\mathbf{h}^0$} node (A1) {$\mathbf{h}^{1}$} node (A2) {$\mathbf{h}^{2}$} node[xshift=2em] (At){$\mathbf{h}^{3}$};
+ \path node (A0) {$\mathbf{h}^0$} node (A1) {$\mathbf{h}^{1}$} node (A2) {$\mathbf{h}^{2}$} node[xshift=2em] (At){$\mathbf{h}^{t}$};
  \end{scope}
  \node[left=1em of chain,scale=2] (eq) {$=$};
  \node[left=2em of eq,item] (AL) {$\mathbf{h}$};
@@ -571,9 +573,7 @@ Mrezha sa slike \ref{fig:9} se mozhe opisati jednachinama
 \mathbf{h}^t &= l_h(\mathbf{W_{hx}}\mathbf{x}^t+\mathbf{W_{hh}}\mathbf{h}^{t-1}+\mathbf{b_h})\label{RNN1}\\ 
 \mathbf{y}^t &= l_y(\mathbf{W_{yh}}\mathbf{h}^t+\mathbf{b_y})\label{RNN2}
 \end{align}
-gde su sa $\mathbf{W_{hx}}$, $\mathbf{W_{yh}}$ i $\mathbf{W_{hh}}$ matrice koje sadrzhe tezhinske koeficijente, a $l_h$ i $l_y$ neke aktivacione funkcije. Vektori $b_h$ i $b_y$ omoguc1avaju uchenje ofseta.
-
-\subsection{Rane rekurentne neuralne mrezhe}
+gde su sa $\mathbf{W_{hx}}$, $\mathbf{W_{yh}}$ i $\mathbf{W_{hh}}$ matrice koje sadrzhe tezhinske koeficijente, a $l_h$ i $l_y$ neke aktivacione funkcije. Vektori $b_h$ i $b_y$ omoguc1avaju uchenje ofseta.\\
 Istrazhivanja na temu rekurentnih neuralnih mrezha su zapochela osadesetih godina prošloga veka. Prvo je Hopfild predstavio familiju rekurentnih neuralnih mrezha koja je imala moguc1nosti prepoznavanja shablona \cite{Hopfild}. Struktura mrezhe je ista kao na slici \ref{fig:9}, s tim da se ulazni shablon $\mathbf{x}$ primeni samo u pochetnom trenutku, nakon koga se mrezha prepusti izrachunavanjima  sve dok se na izlazu ne dobije stacionarna vrednost. Hopfildove mrezhe imaju moguc1nost da reprodukuje memorisane shablone iz zashumljenih shablona koje dobiju na ulazi i predstavljaju pretechu Bolcmanovih mashina i auto-enkodera.\\
 Rani model za supervizovano uchenje sekvenci je predstavio D2ordan u \cite{jordan}. Model je $feedforward$ mrezha koja se sastoji od jednog skrivenog sloja koji sadrzhi specijalne chvorove. Izlaz mrezhe je vezama spojen sa specijalnim chvorovima, koji rekurentnim vezama, u narednom vremenskom trenutku, dostavljaju vrednosti ostalim chvorovima skrivenog sloja. U sluchaju da izlaz mrezhe predstavlja neke akcije, ovakav model omoguc1ava pamec1enje akcije iz prethodnog vremensog trenutka. Nekoliko modernih modela koristi ovu ideju. Jedan takav primerak je rad \cite{Sutskever} gde se na primeru prevodioca jezika, pri generisanju teksta prevedenih rechenica, rechi sa kraja se vrac1aju i koriste kao ulaz za naredni korak. Specijalni chvorovi mogu da sadrzhe i dodatnu rekurentnu vezu tako da za ulaz imaju i svoje prethodno stanje (slika \ref{fig:10}).\\
 Elmanov model iz \cite{Elman} predstavlja arhitekturu koja lichi na mrezhu sa slike \ref{fig:9}. Za razliku od D2ordanovog modela, koji chuva trenutnu vrednost izlaza u specijalnim chvorovima, Elmanov model chuva trenutnu vrednost chvorova skrivenog sloja, koju u narednom vremenskom trenutku vrac1a tim skrivenim chvorovima (slika \ref{fig:11}). Elman je u svom radu trenirao mrezhu algoritmom propagacije u nazad i dokazao da mrezha mozhhe nauchiti zavisnosti od vremena.
@@ -625,7 +625,7 @@ Elmanov model iz \cite{Elman} predstavlja arhitekturu koja lichi na mrezhu sa sl
 \caption{Shemat\-ski prikaz Elmanovog modela}
 \label{fig:11}
 \end{figure}
-\subsection{Obuchavanje rekurentnih neuralnih mrezha}
+\section{Obuchavanje rekurentnih neuralnih mrezha}
 Dok su u nachelu rekurentne neuralne jednostavan i moc1an model, u praksi njihovo obuchavanje je kompleksan proces. Medju glavnim razlozima su problemu nestajuc1eg i eksplodirajuc1eg gradijenta, koji su predstavljeni u radu \cite{Bengio}. Kriterijumska funckija za rekurentnu neuralnu mrezhu predstavlja sumu gubitaka u pojedinachnim vremenskim trenucima. Ako je duzhina sekvence $T$, ona se rachuna 
 \begin{equation}
 \mathfrak{L}(\mathbf{\hat{y}},\mathbf{y}) = \sum^{T}_{t=1}\mathfrak{L}(\mathbf{\hat{y}},\mathbf{y})
@@ -665,8 +665,517 @@ Vrednost $\Delta\mathbf{u}^t $ se mozhe analitichki zapisati
 \end{equation}
 Ako su sve sopstvene vrednosti matrice $\mathbf{W}_{yh}$ manje od 1 , onda c1e proizvod u jednachini \ref{VG2} sa povec1anjem broja chinilaca tezhiti nuli, i doprinos sumi u jednachini \ref{VG1} c1e tezhiti nuli. Drugim rechima greshka nec1e ispropagirati do nizhih vremenskih trenutaka, te se ovaj problem naziva problem nestajuc1eg gradijenta. Problem eksplodirajuc1eg gradijenta nastaje u sluchaju kada su sopstvene vrednosti matrice vec1 od 1, ali on mozhe da se regulishe izborom pogodnih aktivacionih funkcija i ogranichavanjem gradijenta pomoc1u regularizacije (eng. $gradient\ clipping$).\\
 Jedno reshenje problema nestajuc1eg gradijenta je skrec1ena propagacija u nazad kroz vreme (enl. $Truncated\ Backpropagation\ Through\ Time-TBPTT$ u kome se postavi broj koraka u kojima c1e greshka propagirati u nazad \cite{TBPTT}. Time se utiche na problem nestajuc1eg gradijenta, ali se onemogucuje uchenje duzhih vremenskih zavisnosti. Uchenje duzhih vremenskih zavisnosti omoguc1uju modernije arhitekture rekurentnih neuralnih mrezha.
-\subsection{Moderne rekurentne neuralne mrezhe} 
-\chapter{Obuchavanje modela}
+\section{Moderne arhitekture rekurentnih neuralnih mrezha}
+Najuspeshnija arhitektura rekurenntih neuralnih mrezha koja prevazilazi probleme obuchavanja duzhih vremenskih zavisnosti u sekvencama, predstaljena je u radu \cite{LSTM}. Ovaj model se naziva $Long\ Short$-$Term\ Memory - LSTM$. Drugi rad, \cite{BLSTM}, uvodi arhitekturu bidirekcionih rekurentnih neuralnih mrezha (eng. $Bidirectional$ $Reccurent$ $Neural$ $Networks$-$BRNN$), u kojoj informacija i iz proshlosti i iz buduc1nosti mozhe da se koristi da se odredi izlaz u svakom vremenskom trenutku. Ovo je u suprotnosti sa prethodnim radovima, u kojima su se samo ulazi iz proshlosti uticali na trenutni izlaz. Takodje, $LSTM$ i $BRNN$ je moguc1e kombinovati da bi se dobila $Bidirectional\ LSTM$ arhitektura.
+\subsection[$LSTM$ model]{$\mathbf{LSTM}$ model}
+$Hochreiter$ i $Schmidhuber$ u \cite{LSTM} su uveli $LSTM$ model primarno kako bi prevazishli problem nestajuc1eg graddijenta. Ovaj model predstavlja standardnu rekurentnu nuralnu mrezhu sa skrivenim slojem (slika \ref{fig:9}), ali klasichni chvor je zamenjen sa memorijskom c1elijom (slika \ref{LSTMcell}).
+\begin{figure}[!h]
+\hspace*{0.15\linewidth}
+\newcommand{\empt}[2]{$#1^{\langle #2 \rangle}$}
+\begin{tikzpicture}[
+    % GLOBAL CFG
+    font=\sf \scriptsize,
+    >=LaTeX,
+    % Styles
+    cell/.style={% For the main box
+        rectangle, 
+        rounded corners=5mm, 
+        draw,
+        very thick,
+        },
+    operator/.style={%For operators like +  and  x
+        circle,
+        draw,
+        inner sep=-0.5pt,
+        minimum height =.2cm,
+        },
+    function/.style={%For functions
+        ellipse,
+        draw,
+        inner sep=1pt
+        },
+    ct/.style={% For external inputs and outputs
+        circle,
+        draw,
+        line width = .75pt,
+        minimum width=1cm,
+        inner sep=1pt,
+        },
+    gt/.style={% For internal inputs
+        rectangle,
+        draw,
+        minimum width=4mm,
+        minimum height=3mm,
+        inner sep=1pt
+        },
+    mylabel/.style={% something new that I have learned
+        font=\scriptsize\sffamily
+        },
+    ArrowC1/.style={% Arrows with rounded corners
+        rounded corners=.25cm,
+        thick,
+        },
+    ArrowC2/.style={% Arrows with big rounded corners
+        rounded corners=.5cm,
+        thick,
+        },
+    ]
+
+%Start drawing the thing...    
+    % Draw the cell: 
+    \node [cell, minimum height =4cm, minimum width=6cm] at (0,0){} ;
+
+    % Draw inputs named ibox#
+    \node [gt] (ibox1) at (-2,-0.75) {$\sigma$};
+    \node [gt] (ibox2) at (-1.5,-0.75) {$\sigma$};
+    \node [gt, minimum width=1cm] (ibox3) at (-0.5,-0.75) {$tanh$};
+    \node [gt] (ibox4) at (0.5,-0.75) {$\sigma$};
+
+   % Draw opérators   named mux# , add# and func#
+    \node [operator] (mux1) at (-2,1.5) {$\times$};
+    \node [operator] (add1) at (-0.5,1.5) {$+$};
+    \node [operator] (mux2) at (-0.5,0) {$\times$};
+    \node [operator] (mux3) at (1.5,0) {$\times$};
+    \node [function] (func1) at (1.5,0.75) {$tanh$};
+
+    % Draw External inputs? named as basis c,h,x
+    \node[ct, label={[mylabel]$Cell$}] (c) at (-4,1.5) {\empt{c}{t-1}};
+    \node[ct, label={[mylabel]$Hidden$}] (h) at (-4,-1.5) {\empt{h}{t-1}};
+    \node[ct, label={[mylabel]left:$Input$}] (x) at (-2.5,-3) {\empt{x}{t}};
+
+    % Draw External outputs? named as basis c2,h2,x2
+    \node[ct, label={[mylabel]right:$Cell$ ka $t+1$}] (c2) at (4,1.5) {\empt{c}{t}};
+    \node[ct, label={[mylabel]right:$Hidden$ ka $t+1$}] (h2) at (4,-1.5) {\empt{h}{t}};
+    \node[ct, label={[mylabel]left:$Output$}] (x2) at (2.5,3) {\empt{h}{t}};
+
+% Start connecting all.
+    %Intersections and displacements are used. 
+    % Drawing arrows    
+    \draw [ArrowC1, red] (c) -- (mux1) -- (add1) -- (c2);
+
+    % Inputs
+    \draw [ArrowC2] (h) -| (ibox4);
+    \draw [ArrowC1] (h -| ibox1)++(-0.5,0) -| (ibox1); 
+    \draw [ArrowC1] (h -| ibox2)++(-0.5,0) -| (ibox2);
+    \draw [ArrowC1] (h -| ibox3)++(-0.5,0) -| (ibox3);
+    \draw [ArrowC1] (x) -- (x |- h)-| (ibox3);
+
+    % Internal
+    \draw [->, ArrowC2] (ibox1) -- (mux1);
+    \draw [->, ArrowC2] (ibox2) |- (mux2);
+    \draw [->, ArrowC2] (ibox3) -- (mux2);
+    \draw [->, ArrowC2] (ibox4) |- (mux3);
+    \draw [->, ArrowC2] (mux2) -- (add1);
+    \draw [->, ArrowC1] (add1 -| func1)++(-0.5,0) -| (func1);
+    \draw [->, ArrowC2] (func1) -- (mux3);
+
+    % Outputs
+    \draw [-, ArrowC2] (mux3) |- (h2);
+    \draw (c2 -| x2) ++(0,-0.1) coordinate (i1);
+    \draw [-, ArrowC2] (h2 -| x2)++(-0.5,0) -| (i1);
+    \draw [-, ArrowC2] (i1)++(0,0.2) -- (x2);
+	
+	% Legend
+	\draw [ArrowC1,red] (3,-3) to (4,-3);
+ 	\node[text width=4cm] at (6.3,-3)(t2) {$\mathbf{W}=1$};
+\end{tikzpicture}
+\caption{$LSTM$ memorijska c1elija}
+\label{LSTMcell}
+\end{figure}\\
+Kljuchna stvar u $LSTM$ chvoru je stanje c1elije (eng. $cell$ $state$) preko kog je omoguc1eno kretanje informacije bez promene. To se ostvaruje tako shto su tezhinski koeficijenti rekurentnih veza izmedju c1elijskih stanja fiksirani na 1. $LSTM$ ima moguc1nost da doda ili oduzme informacije iz stanja c1elije preko strukture koja se naziva $gate$. $Gate$ se sastoji od sigmoid aktivacione funkcije, koja se primenjuje na jedan vektor ulaza. Sigmoid funkcija ima vrednosti izmedju 0 i 1 i skalranim mnozhenjem sa drugim ulaznim vektorom se odlucjuje koliko se informacije tog drugog vektora prenosi dalje. $LSTM$ chvor sadrzhi tri $gate$-a.\\
+\begin{itemize}
+\item {$\mathbf{Input\ gate}$}\\
+Ovaj $gate$ izrachunava kandidata za novo stanje c1elije. Sastoji se od dva dela (slika \ref{LSTM Input gate}). Prvi deo rachuna novog kandidata kojim c1e se azhuririati vrednost stanja c1elije $\tilde{C}_t$, a drugi deo $i_t$ odluchuje koji deo novog kandidata c1e se dodati na trenutno stanje c1elije.
+\begin{align}
+\mathbf{i}_t &= \sigma(\mathbf{W}_i[\mathbf{h}_{t-1}, \mathbf{x}_t]+\mathbf{b}_i)\\
+\mathbf{\tilde{C}}_t &= \tanh(\mathbf{W}_C[\mathbf{h}_{t-1}, \mathbf{x}_t]+\mathbf{b}_c)
+\end{align}
+gde je sa $[\mathbf{h}_{t-1}, \mathbf{x}_t]$ oznachen zdruzheni vektor prethodnog izlaza c1elije i trenutnog vektora ulaza.
+\begin{figure}[!h]
+\hspace*{0.15\linewidth}
+\newcommand{\empt}[2]{$#1^{\langle #2 \rangle}$}
+\begin{tikzpicture}[
+    % GLOBAL CFG
+    font=\sf \scriptsize,
+    >=LaTeX,
+    % Styles
+    cell/.style={% For the main box
+        rectangle, 
+        rounded corners=5mm, 
+        draw,
+        very thick,
+        },
+    operator/.style={%For operators like +  and  x
+        circle,
+        draw,
+        inner sep=-0.5pt,
+        minimum height =.2cm,
+        },
+    function/.style={%For functions
+        ellipse,
+        draw,
+        inner sep=1pt
+        },
+    ct/.style={% For external inputs and outputs
+        circle,
+        draw,
+        line width = .75pt,
+        minimum width=1cm,
+        inner sep=1pt,
+        },
+    gt/.style={% For internal inputs
+        rectangle,
+        draw,
+        minimum width=4mm,
+        minimum height=3mm,
+        inner sep=1pt
+        },
+    mylabel/.style={% something new that I have learned
+        font=\scriptsize\sffamily
+        },
+    ArrowC1/.style={% Arrows with rounded corners
+        rounded corners=.25cm,
+        thick,
+        },
+    ArrowC2/.style={% Arrows with big rounded corners
+        rounded corners=.5cm,
+        thick,
+        },
+    ]
+
+%Start drawing the thing...    
+    % Draw the cell: 
+    \node [cell, minimum height =4cm, minimum width=6cm] at (0,0){} ;
+
+    % Draw inputs named ibox#
+    \node [gt] (ibox1) at (-2,-0.75) {$\sigma$};
+    \node [gt] (ibox2) at (-1.5,-0.75) {$\sigma$};
+    \node [gt, minimum width=1cm] (ibox3) at (-0.5,-0.75) {$tanh$};
+    \node [gt] (ibox4) at (0.5,-0.75) {$\sigma$};
+
+   % Draw opérators   named mux# , add# and func#
+    \node [operator] (mux1) at (-2,1.5) {$\times$};
+    \node [operator] (add1) at (-0.5,1.5) {$+$};
+    \node [operator] (mux2) at (-0.5,0) {$\times$};
+    \node [operator] (mux3) at (1.5,0) {$\times$};
+    \node [function] (func1) at (1.5,0.75) {$tanh$};
+
+    % Draw External inputs? named as basis c,h,x
+    \node[ct, label={[mylabel]$Cell$}] (c) at (-4,1.5) {\empt{c}{t-1}};
+    \node[ct, label={[mylabel]$Hidden$}] (h) at (-4,-1.5) {\empt{h}{t-1}};
+    \node[ct, label={[mylabel]left:$Input$}] (x) at (-2.5,-3) {\empt{x}{t}};
+
+    % Draw External outputs? named as basis c2,h2,x2
+    \node[ct, label={[mylabel]right:$Cell$ ka $t+1$}] (c2) at (4,1.5) {\empt{c}{t}};
+    \node[ct, label={[mylabel]right:$Hidden$ ka $t+1$}] (h2) at (4,-1.5) {\empt{h}{t}};
+    \node[ct, label={[mylabel]left:$Output$}] (x2) at (2.5,3) {\empt{h}{t}};
+
+% Start connecting all.
+    %Intersections and displacements are used. 
+    % Drawing arrows    
+    \draw [ArrowC1] (c) -- (mux1) -- (add1) -- (c2);
+
+    % Inputs
+    
+    \draw [ArrowC2] (h) -| (ibox4);
+    \draw [ArrowC1] (h -| ibox1)++(-0.5,0) -| (ibox1);
+    
+    \draw [ArrowC1,very thick, red] (h -| ibox3)++(-0.5,0) -| (ibox3);
+    \draw [ArrowC1,very thick, red] (x) -- (x |- h)-| (ibox3);
+	\draw [ArrowC1,very thick, red] (h -| ibox2)++(-0.5,0) -| (ibox2);
+	\draw [ArrowC1,very thick, red] (h.east) to (-2,-1.5);
+    % Internal
+    \draw [->, ArrowC2] (ibox1) -- (mux1);
+    \draw [->, ArrowC2,very thick, red] (ibox2) |- (mux2);
+    \draw [->, ArrowC2,,very thick, red] (ibox3) -- (mux2);
+    \draw [->, ArrowC2] (ibox4) |- (mux3);
+    \draw [->, ArrowC2,,very thick, red] (mux2) -- (add1);
+    \draw [->, ArrowC1] (add1 -| func1)++(-0.5,0) -| (func1);
+    \draw [->, ArrowC2] (func1) -- (mux3);
+
+    % Outputs
+    \draw [-, ArrowC2] (mux3) |- (h2);
+    \draw (c2 -| x2) ++(0,-0.1) coordinate (i1);
+    \draw [-, ArrowC2] (h2 -| x2)++(-0.5,0) -| (i1);
+    \draw [-, ArrowC2] (i1)++(0,0.2) -- (x2);
+\end{tikzpicture}
+\caption{$Input\ gate$}
+\label{LSTM Input gate}
+\end{figure}
+\item $\mathbf{Forget\ gate}$\\
+Ovaj $gate$ odluchuje koliko c1e se informacije iz prethodnog c1elijskog stanja $\mathbf{C}_{t-1}$  zadrzhati. Treba napomenuti da je ovaj $gate$ dodat naknadno u radu \cite{forget gate}. Odluka se donosi na osnovu izlaza sigmoid funkcije koji posmatra zdruzheni vektor trenutnog ulaza i prethodnog izlaza.
+\begin{equation}
+\mathbf{f}_t = \sigma(\mathbf{W}_f[\mathbf{h}_{t-1}, \mathbf{x}_t]+\mathbf{b}_f)
+\end{equation}
+\begin{figure}[!h]
+\hspace*{0.15\linewidth}
+\newcommand{\empt}[2]{$#1^{\langle #2 \rangle}$}
+\begin{tikzpicture}[
+    % GLOBAL CFG
+    font=\sf \scriptsize,
+    >=LaTeX,
+    % Styles
+    cell/.style={% For the main box
+        rectangle, 
+        rounded corners=5mm, 
+        draw,
+        very thick,
+        },
+    operator/.style={%For operators like +  and  x
+        circle,
+        draw,
+        inner sep=-0.5pt,
+        minimum height =.2cm,
+        },
+    function/.style={%For functions
+        ellipse,
+        draw,
+        inner sep=1pt
+        },
+    ct/.style={% For external inputs and outputs
+        circle,
+        draw,
+        line width = .75pt,
+        minimum width=1cm,
+        inner sep=1pt,
+        },
+    gt/.style={% For internal inputs
+        rectangle,
+        draw,
+        minimum width=4mm,
+        minimum height=3mm,
+        inner sep=1pt
+        },
+    mylabel/.style={% something new that I have learned
+        font=\scriptsize\sffamily
+        },
+    ArrowC1/.style={% Arrows with rounded corners
+        rounded corners=.25cm,
+        thick,
+        },
+    ArrowC2/.style={% Arrows with big rounded corners
+        rounded corners=.5cm,
+        thick,
+        },
+    ]
+
+%Start drawing the thing...    
+    % Draw the cell: 
+    \node [cell, minimum height =4cm, minimum width=6cm] at (0,0){} ;
+
+    % Draw inputs named ibox#
+    \node [gt] (ibox1) at (-2,-0.75) {$\sigma$};
+    \node [gt] (ibox2) at (-1.5,-0.75) {$\sigma$};
+    \node [gt, minimum width=1cm] (ibox3) at (-0.5,-0.75) {$tanh$};
+    \node [gt] (ibox4) at (0.5,-0.75) {$\sigma$};
+
+   % Draw opérators   named mux# , add# and func#
+    \node [operator] (mux1) at (-2,1.5) {$\times$};
+    \node [operator] (add1) at (-0.5,1.5) {$+$};
+    \node [operator] (mux2) at (-0.5,0) {$\times$};
+    \node [operator] (mux3) at (1.5,0) {$\times$};
+    \node [function] (func1) at (1.5,0.75) {$tanh$};
+
+    % Draw External inputs? named as basis c,h,x
+    \node[ct, label={[mylabel]$Cell$}] (c) at (-4,1.5) {\empt{c}{t-1}};
+    \node[ct, label={[mylabel]$Hidden$}] (h) at (-4,-1.5) {\empt{h}{t-1}};
+    \node[ct, label={[mylabel]left:$Input$}] (x) at (-2.5,-3) {\empt{x}{t}};
+
+    % Draw External outputs? named as basis c2,h2,x2
+    \node[ct, label={[mylabel]right:$Cell$ ka $t+1$}] (c2) at (4,1.5) {\empt{c}{t}};
+    \node[ct, label={[mylabel]right:$Hidden$ ka $t+1$}] (h2) at (4,-1.5) {\empt{h}{t}};
+    \node[ct, label={[mylabel]left:$Output$}] (x2) at (2.5,3) {\empt{h}{t}};
+
+% Start connecting all.
+    %Intersections and displacements are used. 
+    % Drawing arrows    
+    \draw [ArrowC1, very thick, red] (c) -- (mux1) -- (add1);
+	 \draw [ArrowC1] (add1) -- (c2);
+    % Inputs
+    
+    \draw [ArrowC2] (h) -| (ibox4);
+    \draw [ArrowC1,very thick, red] (h -| ibox1)++(-0.5,0) -| (ibox1);
+    
+    \draw [ArrowC1] (h -| ibox3)++(-0.5,0) -| (ibox3);
+    \draw [ArrowC1] (x) -- (x |- h)-| (ibox3);
+	\draw [ArrowC1] (h -| ibox2)++(-0.5,0) -| (ibox2);
+	\draw [ArrowC1,very thick, red] (h.east) to (-2,-1.5);
+	\draw [ArrowC1,very thick, red] (x.north) to (-2.5,-1.5);
+    % Internal
+    \draw [->, ArrowC2,very thick, red] (ibox1) -- (mux1);
+    \draw [->, ArrowC2] (ibox2) |- (mux2);
+    \draw [->, ArrowC2] (ibox3) -- (mux2);
+    \draw [->, ArrowC2] (ibox4) |- (mux3);
+    \draw [->, ArrowC2] (mux2) -- (add1);
+    \draw [->, ArrowC1] (add1 -| func1)++(-0.5,0) -| (func1);
+    \draw [->, ArrowC2] (func1) -- (mux3);
+
+    % Outputs
+    \draw [-, ArrowC2] (mux3) |- (h2);
+    \draw (c2 -| x2) ++(0,-0.1) coordinate (i1);
+    \draw [-, ArrowC2] (h2 -| x2)++(-0.5,0) -| (i1);
+    \draw [-, ArrowC2] (i1)++(0,0.2) -- (x2);
+\end{tikzpicture}
+\caption{$Forget\ gate$}
+\label{LSTM Forget gate}
+\end{figure}
+Novo stanje c1elije se dobija kombinacijom $forget\ gate$-a sa prethodnim stanjem c1elije i kombinacijom $input\ gate$-a sa kandidatom za novo stanje
+\begin{equation}
+\mathbf{C}_t = \mathbf{f}_t\cdot\mathbf{C}_{t-1}+\mathbf{i}_t\cdot\mathbf{\tilde{C}}_{t-1}
+\end{equation}
+\item $\mathbf{Output\ gate}$\\
+Izlaz se rachuna na osnovu stanja c1elije koje se prvo propusti kroz $\tanh$, kako bi se vrednosti ogranichile na interval $[-1,\ 1]$, a zatim se taj vektor skalarno pomnozhi sa vektorom koji odlucuje koliko c1e se stanja c1elije proslediti na izlaz
+\begin{align}
+\mathbf{o}_t &= \sigma(\mathbf{W}_o[\mathbf{h}_{t-1}, \mathbf{x}_t]+\mathbf{b}_o)\\
+\mathbf{h}_t &= \tanh(\mathbf{C}_{t})
+\end{align}
+\begin{figure}[!h]
+\hspace*{0.15\linewidth}
+\newcommand{\empt}[2]{$#1^{\langle #2 \rangle}$}
+\begin{tikzpicture}[
+    % GLOBAL CFG
+    font=\sf \scriptsize,
+    >=LaTeX,
+    % Styles
+    cell/.style={% For the main box
+        rectangle, 
+        rounded corners=5mm, 
+        draw,
+        very thick,
+        },
+    operator/.style={%For operators like +  and  x
+        circle,
+        draw,
+        inner sep=-0.5pt,
+        minimum height =.2cm,
+        },
+    function/.style={%For functions
+        ellipse,
+        draw,
+        inner sep=1pt
+        },
+    ct/.style={% For external inputs and outputs
+        circle,
+        draw,
+        line width = .75pt,
+        minimum width=1cm,
+        inner sep=1pt,
+        },
+    gt/.style={% For internal inputs
+        rectangle,
+        draw,
+        minimum width=4mm,
+        minimum height=3mm,
+        inner sep=1pt
+        },
+    mylabel/.style={% something new that I have learned
+        font=\scriptsize\sffamily
+        },
+    ArrowC1/.style={% Arrows with rounded corners
+        rounded corners=.25cm,
+        thick,
+        },
+    ArrowC2/.style={% Arrows with big rounded corners
+        rounded corners=.5cm,
+        thick,
+        },
+    ]
+
+%Start drawing the thing...    
+    % Draw the cell: 
+    \node [cell, minimum height =4cm, minimum width=6cm] at (0,0){} ;
+
+    % Draw inputs named ibox#
+    \node [gt] (ibox1) at (-2,-0.75) {$\sigma$};
+    \node [gt] (ibox2) at (-1.5,-0.75) {$\sigma$};
+    \node [gt, minimum width=1cm] (ibox3) at (-0.5,-0.75) {$tanh$};
+    \node [gt] (ibox4) at (0.5,-0.75) {$\sigma$};
+
+   % Draw opérators   named mux# , add# and func#
+    \node [operator] (mux1) at (-2,1.5) {$\times$};
+    \node [operator] (add1) at (-0.5,1.5) {$+$};
+    \node [operator] (mux2) at (-0.5,0) {$\times$};
+    \node [operator] (mux3) at (1.5,0) {$\times$};
+    \node [function] (func1) at (1.5,0.75) {$tanh$};
+
+    % Draw External inputs? named as basis c,h,x
+    \node[ct, label={[mylabel]$Cell$}] (c) at (-4,1.5) {\empt{c}{t-1}};
+    \node[ct, label={[mylabel]$Hidden$}] (h) at (-4,-1.5) {\empt{h}{t-1}};
+    \node[ct, label={[mylabel]left:$Input$}] (x) at (-2.5,-3) {\empt{x}{t}};
+
+    % Draw External outputs? named as basis c2,h2,x2
+    \node[ct, label={[mylabel]right:$Cell$ ka $t+1$}] (c2) at (4,1.5) {\empt{c}{t}};
+    \node[ct, label={[mylabel]right:$Hidden$ ka $t+1$}] (h2) at (4,-1.5) {\empt{h}{t}};
+    \node[ct, label={[mylabel]left:$Output$}] (x2) at (2.5,3) {\empt{h}{t}};
+
+% Start connecting all.
+    %Intersections and displacements are used. 
+    % Drawing arrows    
+    \draw [ArrowC1] (c) -- (mux1) -- (add1) -- (c2);
+	 \draw [ArrowC1] (add1) -- (c2);
+    % Inputs
+    
+    \draw [ArrowC2,very thick, red] (h) -| (ibox4);
+    \draw [ArrowC1] (h -| ibox1)++(-0.5,0) -| (ibox1);
+    
+    \draw [ArrowC1] (h -| ibox3)++(-0.5,0) -| (ibox3);
+    \draw [ArrowC1] (x) -- (x |- h)-| (ibox3);
+	\draw [ArrowC1] (h -| ibox2)++(-0.5,0) -| (ibox2);
+	\draw [ArrowC1,very thick, red] (h.east) to (0,-1.5);
+	\draw [ArrowC1,very thick, red] (x.north) to (-2.5,-1.5);
+    % Internal
+    \draw [->, ArrowC2] (ibox1) -- (mux1);
+    \draw [->, ArrowC2] (ibox2) |- (mux2);
+    \draw [->, ArrowC2] (ibox3) -- (mux2);
+    \draw [->, ArrowC2,very thick, red] (ibox4) |- (mux3);
+    \draw [->, ArrowC2] (mux2) -- (add1);
+    \draw [->, ArrowC1,very thick, red] (add1 -| func1)++(-0.5,0) -| (func1);
+    \draw [->, ArrowC2,very thick, red] (func1) -- (mux3);
+
+    % Outputs
+    \draw [-, ArrowC2,very thick, red] (mux3) |- (h2);
+    \draw (c2 -| x2) ++(0,-0.1) coordinate (i1);
+    \draw [-, ArrowC2,very thick, red] (h2 -| x2)++(-0.5,0) -| (i1);
+    \draw [-, ArrowC2,very thick, red] (i1)++(0,0.2) -- (x2);
+\end{tikzpicture}
+\caption{$Output\ gate$}
+\label{LSTM Output gate}
+\end{figure}
+\end{itemize} 
+\subsection[$BRNN$ model]{$\mathbf{BRNN}$ model}
+U ovoj arhitekturi, postoje dva sloja chvorova u skrivenom sloju , i oba sloja su povezana sa ulaznim i izlaznim slojem. Jedan sloj ima rekurentne veze koje nose informaciju is proshlih vremenskih trenutaka, dok drugi nosi informaciju iz narednih vremenskih trenutaka. Za trenutak $t$ i ulazni vektor $\mathbf{x}_{t}$, stanja i izlaz mrezhe se mogu rachunati na sledec1i nachin
+\begin{align}
+\overrightarrow{\mathbf{h}}_t &= \sigma\left(\mathbf{W}^f_{hx}\mathbf{x}_t+\mathbf{W}^f_{hh}\overrightarrow{\mathbf{h}}_{t-1}+\mathbf{b}_h^f\right)\\
+\overleftarrow{\mathbf{h}}_t &= \sigma\left(\mathbf{W}^b_{hx}\mathbf{x}_t+\mathbf{W}^b_{hh}\overleftarrow{\mathbf{h}}_{t-1}+\mathbf{b}_h^b\right)\\
+\mathbf{\hat{y}}_t&= \sigma\left(\mathbf{W}^f_{yh}\overrightarrow{\mathbf{h}}_t +\mathbf{W}^b_{yh}\overleftarrow{\mathbf{h}}_t+\mathbf{b}_y\right) \label{eq:BRNN}
+\end{align}
+Sa datom ulaznom sekvencom, prvo se izrachunaju stanja $forward$ sloja $overrightarrow{\mathbf{h}}_t$ pochevshi od prvog odbirka, a zatim se izrachunaju stanja $backward$ sloja $\overleftarrow{\mathbf{h}}_t$ pochevshi od poslednjeg odbirka sekvence. Nakon toga se, uz po jednachini \ref{eq:BRNN} izrachuna vektor izlaza. Za obuchavanje, mozhe se koristiti algoritam $BPTT$. Jedna od mana $BRNN$ modela je shto se ne mozhe implementirati u realnom vremenu, jer je nemoguc1e saznati vrednost ulaznih odbiraka u buduc1nosti.
+\newpage
+\begin{figure}[!h]
+\hspace*{0.2\linewidth}
+\begin{tikzpicture}[item/.style={circle,draw,thick,align=center},
+itemc/.style={item,on chain,join}]
+ \begin{scope}[start chain=going right,nodes=itemc,every join/.style={-latex,very thick},local bounding box=chain]
+ \path node (A0) {$\mathbf{h}_f^{0}$} node (A1) {$\mathbf{h}_f^{1}$} node (A2) {$\mathbf{h}_f^{2}$} node[xshift=2em] (At){$\mathbf{h}_f^{t}$};
+ \end{scope}
+ \foreach \X in {0,1,2,t} 
+ {%\draw[very thick,-latex] (A\X.north) -- ++ (0,4em)
+  %node[above,item,fill=gray!10] (hb\X) {$\mathbf{h}^\X$};
+  \node[item] (hb\X) at ($(A\X.north)+(0,1)$) {$\mathbf{h}_b^\X$};
+  \draw[very thick,-latex] (hb\X.north) -- ++ (0,2em)
+        node[above,item,fill=gray!10] (y\X) {$\mathbf{y}^\X$};
+  \draw[very thick,latex-] (A\X.south) -- ++ (0,-2em)
+ 		node[below,item,fill=gray!10] (x\X) {$\mathbf{x}^\X$};
+  \draw[very thick,-latex](A\X.west) to [out=120,in=-120](y\X.west);}
+ \path (x2) -- (xt) node[midway,scale=2,font=\bfseries] {\dots};
+ \draw[very thick, latex-] (hb0) --++ (hb1);
+ \draw[very thick, latex-] (hb1) --++ (hb2);
+ \draw[very thick, latex-] (hb2) --++ (hbt);
+\end{tikzpicture}
+\caption{Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mrezhe u vremenu}
+\label{fig:12}
+\end{figure}
+\chapter{Rezultati obuchavanja modela}
 
 \chapter{Sinteza videa}
 
@@ -717,6 +1226,15 @@ Werbos, P. (1990). Backpropagation through time: what it does and how to do it. 
 IEEE, 78(10):1550–1560.
 \bibitem{TBPTT}
 Ronald J. Williams and David Zipser. A learning algorithm for continually running fully recurrent neural networks. Neural Computation, 1(2):270–280,1989.
+\bibitem{LSTM}
+Sepp Hochreiter and J¨urgen Schmidhuber. Long short-term memory. Neural Computation, 9(8):1735–1780, 1997.
+\bibitem{BLSTM}
+Mike Schuster and Kuldip K. Paliwal. Bidirectional recurrent neural networks.
+Signal Processing, IEEE Transactions on, 45(11):2673–2681, 1997.
+\bibitem{forget gate}
+Felix A. Gers, J¨urgen Schmidhuber, and Fred Cummins. Learning to forget:
+Continual prediction with LSTM. Neural computation, 12(10):2451–2471,
+2000.
 
 \end{thebibliography}
 \end{document}

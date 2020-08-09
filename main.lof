@@ -19,5 +19,10 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Shemat\-ski prikaz odmotane rekurentne neuralne mrezhe u vremenu\relax }}{17}{figure.caption.13}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Shemat\-ski prikaz D2ordanovog modela\relax }}{18}{figure.caption.14}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Shemat\-ski prikaz Elmanovog modela\relax }}{18}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces $LSTM$ memorijska c1elija\relax }}{20}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces $Input\ gate$\relax }}{21}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces $Forget\ gate$\relax }}{21}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces $Output\ gate$\relax }}{22}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mrezhe u vremenu\relax }}{23}{figure.caption.20}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
