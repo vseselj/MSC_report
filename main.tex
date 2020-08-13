@@ -280,13 +280,7 @@ M(f) = 1125\log\left(1+\frac{f}{700}\right)
 \begin{equation}\label{mel2freq}
 M^{-1}(m) = 700\left(\exp\left(\frac{m}{1125}\right)-1\right)
 \end{equation}
-\begin{figure}[h!]
-\centering
-  \includegraphics[scale=0.8]{res/freq2mel.png}
-  \caption{Mel-frekvencijska skala}
-  \label{fig:1}
-  \vspace{0pt}
-\end{figure}
+
 \subsection{Melova banka filtara}
 Postojanje auditornih kritichnih opsega je takodje osobina koja uslovljava ljudski dozhivljaj razlichitih uchestanosti. Ova pojava vezana je za chujni dozhivljaj slushaoca  prilikom slushanja dva razlichita tona na razlichitim uchestanostima. Dakle, ukoliko se slushocu pusti ton uchestanosti $f_1$ koja se nalazi u nekom chujnom opsegu, tada slushalac ima dozhivljaj tona u skladu sa mel sklaom. Ukoliko se pored tog tona pusti drugi ton uchestanosti $f_2$ tada zvuchni dozhivljaj slushaoca zavisi od medjusobne frekventne bliskosti ova dva tona. Naime, ukoliko je frekventni razmak dovoljno mali tako da se nalaze unutar istog kritichnog chujnog opsega dolazi do pojave maskiranja i slushalac chuje ton $f_1$, ali vec1e glasnosti. Ukoliko je frekventni razmak ovih tonova vec1i od shirine chujnog kritichnog opsega tada slushalac chuje dva tona na odgovarajuc1im prethodno pomenutim uchestanostima. Imajuc1i to u vidu frekvencijski opseg govornog signala potrebno je izdeliti na opsege. Ti opsezi formiraju melovu banku filtara. Postupak formitanja melove banke filtara se mozhe izdeliti na korake:
 \begin{enumerate}
@@ -401,7 +395,30 @@ U ovom radu, kao vektor ulaznih parametara, korish\-c1eno je 13 kepstralnih koef
 \end{figure}
 
 \chapter{Obelezhja videa}
-
+U ovom poglavlju c1e biti objashnjen nachin na koji se iz video snimaka mozhe dobiti baza koja c1e sadrzhati koordinatne tachaka usta. Proces se mozhe podeliti na tri dela: detektovanje lica govornika na frejmu videa, detektovanje koordinata 68 znachajnih tachaka lica, pravljenje $3D$ modela lica i izdvajanje $3D$ koordinata pojedinih tachaka usta.
+\section{Detekcija lica}
+Detekcija i prepoznavanje lica je jedna od najpopularnijih tema kompjuterske vizije u poslednjih nekoliko godina. Ova tehnologija je shiroko zastupljena, od kamera koje fokusiraju lica pre fotografisanja, do drushtvene mrezhe $Facebook$ koja prepoznaje  indetitet korisnika na slikama. Komjuterski program koji odluchuje da li je slika pozitivna, odnosno da li postoji lice na njoj, ili negativna, odnosno da ne postoji, se naziva klasifikator. Klasifikator je obuchen na stotinama hiljada pozitivnih i negativnih slika, kako bi se nova slika klasifikovala ispravno. Biblioteka $OpenCV$ \cite{Opencv} nudi dva vec1 obuchena klasifikatora
+\begin{itemize}
+\item Harov klafikator
+\item $LBP$ klasifikator
+\end{itemize}
+U ovom radu je korish\-c1en Harov klasifikator, koji predstavlja efektivni metod detekcije objekata uz pomoc1 obelezhja i predstavljen je u radu \cite{Haar}. Inicijativno, algoritam krec1e od velike baze podataka pozitivnih i negativnih slika nad kojima ekstraktuje Harova obelezhja. Da bi se izrachunala Harova obelezhja, na svaku sliku se primenjuju konvolucioni kerneli sa slike \ref{fig:2_1}. Svako obelezhje se rachuna kao razlika sume vrednosti piksela ispod belog pravougaonika i sume vrednosti piksela ispog crnog pravougaonika.
+\begin{figure}[h!]
+\centering
+  \includegraphics[scale=0.6]{res/haar_kernels.png}
+  \caption{Kerneli za izrachunavanje Harovih obelezhja}
+  \label{fig:2_1}
+  \vspace{0pt}
+\end{figure}\\
+Smisao metode se mozhe pokazati na primeru sa slike \ref{fig:2_2} gde se ekstraktuju dva obelezhja. Prvi se bazira na pojavi da je region oko ochiju chesto tamniji od regije nosa i obraza. Drugo oblezhje se bazira na tome shto su ochi tamnije od ivice nosa.
+\begin{figure}[h!]
+\centering
+  \includegraphics[scale=0.6]{res/haar_features.png}
+  \caption{Prikaz izrachunavanja dva Harova obelezhja}
+  \label{fig:2_2}
+  \vspace{0pt}
+\end{figure}\\
+Za rachunanje svih obelezhja jedne slike koriste se svi moguc1i kerneli, u svim moguc1im velichinama na svakom delu slike, shto rezultuje velikim brojem obelezhja. Vec1ina oblezhja izrachunata ovakvom metodoj je irelevantna. Algoritam koji se koristi za obuchavanje detektora lica ikoji ima tu moguc1nost da razmatra samo najbitnija obelezhja je $Adaboost$.
 \chapter{Rekurentne neuralne mrezhe}
 Neuralne mrezhe su modeli uchenja koji ostvaraju ogroman uspeh u shirokom spektru zadataka superviziranog i nesuperviziranog mashinskog uchenja. Klasichne ($feedforward$) neuralne mrezhe se posebno izdvajaju u problemima klasifikacije. Uprkos njihovoj moc1i, standardne neuralne mrezhe imaju ogranichenja, od kojih je naznachajnije da primeri iz baze podataka moraju biti medjusobno nezavisni. U sluchaju kada su podaci zavisni u vremenu i prostoru ovo nije prihvatljivo. Frejmovi videa, delovi audio signala, rechi iz rechenice predstavljaju primere podataka gde zahtev o medjusobnoj nezavisnosti nije zadovoljen. Rekurentne neuralne mrezhe prevazilaze taj nedostatak i koriste se u sluchahevima kada se podaci mogu prikazati u formi sekvence. One imaju osobinu da selektivno prosledjuju informaciju izmedju koraka sekvence, dok i dalje procesuju jedan po jedan korak.\\
 U ovom poglavlju c1e se prvo baciti kratak osvrt na klasichne ($feedforward$) neuralne mrezhe, a zatim c1e biti detaljnije obradjen pojam razlichitih vrsta rekurentnih neuralnih mrezha.
@@ -1236,6 +1253,9 @@ Signal Processing, IEEE Transactions on, 45(11):2673–2681, 1997.
 Felix A. Gers, J¨urgen Schmidhuber, and Fred Cummins. Learning to forget:
 Continual prediction with LSTM. Neural computation, 12(10):2451–2471,
 2000.
-
+\bibitem{Opencv}
+\url{https://opencv.org/}
+\bibitem{Haar}
+Paul Viola, Michael Jones. Rapid Object Detection using a Boosted Cascade of Simple Features. Conference on Computer Vision and Pattern Recognition, 2001.
 \end{thebibliography}
 \end{document}
