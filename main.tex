@@ -331,7 +331,7 @@ U ovom radu, kao vektor ulaznih parametara, korish\-c1eno je 13 kepstralnih koef
 \begin{figure}[h!]
 \centering
   \includegraphics[scale=0.5]{res/audio_sig.png}
-  \caption{Nasumichni noramlizovani audio signal iz baze}
+  \caption{Normalizovani audio signal nasumichno izabran iz baze}
   \label{fig:3}
   \vspace{0pt}
 \end{figure}
@@ -351,11 +351,7 @@ U ovom radu, kao vektor ulaznih parametara, korish\-c1eno je 13 kepstralnih koef
             \label{fig:4b}
             \vspace{0pt}
         \end{subfigure}
-        \caption{Prikaz glasovnih obelezhja}
-        \label{fig:4}
-\end{figure}
-\newpage
-\begin{figure}[!h]
+		\vskip\baselineskip
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
@@ -371,10 +367,7 @@ U ovom radu, kao vektor ulaznih parametara, korish\-c1eno je 13 kepstralnih koef
             \label{fig:5b}
             \vspace{0pt}
         \end{subfigure}
-        \caption{Prikaz glasovnih obelezhja}
-        \label{fig:5}
-\end{figure}
-\begin{figure}[!h]
+		\vskip\baselineskip
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
@@ -395,9 +388,9 @@ U ovom radu, kao vektor ulaznih parametara, korish\-c1eno je 13 kepstralnih koef
 \end{figure}
 
 \chapter{Obelezhja videa}
-U ovom poglavlju c1e biti objashnjen nachin na koji se iz video snimaka mozhe dobiti baza koja c1e sadrzhati koordinatne tachaka usta. Proces se mozhe podeliti na tri dela: detektovanje lica govornika na frejmu videa, detektovanje koordinata 68 znachajnih tachaka lica, pravljenje $3D$ modela lica i izdvajanje $3D$ koordinata pojedinih tachaka usta.
-\section{Detekcija lica}
-Detekcija i prepoznavanje lica je jedna od najpopularnijih tema kompjuterske vizije u poslednjih nekoliko godina. Ova tehnologija je shiroko zastupljena, od kamera koje fokusiraju lica pre fotografisanja, do drushtvene mrezhe $Facebook$ koja prepoznaje  indetitet korisnika na slikama. Komjuterski program koji odluchuje da li je slika pozitivna, odnosno da li postoji lice na njoj, ili negativna, odnosno da ne postoji, se naziva klasifikator. Klasifikator je obuchen na stotinama hiljada pozitivnih i negativnih slika, kako bi se nova slika klasifikovala ispravno. Biblioteka $OpenCV$ \cite{Opencv} nudi dva vec1 obuchena klasifikatora
+U ovom poglavlju c1e biti objashnjen nachin na koji se iz video snimaka mozhe dobiti baza koja c1e sadrzhati koordinatne tachaka usta. Proces se mozhe podeliti na tri dela: detektovanje lica govornika na frejmu videa, detektovanje koordinata 68 znachajnih tachaka lica, pravljenje $3D$ modela lica iz kog c1e biti izdvajene $3D$ koordinate pojedinih tachaka usta.
+\section{Detekcija lica}\label{detekcijalica}
+Detekcija i prepoznavanje lica je jedna od najpopularnijih tema kompjuterske vizije u poslednjih nekoliko godina. Ova tehnologija je shiroko zastupljena, od kamera koje fokusiraju lica pre fotografisanja, do drushtvene mrezhe $Facebook$ koja prepoznaje  indetitet korisnika na slikama. Komjuterski program koji odlu\-chuje da li je slika pozitivna, odnosno da li postoji lice na njoj, ili negativna, odnosno da ne postoji, se naziva klasifikator. Klasifikator je obuchen na stotinama hiljada pozitivnih i negativnih slika, kako bi se nova slika klasifikovala ispravno. Biblioteka $OpenCV$ \cite{Opencv} nudi dva vec1 obuchena klasifikatora
 \begin{itemize}
 \item Harov klafikator
 \item $LBP$ klasifikator
@@ -406,7 +399,7 @@ U ovom radu je korish\-c1en Harov klasifikator, koji predstavlja efektivni metod
 \begin{figure}[h!]
 \centering
   \includegraphics[scale=0.6]{res/haar_kernels.png}
-  \caption{Kerneli za izrachunavanje Harovih obelezhja}
+  \caption{Konvolucioni kerneli za izrachunavanje Harovih obelezhja}
   \label{fig:2_1}
   \vspace{0pt}
 \end{figure}\\
@@ -418,7 +411,92 @@ Smisao metode se mozhe pokazati na primeru sa slike \ref{fig:2_2} gde se ekstrak
   \label{fig:2_2}
   \vspace{0pt}
 \end{figure}\\
-Za rachunanje svih obelezhja jedne slike koriste se svi moguc1i kerneli, u svim moguc1im velichinama na svakom delu slike, shto rezultuje velikim brojem obelezhja. Vec1ina oblezhja izrachunata ovakvom metodoj je irelevantna. Algoritam koji se koristi za obuchavanje detektora lica ikoji ima tu moguc1nost da razmatra samo najbitnija obelezhja je $Adaboost$.
+Za rachunanje svih obelezhja jedne slike koriste se svi moguc1i kerneli, u svim moguc1im velichinama na svakom delu slike, shto rezultuje velikim brojem obelezhja. Vec1ina oblezhja izrachunata ovakvom metodom je irelevantna. Algoritam koji se koristi za obuchavanje detektora lica i koji ima tu moguc1nost da razmatra samo najbitnija obelezhja je $Adaboost$. U svojoj originalnoj formi, $AdaBoost$ algoritam obuchavanja se koristi kako bi poboljshao klasifikaciju jednostavnih (slabih) algoritama obuchavanja. Za svako obelezhje, nadje se najbolji prag koji c1e klasifikovati slike na pozitivne i negativne  (panj odluchivanja kao slabi uchenik \cite{MUpredavanja}). Za rachunanje obelezhja na slikama, kernel je fiksne dimenzije $24\times24$. U svakoj iteraciji biraju se panjevi sa minimalnom greshkom, povec1avaju se tezhinski koeficijenti pogreshno klasifikovanih slika, smanjuju se tezhinski koeficijenti tachno klasifikovanih slika i rachuna se tezhina slabog uchenika. Nakon odredjenog broja iteracija, krajnji klasifikator predstavlja tezhinsku sumu slabih uchenika. Na kraju je dobijeno oko 6000 obelezhja.\\
+Kako bi se dalje optimizovalo i unapredilo izrachunavanje obelezhjana slici, uvodi se pojam kaskadnog klasifikatora. Kaskadni klasifikator se sastoji od nekoliko nivoa, gde se svaki nivo sastoji od nekoliko panjeva odluchivanja. Svaki nivo oznachava region slike, odredjen trenutnom pozicijom pomerajuc1eg prozora, kao pozitivan ili negativan. U sluchaju da je region negativan, klasifikator prelazi na narednu lokaciju, a ako je region pozitivan, region prelazi na naredni nivo. Detektor prijavljuje da je lice u regionu detektovano u sluchaju da je region proshao sve nivoe. Novio si dizajnirani tako da odbace negativne regione shto brzhe, zbog pretpostavke da vec1ina regiona ne sadrzhi objekat od interesa (shto je u ovom sluchaju lice). Da bi metod dobro radio, svaki nivo mora da ima nizak broj lazhno negativnih detekcija. Ako nivo ne detektuje lice na regionu gde lice postoji, kaskadna klasifikacija se zaustavlja i greshka se ne mozhe otkloniti. Medjutim, svaki nivo sme imati visok broj lazhno pozitivnih detekcija, jer ukoliko detektor detektuje lice na regionu koji ne sadrzhi lice, greshka se mozhe ukloniti u narednim fazama. Dodavanje faza smanjuje broj lazhno pozitivnih detekcija, ali i smanjuje broj istinski pozitivnih detekcija.\\
+Ovako obuchen klasifikator dostupan je uz $OpenCV$ biblioteku. U radu je odlucheno da se koristi Harov klasifikator, buduc1i da ima vec1u preciznost pri detekciji i umanjen broj lazhno pozitivnih detekcija, u odnosu na drugi dostupan $LBP$ klasifikator. Mana Harovo klasifikatora je shto je kompleksan i spor za izrachunavanje i manje precizan na tamnoputim licima. Buduc1i da se radi o predsedniku Obami, druga stavka je predstavljala potencijalan problem, ali nije primec1en neki znachajan broj frejmova na kojima lice nije detektovano. Tokom videa nedeljnih obrac1anja naciji, deshava se da kamerman nekoliko puta menja pozu i osvetljenje kojim snima govornika, u koliko se u nekom delu nije detektovalo lice taj deo videa bi bio preskochen. Takodje, na videima je prisutno samo jedno lice, i u sluchaju detekcije vishe lica, biralo bi se ono koje je najblizhe licu koje je detektovano u prethodnom frejmu.
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.21]{res/168.jpg}
+            \caption{168. frejm}
+            \label{fig:2_3a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.21]{res/169.jpg}
+            \caption{169. frejm}
+            \label{fig:2_3b}
+            \vspace{0pt}
+        \end{subfigure}
+        \vskip\baselineskip
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.21]{res/170.jpg}
+            \caption{170. frejm}
+            \label{fig:2_3c}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.21]{res/171.jpg}
+            \caption{171. frejm}
+            \label{fig:2_3d}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Prikaz detektovanih lica nad frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$}
+        \label{fig:2_3}
+\end{figure}
+\section{Detekcija karakteristichnih tachaka lica}
+Detekcija karakteristichnih tachaka lica (eng. $facial\ landmarks$) je koristan algoritam potreban u razlichitim aplikacijama kao shto su prepoznavanje lica, prepoznavanje emocija na licima, zamena lica, prepoznavanje polozhaja glave, filteri na aplikacijama $Instagram$ i $Snapchat$... Krakateristichne tachke se koriste kako bi se lokalizovale i predstavile vidljive regije lica kao shto su ochi, obrve, noz, usta i vilica. Detekcija takvih tachaka predstavlja podskup problema u kojima cilj predikcija nekog oblika. Prediktor oblika ima za cilj da na regiji od interesa slike lokalizuje kljuchne tachke duzh tog oblika. Stoga se ceo proces mozhe podeliti na dva dela, prvi koji c1e detektovati lice (poglavlje \ref{detekcijalica}) i detekcija kljuchnih tachaka.\\
+Postoji veliki broj raspolozhivih detektora karakteristichnih tachaka lica, ali vec1ina njih se trudi da shto bolje detektuje sledec1e znachajne regije: usta, desna objva, leva obrva, desno oko, levo oko, nos i vilica. Detektor koji je dostupan uz biblioteku $OpenCV$ i koji je korish\-c1en u ovom radu je $LBF$ model (eng. $LBF$-$Local\ Binary\ Features$, predstavljen u radu \cite{LBF}. Oblik lica $S=[x_1, y_1,...,x_{N_{fp}},y_{N_{fp}}]^T$ se sastoji od $N_{fp}$ karakteristichnih tachaka. Za datu sliku, cilj estimacije mozhe biti oblik $S$ koji c1e biti shto priblizhniji istinitom obliku $\hat{S}$ koji c1e minimizovati $||S-\hat{S}||$. Ova kriterijumska funkcija se najchesh\-c1e koristi u toku treniranja, kako bi se procenio performans. Autori rada \cite{LBF} koriste algoritam sluchajne shume kako bi odredili funkciju mapiranja tachaka na slici.
+U zavisnosti koja je baza podataka korishc1ena pri treniranju, izlaz modela c1e imati drugachiji broj karakteristichnih tachaka na izlazu. Za $LBF$ model, korish\-c1en je $iBUG\ 300W\ dataset$, koji sadrzhi slike sa ruchno oznachenim 68 tachaka.
+\begin{figure}[h!]
+\centering
+  \includegraphics[scale=0.25]{res/facial_landmarks_68markup.jpg}
+  \caption{Prikaz 68 karakteristichnih tachaka lica}
+  \label{fig:2_4}
+  \vspace{0pt}
+\end{figure}\\
+Od znachaja je primetiti da tachke koje predstavljaju usta imaju indekse od 49 do 68. Rezultate detekcije mozhete videti na narednim slikama.
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.21]{res/168lm.jpg}
+            \caption{168. frejm}
+            \label{fig:2_5a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.21]{res/169lm.jpg}
+            \caption{169. frejm}
+            \label{fig:2_5b}
+            \vspace{0pt}
+        \end{subfigure}
+        \vskip\baselineskip
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.21]{res/170lm.jpg}
+            \caption{170. frejm}
+            \label{fig:2_5c}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.21]{res/171lm.jpg}
+            \caption{171. frejm}
+            \label{fig:2_5d}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Prikaz detektovanih karakteristichnih lica nad frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$}
+        \label{fig:2_3}
+\end{figure}
+\section{$\mathbf{3D}$ model lica}
 \chapter{Rekurentne neuralne mrezhe}
 Neuralne mrezhe su modeli uchenja koji ostvaraju ogroman uspeh u shirokom spektru zadataka superviziranog i nesuperviziranog mashinskog uchenja. Klasichne ($feedforward$) neuralne mrezhe se posebno izdvajaju u problemima klasifikacije. Uprkos njihovoj moc1i, standardne neuralne mrezhe imaju ogranichenja, od kojih je naznachajnije da primeri iz baze podataka moraju biti medjusobno nezavisni. U sluchaju kada su podaci zavisni u vremenu i prostoru ovo nije prihvatljivo. Frejmovi videa, delovi audio signala, rechi iz rechenice predstavljaju primere podataka gde zahtev o medjusobnoj nezavisnosti nije zadovoljen. Rekurentne neuralne mrezhe prevazilaze taj nedostatak i koriste se u sluchahevima kada se podaci mogu prikazati u formi sekvence. One imaju osobinu da selektivno prosledjuju informaciju izmedju koraka sekvence, dok i dalje procesuju jedan po jedan korak.\\
 U ovom poglavlju c1e se prvo baciti kratak osvrt na klasichne ($feedforward$) neuralne mrezhe, a zatim c1e biti detaljnije obradjen pojam razlichitih vrsta rekurentnih neuralnih mrezha.
@@ -1189,20 +1267,22 @@ itemc/.style={item,on chain,join}]
  \draw[very thick, latex-] (hb1) --++ (hb2);
  \draw[very thick, latex-] (hb2) --++ (hbt);
 \end{tikzpicture}
-\caption{Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mrezhe u vremenu}
+\caption{Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mre\-zhe u vremenu}
 \label{fig:12}
 \end{figure}
 Bidirekcione mrezhe mogu da se kombinuju sa $LSTM$ modelom tako shto se umesto obichnih $RNN$ chvorova koriste $LSTM$ c1elije.
 \chapter{Rezultati obuchavanja modela}
 
 \chapter{Sinteza videa}
+\chapter{Zakljuchak}
 
 
 \begin{thebibliography}{99}
-
 \bibitem{OPGpredavanja}
 Djurovic1, Zh. Materijali sa predmeta Obrada i prepoznavanje govora
-\bibitem{kepstrum} 
+\bibitem{MUpredavanja}
+Tadic1, P. Materijali sa predmeta Mashinsko uchenje
+\bibitem{kepstrum}
 Delic1, V. Analiza mel-frekvencijskih kepstralnih koeficijenata kao obelezhja korish\-c1enih pri automat\-skom prepoznavanju govornika
 \bibitem{MFKKlink}
 \fontencoding{T1}\selectfont
@@ -1257,5 +1337,7 @@ Continual prediction with LSTM. Neural computation, 12(10):2451–2471,
 \url{https://opencv.org/}
 \bibitem{Haar}
 Paul Viola, Michael Jones. Rapid Object Detection using a Boosted Cascade of Simple Features. Conference on Computer Vision and Pattern Recognition, 2001.
+\bibitem{LBF}
+Shaoqing Ren, Xudong Cao, Yichen Wei, Jian Sun. Face Alignment at 3000 FPS via Regressing Binary Features, 2014. 
 \end{thebibliography}
 \end{document}
