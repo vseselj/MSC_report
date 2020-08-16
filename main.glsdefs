@@ -1,0 +1,30 @@
+\ifglsentryexists{LSTM}{}%
+{%
+\gls@defglossaryentry{LSTM}%
+{%
+name={LSTM},%
+sort={LSTM},%
+type={main},%
+first={LSTM},%
+firstplural={LSTMs},%
+text={LSTM},%
+plural={LSTMs},%
+description={Long Short-Term Memory},%
+descriptionplural={Long Short-Term Memory},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%

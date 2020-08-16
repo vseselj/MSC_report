@@ -170,10 +170,14 @@
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
     minimum height=2em]
 
+% Glossaries
+\usepackage[acronym]{glossaries}
+
+\newacronym{LSTM}{$LSTM$}{$Long$ $Short$-$Term$ $Memory$}
+\makeglossaries 
 \bibliographystyle{ieeetr}
 
 \begin{document}
-
 \thispagestyle{empty}
 
 \begin{center}
@@ -214,6 +218,10 @@ avgust, 2020.
 
 \newpage
 \listoffigures
+
+\newpage
+\printglossary[title=Skrac1enice, toctitle=Lista skrac1enica, type=\acronymtype]
+
 \chapter*{Uvod} 
 \addcontentsline{toc}{chapter}{Uvod}
 \markboth{Uvod}{Uvod}
@@ -494,9 +502,76 @@ Od znachaja je primetiti da tachke koje predstavljaju usta imaju indekse od 49 d
             \vspace{0pt}
         \end{subfigure}
         \caption{Prikaz detektovanih karakteristichnih tachaka lica nad frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$}
-        \label{fig:2_3}
+        \label{fig:2_5}
 \end{figure}
 \section[$3D$ model lica]{$\mathbf{3D}$ model lica}
+$3D$  morfoloshki modeli lica (eng. $3D$ $Morphable$ $Face$ $Models$-$3DMM$) su moc1an alat u kompjuterskoj viziji. Oni imaju aplikaciju u zadacima gde se zahteva $2D$ precesiranje lica kao shto su, analiza lica, prepoznavanje, estimacija i normalizacija poze \footnote{Estimacija poze predstavlja zadatak da se na osnovu $3D$ modela i njegove slike, $2D$ projekcije, dobiju translacija i rotacija objekta takvi da daju tu $2D$ projekciju}. $3DMM$ su prvi put predlozhene u radu \cite{3DMM} i od tada se primenjuju u razlichitim zadacima. Medjutim, i dalje nisu toliko zastupljeni kao $2D$ metode, poput aktivnog modela izlgeda \cite{AAM} (eng. $Active$ $Appearance$ $Models$-$AAM$), iako imaju odredjene prednosti uodnosu na njih. U $3D$ modelu, poza lica je odvojena od oblika. Njegova projekcija u $2D$ je modelovana od strane modela fizichke kamere. Kamera model predstavlja funkciju koja mapira $3D$ prostor u prostor slike. Takodje, korish\-c1enje $3D$ modela omoguc1ava eksplicitno modelovanje izvora svetla, jer su informacije o povrshini i dubini objekta poznate. Model izvora setla odvaja svetlost od izgleda lica i time jachina svetlosti ne utiche na parametre teksture, kao shto je sluchaj u $AAM$ modelima. Dalje, $3DMM$ mogu da se koriste kako bi se generisala specifichna lica, ili kako bi se generisali podaci za druge algoritme, jer pokrivaju razlichite poze, ukljuchujuc1i i ekstremne kao shto su pogledi iz profila. Ovo poslednje mozhe biti jako znachajno, u sluchaju da se tokom videa govora, menjaju uglovi iz kojih je govornik sniman na takav nachin da deo lica nije vidljiv. Sa druge strane, $3DMM$ su teshki za treniranje i zahtevaju dosta rachunarske snage za izrachunavanje.\\
+Jedan $3DMM$ koji je dostupan na internetu je Sari \footnote{$University$ $of$ $Surrey$-univerzitet iz Velike Britanije} $3DMM$ model lica, koji je predstavljen u radu \cite{SFM}. Model se sastoji od tri nivoa rezolucije, od koji je samo najnizhi dostupan za nekomercijalne svrhe. Uz model, omoguc1ena je $C++$ biblioteka koja olakshava fitovanje poze i oblika na novim slikama (frejmovima) \cite{eos}.\\
+Model se sastoji od dva $PCA$ modela \footnote{eng. $PCA$-$Principal$ $Component$ $Analysis$}: $PCA$ model oblika i $PCA$ model boje (teksture). $PCA$ metod, odnosno metoda Karhunen-Loeve ekspanzije \cite{POpredavanja}, chija je osnovna ideja da redukuje dimenziju vektora obelezhja radi uprosh\-c1avanja modela, a da gubitak informacija i preciznosti bude minimalan. Matoda smatra da se informacija krije u koordinatama velikih raspianja, odnosno varijansi. Lice se mozhe predstaviti kao vektor $S\in\mathbb{R}^{3N}$, koji sadrzhi $x$, $y$ i $z$ komponente oblika (vertekse), i vektora $T\in\mathbb{R}^{3N}$ koji nosi informaciju o $RGB$ boji svakog verteksa. Svaki $PCA$ model $\mathbf{M}$
+\begin{equation}
+\mathbf{M} = (\bar{\mathbf{v}}, \mathbf{\sigma}, \mathbf{V})
+\end{equation}
+se sastoji od komponenti $\bar{\mathbf{v}}\in\mathbb{R}^{3N}$, koji predstavljaju srednju vrednost $3D$ poligone mrezhe (eng. $polygonal$ $mesh$), skupa principijalnih komponenti $\mathbf{V}=[\mathbf{v}_1,...,\mathbf{v}_{n-1}]\in\mathbb{R}^{3N\times(n-1)}$ i standardne devijacije $\mathbf{\sigma}\in\mathbb{R}^{n-1}$, gde je $n$ broj $3D$ skenova koji su korish\-c1eni za pravljenje modela. Nova lica se mogu generisati izrachunavanjem
+\begin{equation}
+\mathbf{S} = \bar{\mathbf{v}}+\sum^M_i\mathbf{\alpha}_i\mathbf{\sigma}_i\mathbf{v}_i
+\end{equation}
+za oblik, gde je $M\le n-1$ je broj principjalnih komponenti i $\mathbf{\alpha}in\mathbb{R}^{M}$ su $3D$ koordinate nove instance u $PCA$ prostoru. Slichan metod se mozhe primeniti i za boju (albedo).\\
+$SFM$ je izgradjen na velikom broju $3D$ skenova visoke rezolucije lica ljudi razlhite starosne dobi i razlhite boje kozhe. Vazhan podatak je da se u samom setu najmanje najmanje tamnoputih lica (oko $5\%$), ali zbog neposedovanja drugih $3DMM$ modela, odlucheno je da se ostane pri $SFM$. 
+\begin{figure}[h!]
+\centering
+  \includegraphics[scale=0.7]{res/Scan3DMM.png}
+  \caption{Proces dobijanja jednog $3D$ skena za bazu podataka}
+  \label{fig:2_6}
+  \vspace{0pt}
+\end{figure}\\
+Iz skenova se formaraju vektori verteksa i vektori boja. U zavisnosti od nivoa rezolucije modela, ti vektori su razlichite dimenzije. Iz vektora verteksa i boja rachunaju se matrice kovarijanse iz kojih se chuvaju sopstveni vektori: 63 za oblik i 132 za boju.. Raspolozhiva biblioteka ukljuchuje metode potrebne za fitovanje poze, oblika i moguc1nost frontalizacije lica. Za dati set $2D$ karakteristichnih tachaka lica potrebo je znati u koje tachno vertekse model kamere slika te tachke, kao shto je to sluchaj za shiroko zastupljene $iBUG$ 68 karakteristichnih tachaka. U tom sluchaju, dobijanje modela kamere se svodi na reshavanje linearnog sistema jednachina. $3D$ koordinate oblika u $PCA$ prostoru $\mathbf{\alpha}$ se mogu nac1i minimizovanjem
+\begin{equation}
+\mathbb{E} = \sum^{3N}_i \frac{(y_{m2D,i}-y_i)^2}{2\mathbf{\sigma}^2_{2D}}+||\mathbf{\alpha}||
+\end{equation}
+gde je $N$ broj karakteristichnih tachaka, $y$ su detektovane ili oznachene karakteristichne tachke, $\mathbf{\sigma}^2_{2D}$ je opciona varijansa ovih karakteristihnih tachaka i $y_{m2D}$ je projekcija od $3DMM$ oblika u $2D$ dobijena korish\-c1enjem estimiranog modela kamere. Slichno se mozhe primeniti i za model teksture.
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.25]{res/168_3D.jpg}
+            \caption{168. frejm}
+            \label{fig:2_7a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.25]{res/169_3D.jpg}
+            \caption{169. frejm}
+            \label{fig:2_7b}
+            \vspace{0pt}
+        \end{subfigure}
+        \vskip\baselineskip
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.25]{res/170_3D.jpg}
+            \caption{170. frejm}
+            \label{fig:2_7c}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.25]{res/171_3D.jpg}
+            \caption{171. frejm}
+            \label{fig:2_7d}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Prikaz generisanih $3D$ modela lica iz frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$}
+        \label{fig:2_7}
+\end{figure}
+Korish\-c1enje date biblioteke zahteva dosta procerskog vremena. Uz korish\-c1enje kompajlerskih optimizacija dostupnim u okviru programskog jezika $C++$, smanjivanjem rezoluzije videa na $480p$, $\SI{17}{h}$ video materijala je obradjeno za dve nedelje. Dobijen $3D$ model je zapisan u formatu $.obj$, koji predstavlja format koji se mozhe otvarati u programima poput $3D\ Paint$. Format $.obj$ je chitljiv tekstualni fajl \cite{obj} koji sadrzhi listu verteksa sa njihobim koordinatama, listu poligonalnih oblika koju ti verteksi formiraju, kao i informacije o teksturi svake poligonalne povrshi. Tekstura se chuva u formi izomape. Kao shto je vec1 naglasheno, biblioteka obezbedjuje i znanje o tome u koje se vertekse slika 68 karakteristichnih tachaka. Birajuc1i samo one vertekse koji predstavljaju $3D$ projekciju tachaka koji pripadaju regionu usta, dobija se 17 tachaka sa tri koordinate, shto daje izlazni vektor dimenzije 54.
+\begin{figure}[h!]
+\centering
+  \includegraphics[scale=0.7]{res/iBUG68toSFM.jpg}
+  \caption{Deo fajla koji prikazuje mapiranje izmedju karakteristichnih tachaka (levo) i indeksa verteksa (desno)}
+  \label{fig:2_8}
+  \vspace{0pt}
+\end{figure}\\
 \chapter{Rekurentne neuralne mrezhe}
 Neuralne mrezhe su modeli uchenja koji ostvaraju ogroman uspeh u shirokom spektru zadataka superviziranog i nesuperviziranog mashinskog uchenja. Klasichne ($feedforward$) neuralne mrezhe se posebno izdvajaju u problemima klasifikacije. Uprkos njihovoj moc1i, standardne neuralne mrezhe imaju ogranichenja, od kojih je naznachajnije da primeri iz baze podataka moraju biti medjusobno nezavisni. U sluchaju kada su podaci zavisni u vremenu i prostoru ovo nije prihvatljivo. Frejmovi videa, delovi audio signala, rechi iz rechenice predstavljaju primere podataka gde zahtev o medjusobnoj nezavisnosti nije zadovoljen. Rekurentne neuralne mrezhe prevazilaze taj nedostatak i koriste se u sluchahevima kada se podaci mogu prikazati u formi sekvence. One imaju osobinu da selektivno prosledjuju informaciju izmedju koraka sekvence, dok i dalje procesuju jedan po jedan korak.\\
 U ovom poglavlju c1e se prvo baciti kratak osvrt na klasichne ($feedforward$) neuralne mrezhe, a zatim c1e biti detaljnije obradjen pojam razlichitih vrsta rekurentnih neuralnih mrezha.
@@ -763,7 +838,7 @@ Jedno reshenje problema nestajuc1eg gradijenta je skrec1ena propagacija u nazad 
 \section{Moderne arhitekture rekurentnih neuralnih mrezha}
 Najuspeshnija arhitektura rekurenntih neuralnih mrezha koja prevazilazi probleme obuchavanja duzhih vremenskih zavisnosti u sekvencama, predstaljena je u radu \cite{LSTM}. Ovaj model se naziva $Long\ Short$-$Term\ Memory - LSTM$. Drugi rad, \cite{BLSTM}, uvodi arhitekturu bidirekcionih rekurentnih neuralnih mrezha (eng. $Bidirectional$ $Reccurent$ $Neural$ $Networks$-$BRNN$), u kojoj informacija i iz proshlosti i iz buduc1nosti mozhe da se koristi da se odredi izlaz u svakom vremenskom trenutku. Ovo je u suprotnosti sa prethodnim radovima, u kojima su se samo ulazi iz proshlosti uticali na trenutni izlaz. Takodje, $LSTM$ i $BRNN$ je moguc1e kombinovati da bi se dobila $Bidirectional\ LSTM$ arhitektura.
 \subsection[$LSTM$ model]{$\mathbf{LSTM}$ model}
-$Hochreiter$ i $Schmidhuber$ u \cite{LSTM} su uveli $LSTM$ model primarno kako bi prevazishli problem nestajuc1eg graddijenta. Ovaj model predstavlja standardnu rekurentnu nuralnu mrezhu sa skrivenim slojem (slika \ref{fig:9}), ali klasichni chvor je zamenjen sa memorijskom c1elijom (slika \ref{LSTMcell}).
+$Hochreiter$ i $Schmidhuber$ u \cite{LSTM} su uveli \acrshort{LSTM} model primarno kako bi prevazishli problem nestajuc1eg graddijenta. Ovaj model predstavlja standardnu rekurentnu nuralnu mrezhu sa skrivenim slojem (slika \ref{fig:9}), ali klasichni chvor je zamenjen sa memorijskom c1elijom (slika \ref{LSTMcell}).
 \begin{figure}[!h]
 \hspace*{0.15\linewidth}
 \newcommand{\empt}[2]{$#1^{\langle #2 \rangle}$}
@@ -1280,6 +1355,8 @@ Bidirekcione mrezhe mogu da se kombinuju sa $LSTM$ modelom tako shto se umesto o
 \begin{thebibliography}{99}
 \bibitem{OPGpredavanja}
 Djurovic1, Zh. Materijali sa predmeta Obrada i prepoznavanje govora
+\bibitem{POpredavanja}
+Djurovic1, Zh. Materijali sa predmeta Prepoznavanje oblika
 \bibitem{MUpredavanja}
 Tadic1, P. Materijali sa predmeta Mashinsko uchenje
 \bibitem{kepstrum}
@@ -1338,6 +1415,18 @@ Continual prediction with LSTM. Neural computation, 12(10):2451–2471,
 \bibitem{Haar}
 Paul Viola, Michael Jones. Rapid Object Detection using a Boosted Cascade of Simple Features. Conference on Computer Vision and Pattern Recognition, 2001.
 \bibitem{LBF}
-Shaoqing Ren, Xudong Cao, Yichen Wei, Jian Sun. Face Alignment at 3000 FPS via Regressing Binary Features, 2014. 
+Shaoqing Ren, Xudong Cao, Yichen Wei, Jian Sun. Face Alignment at 3000 FPS via Regressing Binary Features, 2014.
+\bibitem{3DMM}
+Blanz, V. and Vetter, T. (1999). A Morphable Model for the
+synthesis of 3D faces. In Proceedings of the 26th Annual Conference on Computer Graphics and Interactive Techniques (SIGGRAPH), pages 187–194. ACM
+Press/Addison-Wesley Publishing Co.
+\bibitem{AAM}
+Cootes, T., Edwards, G., and Taylor, C. (2001). Active appearance models. IEEE Transactions on Pattern Analysis and Machine Intelligence, 23(6):681–685.
+\bibitem{SFM}
+Patrik Huber, Guosheng Hu, Rafael Tena, Pouria Mortazavian, Willem P. Koppen, William Christmas, Matthias R{\"a}tsch and Josef Kittler. A Multiresolution 3D Morphable Face Model and Fitting Framework. Centre for Vision, Speech \& Signal Processing, University of Surrey. 2016
+\bibitem{eos}
+\url{https://github.com/patrikhuber/eos}
+\bibitem{obj}
+\url{https://en.wikipedia.org/wiki/Wavefront_.obj_file}
 \end{thebibliography}
 \end{document}

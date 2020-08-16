@@ -1,39 +1,46 @@
 \babel@toc {serbian}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Govorni frekvencijski opseg podeljen na 10 mel filtara\relax }}{9}{figure.caption.5}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Normalizovani audio signal nasumichno izabran iz baze\relax }}{11}{figure.caption.6}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Prikaz glasovnih obelezhja\relax }}{11}{figure.caption.7}%
-\contentsline {subfigure}{\numberline {1.3a}{\ignorespaces Prvi MFKK\relax }}{11}{figure.caption.7}%
-\contentsline {subfigure}{\numberline {1.3b}{\ignorespaces Delta prvog MFKK\relax }}{11}{figure.caption.7}%
-\contentsline {subfigure}{\numberline {1.3c}{\ignorespaces Shesti MFKK\relax }}{11}{figure.caption.7}%
-\contentsline {subfigure}{\numberline {1.3d}{\ignorespaces Delta shestog MFKK\relax }}{11}{figure.caption.7}%
-\contentsline {subfigure}{\numberline {1.3e}{\ignorespaces Dvanaesti MFKK\relax }}{11}{figure.caption.7}%
-\contentsline {subfigure}{\numberline {1.3f}{\ignorespaces Delta dvanaestog MFKK\relax }}{11}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Govorni frekvencijski opseg podeljen na 10 mel filtara\relax }}{11}{figure.caption.5}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Normalizovani audio signal nasumichno izabran iz baze\relax }}{13}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Prikaz glasovnih obelezhja\relax }}{13}{figure.caption.7}%
+\contentsline {subfigure}{\numberline {1.3a}{\ignorespaces Prvi MFKK\relax }}{13}{figure.caption.7}%
+\contentsline {subfigure}{\numberline {1.3b}{\ignorespaces Delta prvog MFKK\relax }}{13}{figure.caption.7}%
+\contentsline {subfigure}{\numberline {1.3c}{\ignorespaces Shesti MFKK\relax }}{13}{figure.caption.7}%
+\contentsline {subfigure}{\numberline {1.3d}{\ignorespaces Delta shestog MFKK\relax }}{13}{figure.caption.7}%
+\contentsline {subfigure}{\numberline {1.3e}{\ignorespaces Dvanaesti MFKK\relax }}{13}{figure.caption.7}%
+\contentsline {subfigure}{\numberline {1.3f}{\ignorespaces Delta dvanaestog MFKK\relax }}{13}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Konvolucioni kerneli za izrachunavanje Harovih obelezhja\relax }}{12}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Prikaz izrachunavanja dva Harova obelezhja\relax }}{13}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Prikaz detektovanih lica nad frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$\relax }}{14}{figure.caption.10}%
-\contentsline {subfigure}{\numberline {2.3a}{\ignorespaces 168. frejm\relax }}{14}{figure.caption.10}%
-\contentsline {subfigure}{\numberline {2.3b}{\ignorespaces 169. frejm\relax }}{14}{figure.caption.10}%
-\contentsline {subfigure}{\numberline {2.3c}{\ignorespaces 170. frejm\relax }}{14}{figure.caption.10}%
-\contentsline {subfigure}{\numberline {2.3d}{\ignorespaces 171. frejm\relax }}{14}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Prikaz 68 karakteristichnih tachaka lica\relax }}{15}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Prikaz detektovanih karakteristichnih tachaka lica nad frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$\relax }}{15}{figure.caption.12}%
-\contentsline {subfigure}{\numberline {2.5a}{\ignorespaces 168. frejm\relax }}{15}{figure.caption.12}%
-\contentsline {subfigure}{\numberline {2.5b}{\ignorespaces 169. frejm\relax }}{15}{figure.caption.12}%
-\contentsline {subfigure}{\numberline {2.5c}{\ignorespaces 170. frejm\relax }}{15}{figure.caption.12}%
-\contentsline {subfigure}{\numberline {2.5d}{\ignorespaces 171. frejm\relax }}{15}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Konvolucioni kerneli za izrachunavanje Harovih obelezhja\relax }}{14}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Prikaz izrachunavanja dva Harova obelezhja\relax }}{15}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Prikaz detektovanih lica nad frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$\relax }}{16}{figure.caption.10}%
+\contentsline {subfigure}{\numberline {2.3a}{\ignorespaces 168. frejm\relax }}{16}{figure.caption.10}%
+\contentsline {subfigure}{\numberline {2.3b}{\ignorespaces 169. frejm\relax }}{16}{figure.caption.10}%
+\contentsline {subfigure}{\numberline {2.3c}{\ignorespaces 170. frejm\relax }}{16}{figure.caption.10}%
+\contentsline {subfigure}{\numberline {2.3d}{\ignorespaces 171. frejm\relax }}{16}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Prikaz 68 karakteristichnih tachaka lica\relax }}{17}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Prikaz detektovanih karakteristichnih tachaka lica nad frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$\relax }}{17}{figure.caption.12}%
+\contentsline {subfigure}{\numberline {2.5a}{\ignorespaces 168. frejm\relax }}{17}{figure.caption.12}%
+\contentsline {subfigure}{\numberline {2.5b}{\ignorespaces 169. frejm\relax }}{17}{figure.caption.12}%
+\contentsline {subfigure}{\numberline {2.5c}{\ignorespaces 170. frejm\relax }}{17}{figure.caption.12}%
+\contentsline {subfigure}{\numberline {2.5d}{\ignorespaces 171. frejm\relax }}{17}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Proces dobijanja jednog $3D$ skena za bazu podataka\relax }}{19}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Prikaz generisanih $3D$ modela lica iz frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$\relax }}{19}{figure.caption.14}%
+\contentsline {subfigure}{\numberline {2.7a}{\ignorespaces 168. frejm\relax }}{19}{figure.caption.14}%
+\contentsline {subfigure}{\numberline {2.7b}{\ignorespaces 169. frejm\relax }}{19}{figure.caption.14}%
+\contentsline {subfigure}{\numberline {2.7c}{\ignorespaces 170. frejm\relax }}{19}{figure.caption.14}%
+\contentsline {subfigure}{\numberline {2.7d}{\ignorespaces 171. frejm\relax }}{19}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Deo fajla koji prikazuje mapiranje izmedju karakteristichnih tachaka (levo) i indeksa verteksa (desno)\relax }}{20}{figure.caption.15}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Shemat\-ski prikaz veshtachkog neurona\relax }}{17}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Shemtaski prikaz visheslojne $feedforward$ neuralne mrezhe\relax }}{18}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Shemat\-ski prikaz odmotane rekurentne neuralne mrezhe u vremenu\relax }}{20}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Shemat\-ski prikaz D2ordanovog modela\relax }}{21}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Shemat\-ski prikaz Elmanovog modela\relax }}{21}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces $LSTM$ memorijska c1elija\relax }}{23}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces $Input\ gate$\relax }}{24}{figure.caption.19}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces $Forget\ gate$\relax }}{24}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces $Output\ gate$\relax }}{25}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mre\-zhe u vremenu\relax }}{26}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Shemat\-ski prikaz veshtachkog neurona\relax }}{21}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Shemtaski prikaz visheslojne $feedforward$ neuralne mrezhe\relax }}{22}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Shemat\-ski prikaz odmotane rekurentne neuralne mrezhe u vremenu\relax }}{24}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Shemat\-ski prikaz D2ordanovog modela\relax }}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Shemat\-ski prikaz Elmanovog modela\relax }}{25}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces $LSTM$ memorijska c1elija\relax }}{27}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces $Input\ gate$\relax }}{28}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces $Forget\ gate$\relax }}{28}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces $Output\ gate$\relax }}{29}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mre\-zhe u vremenu\relax }}{30}{figure.caption.25}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
