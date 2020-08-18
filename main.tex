@@ -186,6 +186,7 @@
 \newacronym{TBPTT}{$TBPTT$}{$Truncated$ $Backpropagation$ $Trough$ $Time$}
 \newacronym{BRNN}{$BRNN$}{$Bidirectional$ $Recurrent$ $Neural$ $Networks$}
 \newacronym{RNN}{$RNN$}{$Recurrent$ $Neural$ $Networks$}
+\newacronym{MSE}{$MSE$}{$Mean$ $Square$ $Error$}
 \bibliographystyle{ieeetr}
 
 \begin{document}
@@ -1356,8 +1357,107 @@ Bidirekcione mrezhe mogu da se kombinuju sa \acrshort{LSTM} modelom tako shto se
 U ovom poglavlju c1e biti predstavljeni razultati obuchavanja razlichitih modlea rekurentnih neuralnih mrezha.\\
 Obelezhja govora i obelezhja videa se koriste kao ulazne i izlazne sekvence predlozhenih rekurentnih neuralnih mrezha. Obelezhja su dobijena iz $\SI{17}{h}$ dugog video materijala dostupnog na sajtu $YouTube$. Videi predstavljaju nedeljna obrac1anja naciji predsednika Obame, u periodu od 2009. do 2016. godine. Videi su morali biti u manjoj rezoluciji, $480p$, kako bi izdvajanje oblika usta bilo uradjeno u razumnom periodu.\\
 U poglavlju \ref{X} je objash\-njen nachin na koji se dolazi do ulazne sekvence. Mozhe se primetiti da je perioda izmedju dva vektora ulazne sekvence, vec1a od periode izmedju dva vektora sekvence izlaza. Perioda izmedju dva \acrshort{MFKK} je uslovljena duzhinom prozora na koje se dele audio signali, kao i duzhinom preklapanja dva susedna prozora, dok je perioda izmedju dva oblika usta uslovljena brojem frejmova u sekudni videa. Stoga je potrebno  izvrshiti interpolaciju izlaznih sekvenci, kako bi se ulazne i izlazne sekvence svele na istu periodu. Pored toga, obelezhja govora se normalizuju. Radi potreba obuchavanja, celokupan set se deli na trenirajuc1i i validacioni skup sa verovatnoc1om $0.2$.\\
-Svi modeli su realizovani uz pomoc1 biblioteke $TensorFlow$ \cite{TF}, gde je korish\-c1en $Keras$ $API$. Prelozheni su razlichiti \acrshort{LSTM} i \acrshort{BRNN} modeli, za chije obuchavanje je izabran $Adam$ \cite{Adam} optimizator. Za vrednost brzine obuchavanja $\alpha$ uzeta je vrednost $0.01$. Radi sprechavanja problema eksplodirajuc1eg gradijenta, za gradijent za sve parametre gradijent se klipuje na vrednost 100.
+Svi modeli su realizovani uz pomoc1 biblioteke $TensorFlow$ \cite{TF}, gde je korish\-c1en $Keras$ $API$. Prelozheni su razlichiti \acrshort{LSTM} i \acrshort{BRNN} modeli, za chije obuchavanje je izabran $Adam$ \cite{Adam} optimizator. Za vrednost brzine obuchavanja $\alpha$ uzeta je vrednost $0.01$. Radi sprechavanja problema eksplodirajuc1eg gradijenta, za gradijent za sve parametre gradijent se klipuje na vrednost 100. Za kriterijumsku funkciju je uzeta srednja kvadratna greshka (\acrshort{MSE}). Hardverske specifikacije rachunara na kome je izvrsheno obuchavanje modela su: procesor $Intel$ $i5$-$8300H$ sa $\SI{16}{GB}$ $RAM$ memorije i grafichkom karticom $NVIDIA$ $GeForce$ $1050Ti$ sa $\SI{4}{GB}$ memorije. Vreme treniranja modela zavisi od komplesnosti modela, ali u proseku za 20 epoha je potrebno nekoliko sati.
 
+\section[$LSTM$ model]{$\mathbf{LSTM}$ modeli}
+U ovom delu bic1e prikazani razultati obuchavanja \acrshort{LSTM} modela. Parametar koji varira je dimenzija stanja c1elije $n$ u intervalu od 20 do 150. Prvobitno je pokushano sa jednim slojem skrivenih rekuretnih \acrshort{LSTM} c1elija, a kasnije je vidjen performas i visheslojnih mrezha.
+\newpage
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_30units_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_1a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_30units_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_1b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{LSTM} mrezha sa $n=30$}
+        \label{fig:4_1}
+\end{figure}
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_60units_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_2a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_60units_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_2b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{LSTM} mrezha sa $n=60$}
+        \label{fig:4_2}
+\end{figure}
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_90units_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_3a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_90units_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_3b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{LSTM} mrezha sa $n=90$}
+        \label{fig:4_3}
+\end{figure}
+\newpage
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_120units_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_4a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_120units_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_4b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{LSTM} mrezha sa $n=120$}
+        \label{fig:4_4}
+\end{figure}
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_150units_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_5a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.45]{res/SingleLayerLSTM_150units_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_5b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{LSTM} mrezha sa $n=120$}
+        \label{fig:4_5}
+\end{figure}
 \chapter{Sinteza videa}
 \chapter{Zakljuchak}
 

@@ -20,8 +20,9 @@
 \contentsline {subsection}{\numberline {3.4.1}$LSTM$ model}{24}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}$BRNN$ model}{26}{subsection.3.4.2}%
 \contentsline {chapter}{\numberline {4}Rezultati obuchavanja modela}{28}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Sinteza videa}{29}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Zakljuchak}{30}{chapter.6}%
-\contentsline {chapter}{Literatura}{31}{chapter*.25}%
-\contentsline {chapter}{Spisak slika}{33}{chapter*.26}%
-\contentsline {chapter}{Spisak skrac1enica}{35}{chapter*.26}%
+\contentsline {section}{\numberline {4.1}$LSTM$ model}{28}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Sinteza videa}{31}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Zakljuchak}{32}{chapter.6}%
+\contentsline {chapter}{Literatura}{33}{chapter*.30}%
+\contentsline {chapter}{Spisak slika}{35}{chapter*.31}%
+\contentsline {chapter}{Spisak skrac1enica}{37}{chapter*.31}%
