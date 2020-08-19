@@ -29,33 +29,48 @@
 \contentsline {subfigure}{\numberline {2.7b}{\ignorespaces 169. frejm\relax }}{16}{figure.caption.13}%
 \contentsline {subfigure}{\numberline {2.7c}{\ignorespaces 170. frejm\relax }}{16}{figure.caption.13}%
 \contentsline {subfigure}{\numberline {2.7d}{\ignorespaces 171. frejm\relax }}{16}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Deo fajla koji prikazuje mapiranje izmedju karakteristichnih tachaka (levo) i indeksa verteksa (desno)\relax }}{17}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Prikaz izabranih verteksa\relax }}{18}{figure.caption.15}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Shemat\-ski prikaz veshtachkog neurona\relax }}{18}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Shemtaski prikaz visheslojne $feedforward$ neuralne mrezhe\relax }}{19}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Shemat\-ski prikaz odmotane rekurentne neuralne mrezhe u vremenu\relax }}{21}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Shemat\-ski prikaz D2ordanovog modela\relax }}{22}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Shemat\-ski prikaz Elmanovog modela\relax }}{22}{figure.caption.19}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \acrshort {LSTM} memorijska c1elija\relax }}{24}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces $Input\ gate$\relax }}{25}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces $Forget\ gate$\relax }}{25}{figure.caption.22}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces $Output\ gate$\relax }}{26}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mre\-zhe u vremenu\relax }}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Shemat\-ski prikaz veshtachkog neurona\relax }}{19}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Shemtaski prikaz visheslojne $feedforward$ neuralne mrezhe\relax }}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Shemat\-ski prikaz odmotane rekurentne neuralne mrezhe u vremenu\relax }}{22}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Shemat\-ski prikaz D2ordanovog modela\relax }}{23}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Shemat\-ski prikaz Elmanovog modela\relax }}{23}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \acrshort {LSTM} memorijska c1elija\relax }}{25}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces $Input\ gate$\relax }}{26}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces $Forget\ gate$\relax }}{26}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces $Output\ gate$\relax }}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Shemat\-ski prikaz odmotane bidirekcione rekurentne neuralne mre\-zhe u vremenu\relax }}{28}{figure.caption.25}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=30$\relax }}{29}{figure.caption.25}%
-\contentsline {subfigure}{\numberline {4.1a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{29}{figure.caption.25}%
-\contentsline {subfigure}{\numberline {4.1b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{29}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=60$\relax }}{29}{figure.caption.26}%
-\contentsline {subfigure}{\numberline {4.2a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{29}{figure.caption.26}%
-\contentsline {subfigure}{\numberline {4.2b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{29}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=90$\relax }}{29}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {4.3a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{29}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {4.3b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{29}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=120$\relax }}{30}{figure.caption.28}%
-\contentsline {subfigure}{\numberline {4.4a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{30}{figure.caption.28}%
-\contentsline {subfigure}{\numberline {4.4b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{30}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=120$\relax }}{30}{figure.caption.29}%
-\contentsline {subfigure}{\numberline {4.5a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{30}{figure.caption.29}%
-\contentsline {subfigure}{\numberline {4.5b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{30}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=30$\relax }}{30}{figure.caption.26}%
+\contentsline {subfigure}{\numberline {4.1a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{30}{figure.caption.26}%
+\contentsline {subfigure}{\numberline {4.1b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{30}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=60$\relax }}{30}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {4.2a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{30}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {4.2b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{30}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=90$\relax }}{30}{figure.caption.28}%
+\contentsline {subfigure}{\numberline {4.3a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{30}{figure.caption.28}%
+\contentsline {subfigure}{\numberline {4.3b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{30}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=150$\relax }}{31}{figure.caption.29}%
+\contentsline {subfigure}{\numberline {4.4a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{31}{figure.caption.29}%
+\contentsline {subfigure}{\numberline {4.4b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{31}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Jednoslojna \acrshort {LSTM} mrezha sa $n=150$\relax }}{31}{figure.caption.30}%
+\contentsline {subfigure}{\numberline {4.5a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{31}{figure.caption.30}%
+\contentsline {subfigure}{\numberline {4.5b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{31}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Jednoslojna \acrshort {BRNN} mrezha sa $n=30$\relax }}{32}{figure.caption.31}%
+\contentsline {subfigure}{\numberline {4.6a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{32}{figure.caption.31}%
+\contentsline {subfigure}{\numberline {4.6b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{32}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Jednoslojna \acrshort {BRNN} mrezha sa $n=60$\relax }}{32}{figure.caption.32}%
+\contentsline {subfigure}{\numberline {4.7a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{32}{figure.caption.32}%
+\contentsline {subfigure}{\numberline {4.7b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{32}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Jednoslojna \acrshort {BRNN} mrezha sa $n=90$\relax }}{32}{figure.caption.33}%
+\contentsline {subfigure}{\numberline {4.8a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{32}{figure.caption.33}%
+\contentsline {subfigure}{\numberline {4.8b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{32}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Jednoslojna \acrshort {BRNN} mrezha sa $n=150$\relax }}{33}{figure.caption.34}%
+\contentsline {subfigure}{\numberline {4.9a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{33}{figure.caption.34}%
+\contentsline {subfigure}{\numberline {4.9b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{33}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Jednoslojna \acrshort {BRNN} mrezha sa $n=150$\relax }}{33}{figure.caption.35}%
+\contentsline {subfigure}{\numberline {4.10a}{\ignorespaces \acrshort {MSE} na trenirajuc1em skupu\relax }}{33}{figure.caption.35}%
+\contentsline {subfigure}{\numberline {4.10b}{\ignorespaces \acrshort {MSE} na validacionom skupu\relax }}{33}{figure.caption.35}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
