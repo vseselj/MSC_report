@@ -222,7 +222,7 @@ avgust, 2020.
 \end{center}
 
 \chapter*{Zahvalnica}
-% \addcontentsline{toc}{chapter}{Zahvalnica}
+
 
 \newpage
 \tableofcontents
@@ -540,14 +540,14 @@ gde je $N$ broj karakteristichnih tachaka, $y$ su detektovane ili oznachene kara
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.25]{res/168_3D.jpg}
+            \includegraphics[scale=0.3]{res/168_3D.jpg}
             \caption{168. frejm}
             \label{fig:2_7a}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.25]{res/169_3D.jpg}
+            \includegraphics[scale=0.3]{res/169_3D.jpg}
             \caption{169. frejm}
             \label{fig:2_7b}
             \vspace{0pt}
@@ -556,14 +556,14 @@ gde je $N$ broj karakteristichnih tachaka, $y$ su detektovane ili oznachene kara
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.25]{res/170_3D.jpg}
+            \includegraphics[scale=0.3]{res/170_3D.jpg}
             \caption{170. frejm}
             \label{fig:2_7c}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.25]{res/171_3D.jpg}
+            \includegraphics[scale=0.3]{res/171_3D.jpg}
             \caption{171. frejm}
             \label{fig:2_7d}
             \vspace{0pt}
@@ -571,63 +571,62 @@ gde je $N$ broj karakteristichnih tachaka, $y$ su detektovane ili oznachene kara
         \caption{Prikaz generisanih $3D$ modela lica iz frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$}
         \label{fig:2_7}
 \end{figure}\\
-Korish\-c1enje date biblioteke zahteva dosta procerskog vremena. Uz korish\-c1enje kompajlerskih optimizacija dostupnim u okviru programskog jezika $C++$, smanjivanjem rezoluzije videa na $480p$, $\SI{17}{h}$ video materijala je obradjeno za dve nedelje. Dobijen $3D$ model je zapisan u formatu $.obj$, koji predstavlja format koji se mozhe otvarati u programima poput $3D\ Paint$. Format $.obj$ je chitljiv tekstualni fajl \cite{obj} koji sadrzhi listu verteksa sa njihobim koordinatama, listu poligonalnih oblika koju ti verteksi formiraju, kao i informacije o teksturi svake poligonalne povrshi. Tekstura se chuva u formi izomape. Kao shto je vec1 naglasheno, biblioteka obezbedjuje i znanje o tome u koje se vertekse slika 68 karakteristichnih tachaka. Birajuc1i samo one vertekse koji predstavljaju $3D$ projekciju tachaka koji pripadaju regionu usta, dobija se 17 tachaka sa tri koordinate, shto daje izlazni vektor dimenzije 54.\\
-\begin{table}
-\begin{center}
- \begin{tabular}{||c|c||} 
- \hline
- Indeks tachke medju 68 karakteristichnih tachaka & Indeks verteksau $3D$ modelu\\[0.5ex]
- \hline\hline
- 49 & 398\\
- \hline
- 50 & 315\\
- \hline
- 51 & 413\\
- \hline
- 52 & 329\\
- \hline
- 53 & 825\\
- \hline	
- 54 & 736\\
- \hline	
- 55 & 812\\
- \hline	
- 56 & 841\\
- \hline	
- 57 & 693\\
- \hline	
- 58 & 411\\
- \hline	
- 59 & 264\\
- \hline	
- 60 & 431\\
- \hline	
- 61 & nije definisan\\
- \hline	
- 62 & 416\\
- \hline	
- 63 & 423\\
- \hline	
- 64 & 828\\
- \hline	
- 65 & nije definisan\\
- \hline	
- 66 & 817\\
- \hline	
- 67 & 442\\
- \hline	
- 68 & 404\\
- \hline	
-\end{tabular}
-\end{center}
-\caption{Prikaz mapiranja karakteristichnih tachaka usta na $3D$ model}
+Korish\-c1enje date biblioteke zahteva dosta procerskog vremena. Uz pomoc1 kompajlerskih optimizacija dostupnim u okviru programskog jezika $C++$, smanjivanjem rezoluzije videa na $480p$, $\SI{17}{h}$ video materijala je obradjeno za dve nedelje. Dobijen $3D$ model je zapisan u formatu $.obj$, koji predstavlja format koji se mozhe otvarati u programima poput $3D\ Paint$. Format $.obj$ je chitljiv tekstualni fajl \cite{obj} koji sadrzhi listu verteksa sa njihovim koordinatama, listu poligonalnih oblika koje ti verteksi formiraju, kao i informacije o teksturi svake poligonalne povrshi. Tekstura se chinformaciju o tome u koje se vertekse slika 68 karakteristichnih tachaka. Birajuc1i samo one vertekse koji predstavljaju $3D$ projekciju tachaka koji pripadaju regionu usta, dobija se 17 tachaka sa tri koordinate, shto daje izlazni vektor dimenzije 54.
+\begin{table}[!h]
+	\begin{center}
+		\scalebox{0.6}{\begin{tabular}{||c|c||} 
+ 		\hline
+ 		Indeks tachke medju 68 karakteristichnih tachaka & Indeks verteksa u $3D$ modelu\\[0.5ex]
+ 		\hline\hline
+ 		49 & 398\\
+ 		\hline
+ 		50 & 315\\
+ 		\hline
+ 		51 & 413\\
+ 		\hline
+ 		52 & 329\\
+ 		\hline
+ 		53 & 825\\
+ 		\hline	
+ 		54 & 736\\
+ 		\hline	
+ 		55 & 812\\
+ 		\hline	
+ 		56 & 841\\
+ 		\hline	
+ 		57 & 693\\
+ 		\hline	
+ 		58 & 411\\
+ 		\hline	
+ 		59 & 264\\
+ 		\hline	
+ 		60 & 431\\
+ 		\hline	
+ 		61 & nije definisan\\
+ 		\hline	
+ 		62 & 416\\
+ 		\hline	
+ 		63 & 423\\
+ 		\hline	
+ 		64 & 828\\
+ 		\hline	
+ 		65 & nije definisan\\
+ 		\hline	
+ 		66 & 817\\
+ 		\hline	
+ 		67 & 442\\
+ 		\hline	
+ 		68 & 404\\
+ 		\hline	
+		\end{tabular}}
+	\end{center}
+\caption{Mapiranje karakteristichnih tachaka usta na $3D$ model}
 \label{tab:3_1}
 \end{table}
-\newpage
 \begin{figure}[h!]
 \centering
   \includegraphics[scale=0.45]{res/verteksi.png}
-  \caption{Prikaz izabranih verteksa}
+  \caption{Prikaz odabranih verteksa}
   \label{fig:2_9}
   \vspace{0pt}
 \end{figure}

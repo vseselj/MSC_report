@@ -12,19 +12,19 @@
 \contentsline {section}{\numberline {2.1}Detekcija lica}{11}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Detekcija karakteristichnih tachaka lica}{13}{section.2.2}%
 \contentsline {section}{\numberline {2.3}$3D$ model lica}{15}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Rekurentne neuralne mrezhe}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Pregled veshtachkih neuralnih mrezha}{19}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Rani modeli rekurentnih neuralnih mrezha}{21}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Obuchavanje rekurentnih neuralnih mrezha}{23}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Moderne arhitekture rekurentnih neuralnih mrezha}{24}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}$LSTM$ model}{25}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}$BRNN$ model}{27}{subsection.3.4.2}%
-\contentsline {chapter}{\numberline {4}Rezultati obuchavanja modela}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}$LSTM$ modeli}{29}{section.4.1}%
-\contentsline {section}{\numberline {4.2}$BRNN$ modeli}{31}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Sinteza videa}{34}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Zakljuchak}{35}{chapter.6}%
-\contentsline {chapter}{Literatura}{36}{chapter*.36}%
-\contentsline {chapter}{Spisak slika}{38}{chapter*.37}%
-\contentsline {chapter}{Spisak tabela}{40}{chapter*.38}%
-\contentsline {chapter}{Spisak skrac1enica}{41}{chapter*.38}%
+\contentsline {chapter}{\numberline {3}Rekurentne neuralne mrezhe}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Pregled veshtachkih neuralnih mrezha}{18}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Rani modeli rekurentnih neuralnih mrezha}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Obuchavanje rekurentnih neuralnih mrezha}{22}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Moderne arhitekture rekurentnih neuralnih mrezha}{23}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}$LSTM$ model}{24}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}$BRNN$ model}{26}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}Rezultati obuchavanja modela}{28}{chapter.4}%
+\contentsline {section}{\numberline {4.1}$LSTM$ modeli}{28}{section.4.1}%
+\contentsline {section}{\numberline {4.2}$BRNN$ modeli}{30}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Sinteza videa}{33}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Zakljuchak}{34}{chapter.6}%
+\contentsline {chapter}{Literatura}{35}{chapter*.36}%
+\contentsline {chapter}{Spisak slika}{37}{chapter*.37}%
+\contentsline {chapter}{Spisak tabela}{39}{chapter*.38}%
+\contentsline {chapter}{Spisak skrac1enica}{40}{chapter*.38}%
