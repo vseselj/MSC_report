@@ -232,6 +232,10 @@ avgust, 2020.
 \chapter*{Uvod} 
 \addcontentsline{toc}{chapter}{Uvod}
 \markboth{Uvod}{Uvod}
+Kompjuterska vizija je kompleksno polje koje se bavi procesiranjem slike i videa, odnosno ona omoguc1ava rachunarima da izvuku informaciju iz videa i slike. Postoji vec1 veliki broj tehnologija i aplikacija koji koriste kompjutersku viziju, poput autonomnih vozila, koji koriste analizu slike kako bi detektovali prepreke i znakove na putu, medicinskih sistema, koji koriste analizu slike kako bi se postavile dijagnoze, i prepoznavanja lica, koje koriste drushtvene mrezhe kako bi predlozhili ljude za oznachavanje na fotografiji. U komjutersku viziju spada i $deepfake$, grupa programa koji omoguc1avaju sintezu lazhnih videa (eng. $fake$) uz pomoc1 dubokih neuralnih mrezha (eng. $deep$ $neural$ $networks$). Otuda potiche i naziv $deepfake$. U ovom radu c1e biti predstavljen nachin na koji se mozhe dobiti lahni video osobe koja pricha iz audio signala govora.\\
+Dobijanje videa iz audio snimka ima veoma shiroku primenu. Osobina dobijanja videa visoke rezolucije iz audio snimka, znachajno bi smanjila protok potreban za kodiranje i transmisiju videa. Za ljude sa oshtec1enim sluhom, tehnika bi omoguc1ila kreiranje videa sa koga bi uspeshno mogli da chitaju sa usana. Takodje, nalaze veliku primenu u svetu video igara i filmskih efekata.\\
+Istorija $deepfake$ programa zapochinje 1997. sa radom \cite{deepfake1}, u kome je razvijena inovativna tehnika koja je mogla da kreira nove kratke video animacije iz audio ulaza, generisanog iz teksta. Rad koristi ranije dostignuc1a za interpretaciju lica, generisanje audia iz teksta i $3D$ modela usta, ali je prvi koji je sve metode obuhvatio zajedno radi generisanja ubedljivog lazhnog videa. Ujedno, ovo istrazhivanje predstavlja i jedno od najznachajnijih za razvoj $deepfake$-a. Tokom 2000., kompjuterska vizija je napredovala u polju prepoznavanja lica. Razvoj u ovoj oblasti omoguc1io je bolje prac1enje pokreta lica, shto je prouzrokovalo ubedljivije $deepfake$ algoritme. Jedna takva metoda je \acrshort{AAM} algoritam koji statistichki modeluje oblik lica \cite{AAM}.\\ 
+Mana ranijih radova je shto su zahtevali subjekta u laboratorisjkim uslovima gde se kontrolishu uslovi poput osvetljenosti lica, poze snimanja i teksta koje subjekt odgovara, kao i posedovanje skupe rachunarske i video opreme. Za realizaciju ovog rada, bitno je da je baza podataka dostpuna na internetu i da se mozhe realizovati uz pomoc1 relativno jeftine komercijalno dostupne kompjuterske opreme. Ideja predstavljena u radu \cite{deepfake2} ispunjava te uslove. U radu se generishe lazhni video govora predsednika Baraka Obame iz audio snimka govora. Na internet sajtu $YouTube$ dostupno je oko $\SI{17}{h}$ video materijala predsednichkih obrac1anja naciji, snimljenog u periodu od 2008. do 2016. Videi su javno dostupni u visokoj rezoluciji i osvetljenje i pozicija glave se ne menjaju drastichno na njima. Uprkos dostpunosti takvih podataka, generisanje lazhnog videa je i dalje tezhak zadatak, najvishe zbog osetljivosti ljudskog oka na promene u regiji oko usta tokom govora neke osobe.\\
 
 
 \chapter{Obelezhja govora}\label{X}
@@ -571,7 +575,7 @@ gde je $N$ broj karakteristichnih tachaka, $y$ su detektovane ili oznachene kara
         \caption{Prikaz generisanih $3D$ modela lica iz frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$}
         \label{fig:2_7}
 \end{figure}\\
-Korish\-c1enje date biblioteke zahteva dosta procerskog vremena. Uz pomoc1 kompajlerskih optimizacija dostupnim u okviru programskog jezika $C++$, smanjivanjem rezoluzije videa na $480p$, $\SI{17}{h}$ video materijala je obradjeno za dve nedelje. Dobijen $3D$ model je zapisan u formatu $.obj$, koji predstavlja format koji se mozhe otvarati u programima poput $3D\ Paint$. Format $.obj$ je chitljiv tekstualni fajl \cite{obj} koji sadrzhi listu verteksa sa njihovim koordinatama, listu poligonalnih oblika koje ti verteksi formiraju, kao i informacije o teksturi svake poligonalne povrshi. Tekstura se chinformaciju o tome u koje se vertekse slika 68 karakteristichnih tachaka. Birajuc1i samo one vertekse koji predstavljaju $3D$ projekciju tachaka koji pripadaju regionu usta, dobija se 17 tachaka sa tri koordinate, shto daje izlazni vektor dimenzije 54.
+Korish\-c1enje date biblioteke zahteva dosta procerskog vremena. Uz pomoc1 kompajlerskih optimizacija dostupnim u okviru programskog jezika $C++$, smanjivanjem rezolucije videa na $480p$, $\SI{17}{h}$ video materijala je obradjeno za dve nedelje. Dobijen $3D$ model je zapisan u formatu $.obj$, koji predstavlja format koji se mozhe otvarati u programima poput $3D\ Paint$. Format $.obj$ je chitljiv tekstualni fajl \cite{obj} koji sadrzhi listu verteksa sa njihovim koordinatama, listu poligonalnih oblika koje ti verteksi formiraju, kao i informacije o teksturi svake poligonalne povrshi. Tekstura se chinformaciju o tome u koje se vertekse slika 68 karakteristichnih tachaka. Birajuc1i samo one vertekse koji predstavljaju $3D$ projekciju tachaka koji pripadaju regionu usta, dobija se 17 tachaka sa tri koordinate, shto daje izlazni vektor dimenzije 54.
 \begin{table}[!h]
 	\begin{center}
 		\scalebox{0.6}{\begin{tabular}{||c|c||} 
@@ -1621,8 +1625,12 @@ Djurovic1, Zh. Materijali sa predmeta Prepoznavanje oblika
 Tadic1, P. Materijali sa predmeta Mashinsko uchenje
 \bibitem{kepstrum}
 Delic1, V. Analiza mel-frekvencijskih kepstralnih koeficijenata kao obelezhja korish\-c1enih pri automat\-skom prepoznavanju govornika
-\bibitem{MFKKlink}
 \fontencoding{T1}\selectfont
+\bibitem{deepfake1}
+Christoph Bregler, Michele Covell, Malcolm Slaney. Video Rewrite: Driving Visual Speech with Audio. Interval Researh Corporation, 1997.
+\bibitem{deepfake2}
+Supasorn Suwajanakorn, Steven M. Seitz, Ira Kemelmacher-Shlizerman. Synthesizing Obama: Learning Lip Sync from Audio. University of Washington, 2017.
+\bibitem{MFKKlink}
 \url{http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/}
 \bibitem{FFmpeg}
 \url{https://ffmpeg.org/}
