@@ -187,6 +187,7 @@
 \newacronym{BRNN}{$BRNN$}{$Bidirectional$ $Recurrent$ $Neural$ $Networks$}
 \newacronym{RNN}{$RNN$}{$Recurrent$ $Neural$ $Networks$}
 \newacronym{MSE}{$MSE$}{$Mean$ $Square$ $Error$}
+\newacronym{API}{$API$}{$Application$ $Programming$ $Interface$}
 \bibliographystyle{ieeetr}
 
 \begin{document}
@@ -232,11 +233,11 @@ avgust, 2020.
 \chapter*{Uvod} 
 \addcontentsline{toc}{chapter}{Uvod}
 \markboth{Uvod}{Uvod}
-Kompjuterska vizija je kompleksno polje koje se bavi procesiranjem slike i videa, odnosno ona omoguc1ava rachunarima da izvuku informaciju iz videa i slike. Postoji vec1 veliki broj tehnologija i aplikacija koji koriste kompjutersku viziju, poput autonomnih vozila, koji koriste analizu slike kako bi detektovali prepreke i znakove na putu, medicinskih sistema, koji koriste analizu slike kako bi se postavile dijagnoze, i prepoznavanja lica, koje koriste drushtvene mrezhe kako bi predlozhili ljude za oznachavanje na fotografiji. U komjutersku viziju spada i $deepfake$, grupa programa koji omoguc1avaju sintezu lazhnih videa (eng. $fake$) uz pomoc1 dubokih neuralnih mrezha (eng. $deep$ $neural$ $networks$). Otuda potiche i naziv $deepfake$. U ovom radu c1e biti predstavljen nachin na koji se mozhe dobiti lahni video osobe koja pricha iz audio signala govora.\\
+Kompjuterska vizija je kompleksno polje koje se bavi procesiranjem slike i videa, odnosno ona omoguc1ava rachunarima da izvuku informaciju iz videa i slike. Postoji vec1 veliki broj tehnologija i aplikacija koji koriste kompjutersku viziju, poput autonomnih vozila, koji koriste analizu slike kako bi detektovali prepreke i znakove na putu, medicinskih sistema, koji koriste analizu slike kako bi se postavile dijagnoze, i prepoznavanja lica, koje koriste drushtvene mrezhe kako bi predlozhili ljude za oznachavanje na fotografiji. U komjutersku viziju spada i $deepfake$, grupa programa koji omoguc1avaju sintezu lazhnih videa (eng. $fake$) uz pomoc1 dubokih neuralnih mrezha (eng. $deep$ $neural$ $networks$). Otuda potiche i naziv $deepfake$. U ovom radu c1e biti predstavljen nachin na koji se mozhe dobiti lahni video osobe koja pricha iz audio signala govora, sa idejom da se karakteristichna obelezhja govornog signala transformishu u oblik usta koja osoba ima tokom izgovaranja tih glasova.\\
 Dobijanje videa iz audio snimka ima veoma shiroku primenu. Osobina dobijanja videa visoke rezolucije iz audio snimka, znachajno bi smanjila protok potreban za kodiranje i transmisiju videa. Za ljude sa oshtec1enim sluhom, tehnika bi omoguc1ila kreiranje videa sa koga bi uspeshno mogli da chitaju sa usana. Takodje, nalaze veliku primenu u svetu video igara i filmskih efekata.\\
-Istorija $deepfake$ programa zapochinje 1997. sa radom \cite{deepfake1}, u kome je razvijena inovativna tehnika koja je mogla da kreira nove kratke video animacije iz audio ulaza, generisanog iz teksta. Rad koristi ranije dostignuc1a za interpretaciju lica, generisanje audia iz teksta i $3D$ modela usta, ali je prvi koji je sve metode obuhvatio zajedno radi generisanja ubedljivog lazhnog videa. Ujedno, ovo istrazhivanje predstavlja i jedno od najznachajnijih za razvoj $deepfake$-a. Tokom 2000., kompjuterska vizija je napredovala u polju prepoznavanja lica. Razvoj u ovoj oblasti omoguc1io je bolje prac1enje pokreta lica, shto je prouzrokovalo ubedljivije $deepfake$ algoritme. Jedna takva metoda je \acrshort{AAM} algoritam koji statistichki modeluje oblik lica \cite{AAM}.\\ 
-Mana ranijih radova je shto su zahtevali subjekta u laboratorisjkim uslovima gde se kontrolishu uslovi poput osvetljenosti lica, poze snimanja i teksta koje subjekt odgovara, kao i posedovanje skupe rachunarske i video opreme. Za realizaciju ovog rada, bitno je da je baza podataka dostpuna na internetu i da se mozhe realizovati uz pomoc1 relativno jeftine komercijalno dostupne kompjuterske opreme. Ideja predstavljena u radu \cite{deepfake2} ispunjava te uslove. U radu se generishe lazhni video govora predsednika Baraka Obame iz audio snimka govora. Na internet sajtu $YouTube$ dostupno je oko $\SI{17}{h}$ video materijala predsednichkih obrac1anja naciji, snimljenog u periodu od 2008. do 2016. Videi su javno dostupni u visokoj rezoluciji i osvetljenje i pozicija glave se ne menjaju drastichno na njima. Uprkos dostpunosti takvih podataka, generisanje lazhnog videa je i dalje tezhak zadatak, najvishe zbog osetljivosti ljudskog oka na promene u regiji oko usta tokom govora neke osobe.\\
-
+Preteche $deepfake$ programa zapochinju 1997. sa radom \cite{deepfake1}, u kome je razvijena inovativna tehnika koja je mogla da kreira nove kratke video animacije iz audio ulaza, generisanog iz teksta. Rad koristi ranije dostignuc1a za interpretaciju lica, generisanje audia iz teksta i $3D$ modela usta, ali je prvi koji je sve metode obuhvatio zajedno radi generisanja ubedljivog lazhnog videa. Ujedno, ovo istrazhivanje predstavlja i jedno od najznachajnijih za razvoj $deepfake$-a. Tokom 2000., kompjuterska vizija je napredovala u polju prepoznavanja lica. Razvoj u ovoj oblasti omoguc1io je bolje prac1enje pokreta lica, shto je prouzrokovalo ubedljivije rane $deepfake$ radove. Jedna takva metoda je \acrshort{AAM} algoritam koji statistichki modeluje oblik lica \cite{AAM}.\\ 
+Mana ranijih radova je shto su zahtevali subjekta u laboratorisjkim uslovima gde se kontrolishu uslovi poput osvetljenosti lica, poze snimanja i teksta koje subjekt odgovara, kao i posedovanje skupe rachunarske i video opreme. Modeli su uglavnom bili statistichke prirode i nisu sadrzhali neauralne mrezhe. Za realizaciju ovog rada, bitno je da je baza podataka dostpuna na internetu i da se mozhe realizovati uz pomoc1 relativno jeftine komercijalno dostupne kompjuterske opreme. Ideja predstavljena u radu \cite{deepfake2} ispunjava te uslove. U radu se generishe lazhni video govora predsednika Baraka Obame iz audio snimka govora. Na internet sajtu $YouTube$ dostupno je oko $\SI{17}{h}$ video materijala predsednichkih obrac1anja naciji, snimljenog u periodu od 2008. do 2016. Videi su javno dostupni u visokoj rezoluciji i osvetljenje i pozicija glave se ne menjaju drastichno na njima. Uprkos dostpunosti takvih podataka, generisanje lazhnog videa je i dalje tezhak zadatak, najvishe zbog osetljivosti ljudskog oka na promene u regiji oko usta tokom govora neke osobe.\\
+U ovom radu c1e se pokushati sa drugachijim nachinom dobijanja parametara koji predstavljaju oblik usta iz videa, kao i predstavic1e se modeli koji sadrzhe bidirekcione rekurentne mrezhe u svojim osnovama zarad dobijanja boljih rezultata pri obuchavanju. Akcenat rada c1e biti na samom obuchavanju razlichitih \acrshort{RNN} modela, ali bic1e i predstavljen jednostavan nachin dobijanja i samog videa.\\
 
 \chapter{Obelezhja govora}\label{X}
 Prvi korak u sintezi lazhnog videa iz govora je odredjivanje karakteristichnih obelezhja govornog signala. Komponentne audio signala treba da su dovoljno dobre da nose lingvistichku komponentu, ali i da su otporne na pozadinski shum i na ostale smetnje.
@@ -301,7 +302,7 @@ M^{-1}(m) = 700\left(\exp\left(\frac{m}{1125}\right)-1\right)
 \end{equation}
 
 \subsection{Melova banka filtara}
-Postojanje auditornih kritichnih opsega je takodje osobina koja uslovljava ljudski dozhivljaj razlichitih uchestanosti. Ova pojava vezana je za chujni dozhivljaj slushaoca  prilikom slushanja dva razlichita tona na razlichitim uchestanostima. Dakle, ukoliko se slushocu pusti ton uchestanosti $f_1$ koja se nalazi u nekom chujnom opsegu, tada slushalac ima dozhivljaj tona u skladu sa mel sklaom. Ukoliko se pored tog tona pusti drugi ton uchestanosti $f_2$ tada zvuchni dozhivljaj slushaoca zavisi od medjusobne frekventne bliskosti ova dva tona. Naime, ukoliko je frekventni razmak dovoljno mali tako da se nalaze unutar istog kritichnog chujnog opsega dolazi do pojave maskiranja i slushalac chuje ton $f_1$, ali vec1e glasnosti. Ukoliko je frekventni razmak ovih tonova vec1i od shirine chujnog kritichnog opsega tada slushalac chuje dva tona na odgovarajuc1im prethodno pomenutim uchestanostima. Imajuc1i to u vidu frekvencijski opseg govornog signala potrebno je izdeliti na opsege. Ti opsezi formiraju melovu banku filtara. Postupak formitanja melove banke filtara se mozhe izdeliti na korake:
+Postojanje auditornih kritichnih opsega je takodje osobina koja uslovljava ljudski dozhivljaj razlichitih uchestanosti. Ova pojava vezana je za chujni dozhivljaj slushaoca  prilikom slushanja dva razlichita tona na razlichitim uchestanostima. Dakle, ukoliko se slushocu pusti ton uchestanosti $f_1$ koja se nalazi u nekom chujnom opsegu, tada slushalac ima dozhivljaj tona u skladu sa mel sklaom. Ukoliko se pored tog tona pusti drugi ton uchestanosti $f_2$ tada zvuchni dozhivljaj slushaoca zavisi od medjusobne frekventne bliskosti ova dva tona. Naime, ukoliko je frekventni razmak dovoljno mali tako da se nalaze unutar istog kritichnog chujnog opsega dolazi do pojave maskiranja i slushalac chuje ton $f_1$, ali vec1e glasnosti. Ukoliko je frekventni razmak ovih tonova vec1i od shirine chujnog kritichnog opsega tada slushalac chuje dva tona na odgovarajuc1im prethodno pomenutim uchestanostima. Imajuc1i to u vidu frekvencijski opseg govornog signala potrebno je izdeliti na opsege. Ti opsezi formiraju mel banku filtara. Postupak formitanja melove banke filtara se mozhe izdeliti na korake:
 \begin{enumerate}
 \item Koristec1i jendachinu \ref{freq2mel} konvertovati donju i gornju granicu govornog signala u melovu skalu. Za donju granicu se mozhe uzeti vrednost od $\SI{0}{Hz}$, dok je gornja frekvencija obichno uslovljena Nikvistovim kreiterijumom. U korish\-c1enom skupu podataka, govrni signal je odabiran sa $\SI{16}{kHz}$, pa je za gornju granicu korish\-c1ena vrednost od $\SI{8}{kHz}$.
 \item Izdeliti opseg govornog signala na melovoj skali na ekvidistantne delove (opsege). Za broj delova se obichno uzima broj iz intervala $[26,\ 40]$. Za $n$ filtara dobijaju se $n+2$ frekvencije na melovoj skali.
@@ -407,29 +408,31 @@ U ovom radu, kao vektor ulaznih parametara, korish\-c1eno je 13 kepstralnih koef
 \end{figure}
 
 \chapter{Obelezhja videa}
-U ovom poglavlju c1e biti objashnjen nachin na koji se iz video snimaka mozhe dobiti baza koja c1e sadrzhati koordinatne tachaka usta. Proces se mozhe podeliti na tri dela: detektovanje lica govornika na frejmu videa, detektovanje koordinata 68 znachajnih tachaka lica, pravljenje $3D$ modela lica iz kog c1e biti izdvajene $3D$ koordinate pojedinih tachaka usta.
+U ovom poglavlju c1e biti objashnjen nachin na koji se iz video snimaka mozhe dobiti baza koja c1e sadrzhati koordinatne tachaka usta. Proces se mozhe podeliti na tri dela: detektovanje lica govornika na frejmu videa, detektovanje koordinata 68 znachajnih tachaka lica, pravljenje $3D$ modela lica iz kog c1e biti izdvajene $3D$ koordinate pojedinih tachaka usta. Kod korish\-c1enza generisanje obelezhja videa, kao i za generisanje slika dobijenih u nastavku mozhe se nac1i na linku \cite{gh1}.
 \section{Detekcija lica}\label{detekcijalica}
 Detekcija i prepoznavanje lica je jedna od najpopularnijih tema kompjuterske vizije u poslednjih nekoliko godina. Ova tehnologija je shiroko zastupljena, od kamera koje fokusiraju lica pre fotografisanja, do drushtvene mrezhe $Facebook$ koja prepoznaje  indetitet korisnika na slikama. Komjuterski program koji odlu\-chuje da li je slika pozitivna, odnosno da li postoji lice na njoj, ili negativna, odnosno da ne postoji, se naziva klasifikator. Klasifikator je obuchen na stotinama hiljada pozitivnih i negativnih slika, kako bi se nova slika klasifikovala ispravno. Biblioteka $OpenCV$ \cite{Opencv} nudi dva vec1 obuchena klasifikatora
 \begin{itemize}
 \item Harov\footnote{Alfred Har (1885. - 1933.)- madjarski matematichar } klafikator
 \item \acrshort{LBP} klasifikator
 \end{itemize}
-U ovom radu je korish\-c1en Harov klasifikator, koji predstavlja efektivni metod detekcije objekata uz pomoc1 obelezhja i predstavljen je u radu \cite{Haar}. Inicijativno, algoritam krec1e od velike baze podataka pozitivnih i negativnih slika nad kojima ekstraktuje Harova obelezhja. Da bi se izrachunala Harova obelezhja, na svaku sliku se primenjuju konvolucioni kerneli sa slike \ref{fig:2_1}. Svako obelezhje se rachuna kao razlika sume vrednosti piksela ispod belog pravougaonika i sume vrednosti piksela ispod crnog pravougaonika.
+U ovom radu je korish\-c1en Harov klasifikator, koji predstavlja efektivni metod detekcije objekata uz pomoc1 obelezhja i predstavljen je u radu \cite{Haar}. Inicijalno, algoritam krec1e od velike baze podataka pozitivnih i negativnih slika nad kojima ekstraktuje Harova obelezhja. Da bi se izrachunala Harova obelezhja, na svaku sliku se primenjuju konvolucioni kerneli sa slike \ref{fig:2_1}. Svako obelezhje se rachuna kao razlika sume vrednosti piksela ispod belog pravougaonika i sume vrednosti piksela ispod crnog pravougaonika.
 \begin{figure}[h!]
 \centering
-  \includegraphics[scale=0.5]{res/haar_kernels.png}
-  \caption{Konvolucioni kerneli za izrachunavanje Harovih obelezhja}
+  \includegraphics[scale=0.4]{res/haar_kernels.png}
+  \caption{Konvolucioni kerneli za izrachunavanje Harovih obelezhja\protect\footnotemark}
   \label{fig:2_1}
   \vspace{0pt}
 \end{figure}\\
+\footnotetext{\fontencoding{T1}\selectfont\url{https://www.superdatascience.com/blogs/opencv-face-detection}}
 Smisao metode se mozhe pokazati na primeru sa slike \ref{fig:2_2} gde se ekstraktuju dva obelezhja. Prvi se bazira na pojavi da je region oko ochiju chesto tamniji od regije nosa i obraza. Drugo oblezhje se bazira na tome shto su ochi tamnije od ivice nosa.
 \begin{figure}[h!]
 \centering
   \includegraphics[scale=0.6]{res/haar_features.png}
-  \caption{Prikaz izrachunavanja dva Harova obelezhja}
+  \caption[Prikaz izrachunavanja dva Harova obelezhja]{Prikaz izrachunavanja dva Harova obelezhja \protect\footnotemark}
   \label{fig:2_2}
   \vspace{0pt}
 \end{figure}\\
+\footnotetext{\fontencoding{T1}\selectfont\url{https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html}}
 Za rachunanje svih obelezhja jedne slike koriste se svi moguc1i kerneli, u svim moguc1im velichinama na svakom delu slike, shto rezultuje velikim brojem obelezhja. Vec1ina oblezhja izrachunata ovakvom metodom je irelevantna. Algoritam koji se koristi za obuchavanje detektora lica i koji ima tu moguc1nost da razmatra samo najbitnija obelezhja je $Adaboost$. U svojoj originalnoj formi, $AdaBoost$ algoritam obuchavanja se koristi kako bi poboljshao klasifikaciju jednostavnih (slabih) algoritama obuchavanja. Za svako obelezhje, nadje se najbolji prag koji c1e klasifikovati slike na pozitivne i negativne  (panj odluchivanja kao slabi uchenik \cite{MUpredavanja}). Za rachunanje obelezhja na slikama, kernel je fiksne dimenzije $24\times24$. U svakoj iteraciji biraju se panjevi sa minimalnom greshkom, povec1avaju se tezhinski koeficijenti pogreshno klasifikovanih slika, smanjuju se tezhinski koeficijenti tachno klasifikovanih slika i rachuna se tezhina slabog uchenika. Nakon odredjenog broja iteracija, krajnji klasifikator predstavlja tezhinsku sumu slabih uchenika. Na kraju je dobijeno oko 6000 obelezhja.\\
 Kako bi se dalje optimizovalo i unapredilo izrachunavanje obelezhjana slici, uvodi se pojam kaskadnog klasifikatora. Kaskadni klasifikator se sastoji od nekoliko nivoa, gde se svaki nivo sastoji od nekoliko panjeva odluchivanja. Svaki nivo oznachava region slike, odredjen trenutnom pozicijom pomerajuc1eg prozora, kao pozitivan ili negativan. U sluchaju da je region negativan, klasifikator prelazi na narednu lokaciju, a ako je region pozitivan, region prelazi na naredni nivo. Detektor prijavljuje da je lice u regionu detektovano u sluchaju da je region proshao sve nivoe. Nivoi su dizajnirani tako da odbace negativne regione shto brzhe, zbog pretpostavke da vec1ina regiona ne sadrzhi objekat od interesa, shto je u ovom sluchaju lice. Da bi metod dobro radio, svaki nivo mora da ima nizak broj lazhno negativnih detekcija. Ako nivo ne detektuje lice na regionu gde lice postoji, kaskadna klasifikacija se zaustavlja i greshka se ne mozhe otkloniti. Medjutim, svaki nivo sme imati visok broj lazhno pozitivnih detekcija, jer ukoliko detektor detektuje lice na regionu koji ne sadrzhi lice, greshka se mozhe ukloniti u narednim fazama. Dodavanje faza smanjuje broj lazhno pozitivnih detekcija, ali i smanjuje broj istinski pozitivnih detekcija.\\
 Ovako obuchen klasifikator dostupan je uz $OpenCV$ biblioteku. U radu je odlucheno da se koristi Harov klasifikator, buduc1i da ima vec1u preciznost pri detekciji i umanjen broj lazhno pozitivnih detekcija, u odnosu na drugi dostupan \acrshort{LBP} klasifikator. Mana Harovog klasifikatora je shto je kompleksan i spor za izrachunavanje i manje precizan na tamnoputim licima. Buduc1i da se radi o predsedniku Obami, druga stavka je predstavljala potencijalan problem, ali nije primec1en neki znachajan broj frejmova na kojima lice nije detektovano. Tokom videa nedeljnih obrac1anja naciji, deshava se da kamerman nekoliko puta menja pozu i osvetljenje kojim snima govornika, u koliko se u nekom delu nije detektovalo lice taj deo videa bi bio preskochen. Takodje, na videima je prisutno samo jedno lice, i u sluchaju detekcije vishe lica, biralo bi se ono koje je najblizhe licu koje je detektovano u prethodnom frejmu.
@@ -469,29 +472,30 @@ Ovako obuchen klasifikator dostupan je uz $OpenCV$ biblioteku. U radu je odluche
         \label{fig:2_3}
 \end{figure}
 \section{Detekcija karakteristichnih tachaka lica}
-Detekcija karakteristichnih tachaka lica (eng. $facial\ landmarks$) je koristan algoritam potreban u razlichitim aplikacijama kao shto su prepoznavanje lica, prepoznavanje emocija na licima, zamena lica, prepoznavanje polozhaja glave, filteri na aplikacijama $Instagram$ i $Snapchat$... Krakateristichne tachke se koriste kako bi se lokalizovale i predstavile vidljive regije lica kao shto su ochi, obrve, nos, usta i vilica. Detekcija takvih tachaka predstavlja podskup problema u kojima cilj predikcija nekog oblika. Prediktor oblika ima za cilj da na regiji od interesa slike lokalizuje kljuchne tachke duzh tog oblika. Stoga se ceo proces mozhe podeliti na dva dela, prvi koji c1e detektovati lice (poglavlje \ref{detekcijalica}) i detekcija kljuchnih tachaka.\\
+Detekcija karakteristichnih tachaka lica (eng. $facial\ landmarks$) je koristan algoritam potreban u razlichitim aplikacijama kao shto su prepoznavanje lica, prepoznavanje emocija na licima, zamena lica, prepoznavanje polozhaja glave, filteri na aplikacijama $Instagram$ i $Snapchat$... Krakateristichne tachke se koriste kako bi se lokalizovale i predstavile vidljive regije lica kao shto su ochi, obrve, nos, usta i vilica. Detekcija takvih tachaka predstavlja podskup problema u kojima je cilj predikcija nekog oblika. Prediktor oblika ima za cilj da na regiji od interesa slike lokalizuje kljuchne tachke duzh tog oblika. Stoga se ceo proces mozhe podeliti na dva dela, prvi koji c1e detektovati lice (poglavlje \ref{detekcijalica}) i detekcija kljuchnih tachaka.\\
 Postoji veliki broj raspolozhivih detektora karakteristichnih tachaka lica, ali vec1ina njih se trudi da shto bolje detektuje sledec1e znachajne regije: usta, desna objva, leva obrva, desno oko, levo oko, nos i vilica. Detektor koji je dostupan uz biblioteku $OpenCV$ i koji je korish\-c1en u ovom radu je \acrshort{LBF} model (eng. \acrlong{LBF}, predstavljen u radu \cite{LBF}. Oblik lica $S=[x_1, y_1,...,x_{N_{fp}},y_{N_{fp}}]^T$ se sastoji od $N_{fp}$ karakteristichnih tachaka. Za datu sliku, cilj estimacije mozhe biti oblik $S$ koji c1e biti shto priblizhniji istinitom obliku $\hat{S}$ koji c1e minimizovati $||S-\hat{S}||$. Ova kriterijumska funkcija se najchesh\-c1e koristi u toku treniranja, kako bi se procenio performans. Autori rada \cite{LBF} koriste algoritam sluchajne shume kako bi odredili funkciju mapiranja tachaka na slici.
 U zavisnosti koja je baza podataka korish\-c1ena pri treniranju, izlaz modela c1e imati drugachiji broj karakteristichnih tachaka na izlazu. Za \acrshort{LBF} model, korish\-c1en je $iBUG$ $300W$ set, koji sadrzhi slike sa ruchno oznachenim 68 tachaka.
 \begin{figure}[h!]
 \centering
   \includegraphics[scale=0.25]{res/facial_landmarks_68markup.jpg}
-  \caption{Prikaz 68 karakteristichnih tachaka lica}
+  \caption{Prikaz 68 karakteristichnih tachaka lica \protect\footnotemark}
   \label{fig:2_4}
   \vspace{0pt}
 \end{figure}\\
+\footnotetext{\fontencoding{T1}\selectfont\url{https://www.pyimagesearch.com/2017/04/03/facial-landmarks-dlib-opencv-python/}}
 Od znachaja je primetiti da tachke koje predstavljaju usta imaju indekse od 49 do 68. Rezultate detekcije mozhete videti na narednim slikama.
 \begin{figure}[!h]
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.21]{res/168lm.jpg}
+            \includegraphics[scale=0.15]{res/168lm.jpg}
             \caption{168. frejm}
             \label{fig:2_5a}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.21]{res/169lm.jpg}
+            \includegraphics[scale=0.15]{res/169lm.jpg}
             \caption{169. frejm}
             \label{fig:2_5b}
             \vspace{0pt}
@@ -500,14 +504,14 @@ Od znachaja je primetiti da tachke koje predstavljaju usta imaju indekse od 49 d
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.21]{res/170lm.jpg}
+            \includegraphics[scale=0.15]{res/170lm.jpg}
             \caption{170. frejm}
             \label{fig:2_5c}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.21]{res/171lm.jpg}
+            \includegraphics[scale=0.15]{res/171lm.jpg}
             \caption{171. frejm}
             \label{fig:2_5d}
             \vspace{0pt}
@@ -515,10 +519,11 @@ Od znachaja je primetiti da tachke koje predstavljaju usta imaju indekse od 49 d
         \caption{Prikaz detektovanih karakteristichnih tachaka lica nad frejmovima videa $Weekly\ Address$: $A\ Balanced\ Approach\ to\ Growing\ the\ Economy\ in\ 2013$}
         \label{fig:2_5}
 \end{figure}
+\newpage
 \section[$3D$ model lica]{$\mathbf{3D}$ model lica}
-$3D$  morfoloshki modeli  (eng. \acrlong{3DMM}- \acrshort{3DMM}) su moc1an alat u kompjuterskoj viziji. Oni imaju aplikaciju u zadacima gde se zahteva $2D$ procesiranje lica kao shto su, analiza lica, prepoznavanje, estimacija i normalizacija poze \footnote{Estimacija poze predstavlja zadatak da se na osnovu $3D$ modela i njegove slike, $2D$ projekcije, dobiju translacija i rotacija objekta takvi da daju tu $2D$ projekciju}. \acrshort{3DMM} su prvi put predlozhene u radu \cite{3DMM} i od tada se primenjuju u razlichitim zadacima. Medjutim, i dalje nisu toliko zastupljeni kao $2D$ metode, poput aktivnog modela izlgeda \cite{AAM} (eng. \acrlong{AAM}- \acrshort{AAM}), iako imaju odredjene prednosti uodnosu na njih. U $3D$ modelu, poza lica je odvojena od oblika. Njegova projekcija u $2D$ je modelovana od strane modela fizichke kamere. Kamera model predstavlja funkciju koja mapira $3D$ prostor u prostor slike. Takodje, korish\-c1enje $3D$ modela omoguc1ava eksplicitno modelovanje izvora svetla, jer su informacije o povrshini i dubini objekta poznate. Model izvora setla odvaja svetlost od izgleda lica i time jachina svetlosti ne utiche na parametre teksture, kao shto je sluchaj u \acrshort{AAM} modelima. Dalje, \acrshort{3DMM} mogu da se koriste kako bi se generisala specifichna lica, ili kako bi se generisali podaci za druge algoritme, jer pokrivaju razlichite poze, ukljuchujuc1i i ekstremne kao shto su pogledi iz profila. Ovo poslednje mozhe biti jako znachajno, u sluchaju da se tokom videa govora, menjaju uglovi iz kojih je govornik sniman na takav nachin da deo lica nije vidljiv. Sa druge strane, \acrshort{3DMM} su teshki za treniranje i zahtevaju dosta rachunarske snage za izrachunavanje.\\
+$3D$  morfoloshki modeli  (eng. \acrlong{3DMM}- \acrshort{3DMM}) su moc1an alat u kompjuterskoj viziji. Oni imaju aplikaciju u zadacima gde se zahteva $2D$ procesiranje lica kao shto su, analiza lica, prepoznavanje, estimacija i normalizacija poze \footnote{Estimacija poze predstavlja zadatak da se na osnovu $3D$ modela i njegove slike, $2D$ projekcije, dobiju translacija i rotacija objekta takvi da daju tu $2D$ projekciju}. \acrshort{3DMM} su prvi put predlozhene u radu \cite{3DMM} i od tada se primenjuju u razlichitim zadacima. Medjutim, i dalje nisu toliko zastupljeni kao $2D$ metode, poput aktivnog modela izgleda \cite{AAM} (eng. \acrlong{AAM}- \acrshort{AAM}), iako imaju odredjene prednosti u odnosu na njih. U $3D$ modelu, poza lica je odvojena od oblika. Njegova projekcija u $2D$ je modelovana od strane modela fizichke kamere. Kamera model predstavlja funkciju koja mapira $3D$ prostor u prostor slike. Takodje, korish\-c1enje $3D$ modela omoguc1ava eksplicitno modelovanje izvora svetla, jer su informacije o povrshini i dubini objekta poznate. Model izvora svetla odvaja svetlost od izgleda lica i time jachina svetlosti ne utiche na parametre teksture, kao shto je sluchaj u \acrshort{AAM} modelima. Dalje, \acrshort{3DMM} mogu da se koriste kako bi se generisala specifichna lica, ili kako bi se generisali podaci za druge algoritme, jer pokrivaju razlichite poze, ukljuchujuc1i i ekstremne kao shto su pogledi iz profila. Ovo poslednje mozhe biti jako znachajno, u sluchaju da se tokom videa govora, menjaju uglovi iz kojih je govornik sniman na takav nachin da deo lica nije vidljiv. Sa druge strane, \acrshort{3DMM} su teshki za treniranje i zahtevaju dosta rachunarske snage za izrachunavanje.\\
 Jedan \acrshort{3DMM} koji je dostupan na internetu je Sari \footnote{$University$ $of$ $Surrey$-univerzitet iz Velike Britanije} \acrshort{3DMM} model lica, koji je predstavljen u radu \cite{SFM}. Model se sastoji od tri nivoa rezolucije, od koji je samo najnizhi dostupan za nekomercijalne svrhe. Uz model, omoguc1ena je $C++$ biblioteka koja olakshava fitovanje poze i oblika na novim slikama (frejmovima) \cite{eos}.\\
-Model se sastoji od dva \acrshort{PCA} modela \footnote{eng. \acrshort{PCA}- \acrlong{PCA}}: \acrshort{PCA} model oblika i \acrshort{PCA} model boje (teksture). Osnovna ideja \acrshort{PCA} metode, odnosno metode Karhunen-Loeve ekspanzije \cite{POpredavanja}, je da redukuje dimenziju vektora obelezhja radi uprosh\-c1avanja modela, a da gubitak informacija i preciznosti bude minimalan. Matoda smatra da se informacija krije u koordinatama velikih raspianja, odnosno varijansi. Lice se mozhe predstaviti kao vektor $S\in\mathbb{R}^{3N}$, koji sadrzhi $x$, $y$ i $z$ komponente oblika (vertekse), i vektora $T\in\mathbb{R}^{3N}$ koji nosi informaciju o $RGB$ boji svakog verteksa. Svaki \acrshort{PCA} model $\mathbf{M}$
+Model se sastoji od dva \acrshort{PCA} modela \footnote{eng. \acrshort{PCA}- \acrlong{PCA}}: \acrshort{PCA} model oblika i \acrshort{PCA} model boje (teksture). Osnovna ideja \acrshort{PCA} metode, odnosno metode Karhunen-Loeve ekspanzije \cite{POpredavanja}, je da redukuje dimenziju vektora obelezhja radi uprosh\-c1avanja modela, a da gubitak informacija i preciznosti bude minimalan. Metoda smatra da se informacija krije u koordinatama velikih raspianja, odnosno varijansi. Lice se mozhe predstaviti kao vektor $S\in\mathbb{R}^{3N}$, koji sadrzhi $x$, $y$ i $z$ komponente oblika (vertekse), i vektora $T\in\mathbb{R}^{3N}$ koji nosi informaciju o $RGB$ boji svakog verteksa. Svaki \acrshort{PCA} model $\mathbf{M}$
 \begin{equation}
 \mathbf{M} = (\bar{\mathbf{v}}, \mathbf{\sigma}, \mathbf{V})
 \end{equation}
@@ -635,8 +640,8 @@ Korish\-c1enje date biblioteke zahteva dosta procerskog vremena. Uz pomoc1 kompa
   \vspace{0pt}
 \end{figure}
 \chapter{Rekurentne neuralne mrezhe}
-Neuralne mrezhe su modeli uchenja koji ostvaraju ogroman uspeh u shirokom spektru zadataka superviziranog i nesuperviziranog mashinskog uchenja. Klasichne ($feedforward$) neuralne mrezhe se posebno izdvajaju u problemima klasifikacije. Uprkos njihovoj moc1i, standardne neuralne mrezhe imaju ogranichenja, od kojih je naznachajnije da primeri iz baze podataka moraju biti medjusobno nezavisni. U sluchaju kada su podaci zavisni u vremenu i prostoru ovo nije prihvatljivo. Frejmovi videa, delovi audio signala, rechi iz rechenice predstavljaju primere podataka gde zahtev o medjusobnoj nezavisnosti nije zadovoljen. Rekurentne neuralne mrezhe prevazilaze taj nedostatak i koriste se u sluchahevima kada se podaci mogu prikazati u formi sekvence. One imaju osobinu da selektivno prosledjuju informaciju izmedju koraka sekvence, dok i dalje procesuju jedan po jedan korak.\\
-U ovom poglavlju c1e se prvo baciti kratak osvrt na klasichne ($feedforward$) neuralne mrezhe, a zatim c1e biti detaljnije obradjen pojam razlichitih vrsta rekurentnih neuralnih mrezha.
+Neuralne mrezhe su modeli uchenja koji ostvaraju ogroman uspeh u shirokom spektru zadataka superviziranog i nesuperviziranog mashinskog uchenja. Klasichne ($feedforward$) neuralne mrezhe se posebno izdvajaju u problemima klasifikacije. Uprkos njihovoj moc1i, standardne neuralne mrezhe imaju ogranichenja, od kojih je naznachajnije da primeri iz baze podataka moraju biti medjusobno nezavisni. U sluchaju kada su podaci zavisni u vremenu i prostoru ovo nije prihvatljivo. Frejmovi videa, delovi audio signala, rechi iz rechenice predstavljaju primere podataka gde zahtev o medjusobnoj nezavisnosti nije zadovoljen. Rekurentne neuralne mrezhe prevazilaze taj nedostatak i koriste se u sluchajevima kada se podaci mogu prikazati u formi sekvence. One imaju osobinu da selektivno prosledjuju informaciju izmedju koraka sekvence, dok i dalje procesuju jedan po jedan korak.\\
+U ovom poglavlju c1e se prvo napraviti kratak osvrt na klasichne ($feedforward$) neuralne mrezhe, a zatim c1e biti detaljnije obradjen pojam razlichitih vrsta rekurentnih neuralnih mrezha.
 
 \section{Pregled veshtachkih neuralnih mrezha}
 Neuralne mrezhe su modeli izrachunavanja inspirasni bioloshkim neuralnim sistemom. Neuralna mrezha se sastoji od skupa veshtachkih neurona, koji se josh i nazivaju chvorovima, koji su medjusobno povezani sinapsama (vezama). Za svaki neuron $j$ se definishe funkcija aktivacije $l_j(*)$ i integraciona funkcija $f_j(*)$. Veza od chvora $j'$ ka chvoru $j$ je opisana tezhinskim koeficijentom $w_{jj'}$.
@@ -770,7 +775,7 @@ Velichina $\delta_{ji}$ se naziva i signalom greshke. Prvi chinilac u izrazu \re
 Jednachina \ref{delta1} se sukcesivno primenjuje za sve nizhe slojeve, chime se uz sachuvane vrednosti izlaza chvorova dobijaju gradijenti pojedinachnih tezhinskih koeficijenata.
 
 \section{Rani modeli rekurentnih neuralnih mrezha}
-Rekurentne neuralne mrezhe su mrezhe chiji usmereni grafovi dozovljavaju petlje, chime se uvodi pojam vremena u model. U trenutku $t$, chvorovi sa rekurentnim vezama zavise od trenutnog ulaznog vektora $\mathbf{x}^{(t)}$ i vrednosti stanja chvora u prethodnom trenutku $\mathbf{h}^{(t-1)}$. Izlaz chvora $\mathbf{\hat{y}^{(t)}}$, zavisi od vrednosti stanja chvora $\mathbf{h}^{(t)}$ i posredstvom rekurentnih veza ulaz ulaz u trenutku $t-1$ 
+Rekurentne neuralne mrezhe su mrezhe chiji usmereni grafovi dozovljavaju petlje, chime se uvodi pojam vremena u model. U trenutku $t$, chvorovi sa rekurentnim vezama zavise od trenutnog ulaznog vektora $\mathbf{x}^{(t)}$ i vrednosti stanja chvora u prethodnom trenutku $\mathbf{h}^{(t-1)}$. Izlaz chvora $\mathbf{\hat{y}^{(t)}}$ zavisi od vrednosti stanja chvora $\mathbf{h}^{(t)}$ i, posredstvom rekurentnih veza, ulaza u trenutku $t-1$ 
 $\mathbf{x}^{(t-1)}$ mozhe uticati na izlaz u trenutku $t$.
 \newpage
 \begin{figure}[!h]
@@ -806,7 +811,7 @@ Mrezha sa slike \ref{fig:9} se mozhe opisati jednachinama
 \mathbf{y}^t &= l_y(\mathbf{W_{yh}}\mathbf{h}^t+\mathbf{b_y})\label{RNN2}
 \end{align}
 gde su sa $\mathbf{W_{hx}}$, $\mathbf{W_{yh}}$ i $\mathbf{W_{hh}}$ matrice koje sadrzhe tezhinske koeficijente, a $l_h$ i $l_y$ neke aktivacione funkcije. Vektori $b_h$ i $b_y$ omoguc1avaju uchenje ofseta.\\
-Istrazhivanja na temu rekurentnih neuralnih mrezha su zapochela osadesetih godina prošloga veka. Prvo je Hopfild predstavio familiju rekurentnih neuralnih mrezha koja je imala moguc1nosti prepoznavanja shablona \cite{Hopfild}. Struktura mrezhe je ista kao na slici \ref{fig:9}, s tim da se ulazni shablon $\mathbf{x}$ primeni samo u pochetnom trenutku, nakon koga se mrezha prepusti izrachunavanjima  sve dok se na izlazu ne dobije stacionarna vrednost. Hopfildove mrezhe imaju moguc1nost da reprodukuje memorisane shablone iz zashumljenih shablona koje dobiju na ulazi i predstavljaju pretechu Bolcmanovih mashina i auto-enkodera.\\
+Istrazhivanja na temu rekurentnih neuralnih mrezha su zapochela osadesetih godina proshloga veka. Prvo je Hopfild predstavio familiju rekurentnih neuralnih mrezha koja je imala moguc1nosti prepoznavanja shablona \cite{Hopfild}. Struktura mrezhe je ista kao na slici \ref{fig:9}, s tim da se ulazni shablon $\mathbf{x}$ primeni samo u pochetnom trenutku, nakon koga se mrezha prepusti izrachunavanjima  sve dok se na izlazu ne dobije stacionarna vrednost. Hopfildove mrezhe imaju moguc1nost da reprodukuje memorisane shablone iz zashumljenih shablona koje dobiju na ulazi i predstavljaju pretechu Bolcmanovih mashina i auto-enkodera.\\
 Rani model za supervizovano uchenje sekvenci je predstavio D2ordan u \cite{jordan}. Model je $feedforward$ mrezha koja se sastoji od jednog skrivenog sloja koji sadrzhi specijalne chvorove. Izlaz mrezhe je vezama spojen sa specijalnim chvorovima, koji rekurentnim vezama, u narednom vremenskom trenutku, dostavljaju vrednosti ostalim chvorovima skrivenog sloja. U sluchaju da izlaz mrezhe predstavlja neke akcije, ovakav model omoguc1ava pamec1enje akcije iz prethodnog vremensog trenutka. Nekoliko modernih modela koristi ovu ideju. Jedan takav primerak je rad \cite{Sutskever} gde se na primeru prevodioca jezika, pri generisanju teksta prevedenih rechenica, rechi sa kraja se vrac1aju i koriste kao ulaz za naredni korak. Specijalni chvorovi mogu da sadrzhe i dodatnu rekurentnu vezu tako da za ulaz imaju i svoje prethodno stanje (slika \ref{fig:10}).\\
 Elmanov model iz \cite{Elman} predstavlja arhitekturu koja lichi na mrezhu sa slike \ref{fig:9}. Za razliku od D2ordanovog modela, koji chuva trenutnu vrednost izlaza u specijalnim chvorovima, Elmanov model chuva trenutnu vrednost chvorova skrivenog sloja, koju u narednom vremenskom trenutku vrac1a tim skrivenim chvorovima (slika \ref{fig:11}). Elman je u svom radu trenirao mrezhu algoritmom propagacije u nazad i dokazao da mrezha mozhhe nauchiti zavisnosti od vremena.
 \newpage
@@ -858,7 +863,7 @@ Elmanov model iz \cite{Elman} predstavlja arhitekturu koja lichi na mrezhu sa sl
 \label{fig:11}
 \end{figure}
 \section{Obuchavanje rekurentnih neuralnih mrezha}
-Dok su u nachelu rekurentne neuralne jednostavan i moc1an model, u praksi njihovo obuchavanje je kompleksan proces. Medju glavnim razlozima su problemu nestajuc1eg i eksplodirajuc1eg gradijenta, koji su predstavljeni u radu \cite{Bengio}. Kriterijumska funckija za rekurentnu neuralnu mrezhu predstavlja sumu gubitaka u pojedinachnim vremenskim trenucima. Ako je duzhina sekvence $T$, ona se rachuna 
+Dok su u nachelu rekurentne neuralne mrezhe jednostavan i moc1an model, u praksi njihovo obuchavanje je kompleksan proces. Medju glavnim razlozima su problemi nestajuc1eg i eksplodirajuc1eg gradijenta, koji su predstavljeni u radu \cite{Bengio}. Kriterijumska funckija za rekurentnu neuralnu mrezhu predstavlja sumu gubitaka u pojedinachnim vremenskim trenucima. Ako je duzhina sekvence $T$, ona se rachuna 
 \begin{equation}
 \mathfrak{L}(\mathbf{\hat{y}},\mathbf{y}) = \sum^{T}_{t=1}\mathfrak{L}(\mathbf{\hat{y}},\mathbf{y})
 \end{equation}
@@ -896,7 +901,7 @@ Vrednost $\Delta\mathbf{u}^t $ se mozhe analitichki zapisati
 \Delta\mathbf{u}^t = \mathbf{W}_{yh}^T l'_y(\mathbf{o}^t)\frac{\partial\mathfrak{L}(\mathbf{\hat{y}},\mathbf{y})}{\partial\mathbf{\hat{y}}^t}\prod^T_{\tau=t+1}\mathbf{W}_{hh}^Tl'_h(\mathbf{u}^{\tau})
 \end{equation}
 Ako su sve sopstvene vrednosti matrice $\mathbf{W}_{yh}$ manje od 1 , onda c1e proizvod u jednachini \ref{VG2} sa povec1anjem broja chinilaca tezhiti nuli, i doprinos sumi u jednachini \ref{VG1} c1e tezhiti nuli. Drugim rechima greshka nec1e ispropagirati do nizhih vremenskih trenutaka, te se ovaj problem naziva problem nestajuc1eg gradijenta. Problem eksplodirajuc1eg gradijenta nastaje u sluchaju kada su sopstvene vrednosti matrice vec1 od 1, ali on mozhe da se regulishe izborom pogodnih aktivacionih funkcija i ogranichavanjem gradijenta pomoc1u regularizacije (eng. $gradient\ clipping$).\\
-Jedno reshenje problema nestajuc1eg gradijenta je skrec1ena propagacija u nazad kroz vreme (eng. \acrlong{TBPTT}- \acrshort{TBPTT}) u kome se postavi broj koraka u kojima c1e greshka propagirati u nazad \cite{TBPTT}. Time se utiche na problem nestajuc1eg gradijenta, ali se onemogucuje uchenje duzhih vremenskih zavisnosti. Uchenje duzhih vremenskih zavisnosti omoguc1uju modernije arhitekture rekurentnih neuralnih mrezha.
+Jedno reshenje problema nestajuc1eg gradijenta je skrec1ena propagacija u nazad kroz vreme (eng. \acrlong{TBPTT}- \acrshort{TBPTT}) u kome se postavi broj koraka u kojima c1e greshka propagirati u nazad \cite{TBPTT}. Time se utiche na problem nestajuc1eg gradijenta, ali se onemoguc1uje uchenje duzhih vremenskih zavisnosti. Uchenje duzhih vremenskih zavisnosti omoguc1uju modernije arhitekture rekurentnih neuralnih mrezha.
 \section{Moderne arhitekture rekurentnih neuralnih mrezha}
 Najuspeshnija arhitektura rekurenntih neuralnih mrezha koja prevazilazi probleme obuchavanja duzhih vremenskih zavisnosti u sekvencama, predstaljena je u radu \cite{LSTM}. Ovaj model se naziva \acrlong{LSTM}- \acrshort{LSTM}. Drugi rad, \cite{BLSTM}, uvodi arhitekturu bidirekcionih rekurentnih neuralnih mrezha (eng. \acrlong{BRNN}- \acrshort{BRNN}), u kojoj informacija i iz proshlosti i iz buduc1nosti mozhe da se koristi da se odredi izlaz u svakom vremenskom trenutku. Ovo je u suprotnosti sa prethodnim radovima, u kojima su se samo ulazi iz proshlosti uticali na trenutni izlaz. Takodje, \acrshort{LSTM} i \acrshort{BRNN} je moguc1e kombinovati da bi se dobila $Bidirectional\ LSTM$ arhitektura.
 \subsection[$LSTM$ model]{$\mathbf{LSTM}$ model}
@@ -1411,7 +1416,7 @@ Bidirekcione mrezhe mogu da se kombinuju sa \acrshort{LSTM} modelom tako shto se
 \chapter{Rezultati obuchavanja modela}
 U ovom poglavlju c1e biti predstavljeni razultati obuchavanja razlichitih modlea rekurentnih neuralnih mrezha.\\
 Obelezhja govora i obelezhja videa se koriste kao ulazne i izlazne sekvence predlozhenih rekurentnih neuralnih mrezha. Obelezhja su dobijena iz $\SI{17}{h}$ dugog video materijala dostupnog na sajtu $YouTube$. Videi predstavljaju nedeljna obrac1anja naciji predsednika Obame, u periodu od 2009. do 2016. godine. Videi su morali biti u manjoj rezoluciji, $480p$, kako bi izdvajanje oblika usta bilo uradjeno u razumnom periodu.\\
-U poglavlju \ref{X} je objash\-njen nachin na koji se dolazi do ulazne sekvence. Mozhe se primetiti da je perioda izmedju dva vektora ulazne sekvence, vec1a od periode izmedju dva vektora sekvence izlaza. Perioda izmedju dva \acrshort{MFKK} je uslovljena duzhinom prozora na koje se dele audio signali, kao i duzhinom preklapanja dva susedna prozora, dok je perioda izmedju dva oblika usta uslovljena brojem frejmova u sekudni videa. Stoga je potrebno  izvrshiti interpolaciju izlaznih sekvenci, kako bi se ulazne i izlazne sekvence svele na istu periodu. Pored toga, obelezhja govora se normalizuju. Radi potreba obuchavanja, celokupan set se deli na trenirajuc1i i validacioni skup sa verovatnoc1om $0.2$.\\
+U poglavlju \ref{X} je objash\-njen nachin na koji se dolazi do ulazne sekvence. Mozhe se primetiti da je perioda izmedju dva vektora ulazne sekvence, vec1a od periode izmedju dva vektora sekvence izlaza. Perioda izmedju dva \acrshort{MFKK} je uslovljena duzhinom prozora na koje se dele audio signali, kao i duzhinom preklapanja dva susedna prozora, dok je perioda izmedju dva oblika usta uslovljena brojem frejmova u sekudni videa. Stoga je potrebno  izvrshiti interpolaciju izlaznih sekvenci, kako bi se ulazne i izlazne sekvence svele na istu periodu. Pored toga, obelezhja govora se normalizuju. Radi potreba obuchavanja, celokupan set sekvenci se deli na trenirajuc1i i validacioni skup, gde $20\%$ sekvenci.\\
 Svi modeli su realizovani uz pomoc1 biblioteke $TensorFlow$ \cite{TF}, gde je korish\-c1en $Keras$ $API$. Prelozheni su razlichiti \acrshort{LSTM} i \acrshort{BRNN} modeli, za chije obuchavanje je izabran $Adam$ \cite{Adam} optimizator. Za vrednost brzine obuchavanja $\alpha$ uzeta je vrednost $0.01$. Radi sprechavanja problema eksplodirajuc1eg gradijenta, za gradijent za sve parametre gradijent se klipuje na vrednost 100. Za kriterijumsku funkciju je uzeta srednja kvadratna greshka (\acrshort{MSE}). Hardverske specifikacije rachunara na kome je izvrsheno obuchavanje modela su: procesor $Intel$ $i5$-$8300H$ sa $\SI{16}{GB}$ $RAM$ memorije i grafichkom karticom $NVIDIA$ $GeForce$ $1050Ti$ sa $\SI{4}{GB}$ memorije. Vreme treniranja modela zavisi od komplesnosti modela, ali u proseku za 20 epoha je potrebno nekoliko sati.
 
 \section[$LSTM$ modeli]{$\mathbf{LSTM}$ modeli}
@@ -1520,14 +1525,14 @@ U ovom delu c1e biti prikazani rezultati \acrshort{BRNN} modela, koji za rekuren
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_30units_train.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_30units_d00_train.png}
             \caption{\acrshort{MSE} na trenirajuc1em skupu}
             \label{fig:4_6a}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/SingleLayerLSTM_30units_validation.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_30units_d00_validation.png}
             \caption{\acrshort{MSE} na validacionom skupu}
             \label{fig:4_6b}
             \vspace{0pt}
@@ -1539,14 +1544,14 @@ U ovom delu c1e biti prikazani rezultati \acrshort{BRNN} modela, koji za rekuren
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_60units_train.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_60units_d00_train.png}
             \caption{\acrshort{MSE} na trenirajuc1em skupu}
             \label{fig:4_7a}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_60units_validation.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_60units_d00_validation.png}
             \caption{\acrshort{MSE} na validacionom skupu}
             \label{fig:4_7b}
             \vspace{0pt}
@@ -1558,14 +1563,14 @@ U ovom delu c1e biti prikazani rezultati \acrshort{BRNN} modela, koji za rekuren
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_90units_train.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_90units_d00_train.png}
             \caption{\acrshort{MSE} na trenirajuc1em skupu}
             \label{fig:4_8a}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_90units_validation.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_90units_d00_validation.png}
             \caption{\acrshort{MSE} na validacionom skupu}
             \label{fig:4_8b}
             \vspace{0pt}
@@ -1578,33 +1583,33 @@ U ovom delu c1e biti prikazani rezultati \acrshort{BRNN} modela, koji za rekuren
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_120units_train.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_120units_d00_train.png}
             \caption{\acrshort{MSE} na trenirajuc1em skupu}
             \label{fig:4_9a}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_120units_validation.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_120units_d00_validation.png}
             \caption{\acrshort{MSE} na validacionom skupu}
             \label{fig:4_9b}
             \vspace{0pt}
         \end{subfigure}
-        \caption{Jednoslojna \acrshort{BRNN} mrezha sa $n=150$}
+        \caption{Jednoslojna \acrshort{BRNN} mrezha sa $n=120$}
         \label{fig:4_9}
 \end{figure}
 \begin{figure}[!h]
         \centering
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_150units_train.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_150units_d00_train.png}
             \caption{\acrshort{MSE} na trenirajuc1em skupu}
             \label{fig:4_10a}
             \vspace{0pt}
         \end{subfigure}%
         \begin{subfigure}{0.475\textwidth}
             \centering
-            \includegraphics[scale=0.45]{res/BidirectSingleLayerLSTM_150units_validation.png}
+            \includegraphics[scale=0.45]{res/SL_BLSTM_150units_d00_validation.png}
             \caption{\acrshort{MSE} na validacionom skupu}
             \label{fig:4_10b}
             \vspace{0pt}
@@ -1612,8 +1617,113 @@ U ovom delu c1e biti prikazani rezultati \acrshort{BRNN} modela, koji za rekuren
         \caption{Jednoslojna \acrshort{BRNN} mrezha sa $n=150$}
         \label{fig:4_10}
 \end{figure}
+Sa slika \ref{fig:4_7b}, \ref{fig:4_8b} i \ref{fig:4_9b} se vidi da su modeli skloni preobuchavanju. Najjednostavniji nachin za reshavanje ovog problema je $dropout$ regularizacija, kojom se sa zadatom verovatnoc1om jedan chvor deaktivira i njegov se izlaz ne uzima tokom obuchavanja \cite{dropout}. $Keras$ nudi jednostavnu implementaciju ove regularizacije uz samo definisanje \acrshort{LSTM} chvora u programu. Vrednost $dropout$ verovatnoc1e ne treba da bude prevelika, kako se ne bi drastichno pokvarili rezultati obuchavanja, a ni premala kako bi efekat otklanjanja preobuchavanja bio primetan. Obuchavanje je ponovljeno sa $dropout$ verovatnoc1om $0.1$.
+\newpage
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_30units_d01_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_11a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_30units_d01_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_11b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{BRNN} mrezha sa $n=30$ i verovatnoc1om $dropout$ regularizacije $0.1$}
+        \label{fig:4_11}
+\end{figure}
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_60units_d01_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_12a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_60units_d01_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_12b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{BRNN} mrezha sa $n=60$ i verovatnoc1om $dropout$ regularizacije $0.1$}
+        \label{fig:4_12}
+\end{figure}
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_90units_d01_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_13a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_90units_d01_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_13b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{BRNN} mrezha sa $n=90$ i verovatnoc1om $dropout$ regularizacije $0.1$}
+        \label{fig:4_13}
+\end{figure}
+\newpage
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_120units_d01_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_14a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_120units_d01_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_14b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{BRNN} mrezha sa $n=120$ i verovatnoc1om $dropout$ regularizacije $0.1$}
+        \label{fig:4_14}
+\end{figure}
+\begin{figure}[!h]
+        \centering
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_150units_d01_train.png}
+            \caption{\acrshort{MSE} na trenirajuc1em skupu}
+            \label{fig:4_15a}
+            \vspace{0pt}
+        \end{subfigure}%
+        \begin{subfigure}{0.475\textwidth}
+            \centering
+            \includegraphics[scale=0.43]{res/SL_BLSTM_150units_d01_validation.png}
+            \caption{\acrshort{MSE} na validacionom skupu}
+            \label{fig:4_15b}
+            \vspace{0pt}
+        \end{subfigure}
+        \caption{Jednoslojna \acrshort{BRNN} mrezha sa $n=150$ i verovatnoc1om $dropout$ regularizacije $0.1$}
+        \label{fig:4_15}
+\end{figure}
+
 \chapter{Sinteza videa}
-\chapter{Zakljuchak}
+U ovom poglavlju c1e biti predstavljen jednostavan nachin na koji se mozhe doc1i do lazhnog videa.\\ 
+Poput rada \cite{deepfake2}, ideja je da se iskoristi ciljni (eng. $targert$) video iz koga c1e se uzeti oni frejmovi na kojima oblik usta najvishe odgovara. Kako bi se dobili oblici usta za neki audio snimak, potrebno je propustiti audio snimak kroz odabran model neuralne mrezhe. Za pogodan model uzet je model chiji su grafici obuchavanja prikazani na slici \ref{fig:4_14}. Audio snimak je potrebno prethodno normalizovati uz pomoc1 \cite{FFmpegN}, a zatim i odrediti \acrshort{MFKK}. \acrshort{MFKK} koeficijente je potrebno podeliti na sekvence duzhine 100. Izlaz modela predstavlja 17 koordinata usta, ali je potrebno izvrshiti njihovo risemplovanje na manju frekvenciju odabiranja da bi se dobila frekvencija koja se podudara sa brojem frejmova u sekundi ciljnog videa. Nakon toga se u ciljnom videu trazhe frejmovi chiji $3D$ modeli sadrzhe najpriblizhinije koordinate onima dobijenih kao izlaz modela. Poseban problem predstavlja renderovanje $3D$ modela u $2D$ sliku, buduc1i da $Microsoft$ alati kao shto su $3D$ $Paint$ i $3D$ $Viewer$ ne nude \acrshort{API} funkcionalnosti pomoc1u kojeg bi se lako isprogramiralo postavljanje modela u fronatlnu poziciju da se vidi lice i chuvanje tog prikaza. Za reshavanje tog problema, kao njlakshim i najefikasnijim reshenjem pokazala se $LabVIEW$ biblioteka $Haro3D$ \cite{Haro3D}. Nakon ovog koraka dobija se se sekvenca slika osobe koja pricha, koje je potrebno spojiti u video. To se mozhe lako realizovati uz pomoc $FFmpeg$ alata, uz pomoc1 kog se lako, na tako napravljen video, doda pochetna audio sekvenca.\\
+Primerak dobijenog videa mozhe se videti na \cite{yt}. Mana ove metode je shto ostale tachke lica nemaju prirodne promene izmedju frejmova, buduc1i da su modeli naucheni da prepoznaju pridne promene polozhaja usta tokom govora. Takodje se mozhe primetiti da kvalitet jako degradira i mala rezolucija dostupnog \acrshort{SFM} modela, korish\-c1enog pri $3D$ modelovanju.
+\chapter{Zakljuchak} 
+U ovom radu je uspeshno realizovano obuchavanje modela rekurentnih neuralnih mrezha sa ciljem da se nauchi mapiranje sekvence karakteristichnih parametara govora na sekvence oblika usta. Predstavljen je nachin na koji se mogu dobiti karakteristichna obelezhja audio i video snimaka, kao i pokazano je da se najmanja greshka pri obuchavanju ostvaruje bidirekcionim \acrshort{LSTM} mrezhama. Na kraju je predstavljen jednostavan nachin na koji se mozhe doc1i do videa, koji mozhe predstavljati osnovu za dobijanje uverljivijeg lazhnog videa.\\
+Dalje unapredjenje rada bi se zasnivalo na usavrshavanju $3D$ modela lica, korish\-c1enjem modela visoke rezolucije, sa ciljem da se dobiju prezicniji prikazi oblika usta. U te svrhe se mozhe pokushati i sa vec1im brojem $3D$ koordinata, koje ne pripadaju samo usnama nego i ostalim regionima u predelu usta.\\
+Pored sve boljih modela veshtachke inteligencije, $deepfake$ algoritimi i dalje se najvishe baziraju na algoritmima obrade slike. Predstavljen nachin za generisanje videa nije dovoljno dobar da stvori realistichnije prelaze izmedju najboljih frejmova ciljnog videa za ostale regione lica. To bi se moglo unaprediti algoritmima kompjuterske vizije. Takodje bi se video mogao unaprediti dodavanjem ostalih vizuelnih elemenata kao shto su pozadina i ostali elementi lica koje $3D$ modeli ne modeluju poput kose i zuba. 
 
 
 \begin{thebibliography}{99}
@@ -1698,6 +1808,14 @@ Patrik Huber, Guosheng Hu, Rafael Tena, Pouria Mortazavian, Willem P. Koppen, Wi
 \url{https://en.wikipedia.org/wiki/Wavefront_.obj_file}
 \bibitem{TF}
 \url{https://www.tensorflow.org/}
+\bibitem{gh1}
+\url{https://github.com/vseselj/3DMorphableFace}
+\bibitem{Haro3D}
+\url{http://sine.ni.com/nips/cds/view/p/lang/en/nid/213510}
+\bibitem{yt}
+\url{https://youtu.be/x0foFozDmDQ}
+\bibitem{dropout}
+\url{https://machinelearningmastery.com/dropout-for-regularizing-deep-neural-networks/}
 \end{thebibliography}
 
 \newpage
