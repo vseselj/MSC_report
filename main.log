@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.17)  31 AUG 2020 01:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.17)  3 SEP 2020 21:08
 entering extended mode
 **./main.tex
 (main.tex
@@ -1750,7 +1750,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 236--241
+Underfull \hbox (badness 10000) in paragraph at lines 241--246
 
  []
 
@@ -1759,23 +1759,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 236--241
 ] [5]
 Glava 1.
 
-Package xcolor Warning: Incompatible color definition on input line 242.
+Package xcolor Warning: Incompatible color definition on input line 247.
 
 LaTeX Font Info:    Trying to load font information for TS1+wncyr on input line
- 254.
-LaTeX Font Info:    No file TS1wncyr.fd. on input line 254.
+ 259.
+LaTeX Font Info:    No file TS1wncyr.fd. on input line 259.
 
 LaTeX Font Warning: Font shape `TS1/wncyr/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textbullet' on input line 254.
+(Font)              for symbol `textbullet' on input line 259.
 
 LaTeX Font Info:    Trying to load font information for OT1+wncyr on input line
- 258.
-LaTeX Font Info:    No file OT1wncyr.fd. on input line 258.
+ 263.
+LaTeX Font Info:    No file OT1wncyr.fd. on input line 263.
 
 LaTeX Font Warning: Font shape `OT1/wncyr/m/n' undefined
 (Font)              using `OT1/cmr/m/n' instead
-(Font)              for symbol `quotedblbase' on input line 258.
+(Font)              for symbol `quotedblbase' on input line 263.
 
 [6
 
@@ -1783,7 +1783,7 @@ LaTeX Font Warning: Font shape `OT1/wncyr/m/n' undefined
 <res/10filterbank.png, id=264, 875.1897pt x 411.2163pt>
 File: res/10filterbank.png Graphic file (type png)
 <use res/10filterbank.png>
-Package pdftex.def Info: res/10filterbank.png  used on input line 313.
+Package pdftex.def Info: res/10filterbank.png  used on input line 318.
 (pdftex.def)             Requested size: 437.59378pt x 205.60764pt.
 
 
@@ -1791,46 +1791,46 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\acrshort' on input line 318.
+(hyperref)                removing `\acrshort' on input line 323.
 
 [8] [9 <./res/10filterbank.png>]
-<res/audio_sig.png, id=296, 404.51125pt x 276.03125pt>
+<res/audio_sig.png, id=298, 462.528pt x 344.0052pt>
 File: res/audio_sig.png Graphic file (type png)
 <use res/audio_sig.png>
-Package pdftex.def Info: res/audio_sig.png  used on input line 353.
-(pdftex.def)             Requested size: 202.25513pt x 138.01527pt.
-<res/cep1.png, id=297, 387.4475pt x 262.9825pt>
+Package pdftex.def Info: res/audio_sig.png  used on input line 358.
+(pdftex.def)             Requested size: 170.71628pt x 113.81076pt.
+<res/cep1.png, id=299, 462.528pt x 344.0052pt>
 File: res/cep1.png Graphic file (type png)
 <use res/cep1.png>
-Package pdftex.def Info: res/cep1.png  used on input line 362.
-(pdftex.def)             Requested size: 193.72327pt x 131.49092pt.
-<res/Dcep1.png, id=300, 396.48125pt x 262.9825pt>
+Package pdftex.def Info: res/cep1.png  used on input line 367.
+(pdftex.def)             Requested size: 199.17252pt x 128.0358pt.
+<res/Dcep1.png, id=302, 462.528pt x 344.0052pt>
 File: res/Dcep1.png Graphic file (type png)
 <use res/Dcep1.png>
-Package pdftex.def Info: res/Dcep1.png  used on input line 369.
-(pdftex.def)             Requested size: 198.24013pt x 131.49092pt.
-<res/cep6.png, id=303, 387.4475pt x 262.9825pt>
+Package pdftex.def Info: res/Dcep1.png  used on input line 374.
+(pdftex.def)             Requested size: 199.17252pt x 128.0358pt.
+<res/cep6.png, id=305, 462.528pt x 344.0052pt>
 File: res/cep6.png Graphic file (type png)
 <use res/cep6.png>
-Package pdftex.def Info: res/cep6.png  used on input line 378.
-(pdftex.def)             Requested size: 193.72327pt x 131.49092pt.
-<res/Dcep6.png, id=306, 381.425pt x 262.9825pt>
+Package pdftex.def Info: res/cep6.png  used on input line 383.
+(pdftex.def)             Requested size: 199.17252pt x 128.0358pt.
+<res/Dcep6.png, id=308, 462.528pt x 344.0052pt>
 File: res/Dcep6.png Graphic file (type png)
 <use res/Dcep6.png>
-Package pdftex.def Info: res/Dcep6.png  used on input line 385.
-(pdftex.def)             Requested size: 190.71202pt x 131.49092pt.
-<res/cep12.png, id=309, 381.425pt x 262.9825pt>
+Package pdftex.def Info: res/Dcep6.png  used on input line 390.
+(pdftex.def)             Requested size: 199.17252pt x 128.0358pt.
+<res/cep12.png, id=311, 462.528pt x 344.0052pt>
 File: res/cep12.png Graphic file (type png)
 <use res/cep12.png>
-Package pdftex.def Info: res/cep12.png  used on input line 394.
-(pdftex.def)             Requested size: 190.71202pt x 131.49092pt.
-<res/Dcep12.png, id=312, 390.45876pt x 262.9825pt>
+Package pdftex.def Info: res/cep12.png  used on input line 399.
+(pdftex.def)             Requested size: 199.17252pt x 128.0358pt.
+<res/Dcep12.png, id=314, 462.528pt x 344.0052pt>
 File: res/Dcep12.png Graphic file (type png)
 <use res/Dcep12.png>
-Package pdftex.def Info: res/Dcep12.png  used on input line 401.
-(pdftex.def)             Requested size: 195.2289pt x 131.49092pt.
+Package pdftex.def Info: res/Dcep12.png  used on input line 406.
+(pdftex.def)             Requested size: 199.17252pt x 128.0358pt.
 Package hyperref Info: bookmark level for unknown subfigure defaults to 0 on in
-put line 406.
+put line 411.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1838,139 +1838,143 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10] [11 <./res/audio_sig.png> <./res/cep1.png> <./res/Dcep1.png> <./res/cep6.p
-ng> <./res/Dcep6.png> <./res/cep12.png> <./res/Dcep12.png>]
+[10]
+
+LaTeX Warning: Text page 11 contains only floats.
+
+[11 <./res/audio_sig.png> <./res/cep1.png> <./res/Dcep1.png> <./res/cep6.png> <
+./res/Dcep6.png> <./res/cep12.png> <./res/Dcep12.png>]
 Glava 2.
 
-Package xcolor Warning: Incompatible color definition on input line 410.
+Package xcolor Warning: Incompatible color definition on input line 415.
 
-<res/haar_kernels.png, id=343, 355.3275pt x 213.79875pt>
+<res/haar_kernels.png, id=346, 355.3275pt x 213.79875pt>
 File: res/haar_kernels.png Graphic file (type png)
 <use res/haar_kernels.png>
-Package pdftex.def Info: res/haar_kernels.png  used on input line 421.
+Package pdftex.def Info: res/haar_kernels.png  used on input line 426.
 (pdftex.def)             Requested size: 142.12846pt x 85.51797pt.
 LaTeX Font Info:    Trying to load font information for T1+wncyr on input line 
-426.
-LaTeX Font Info:    No file T1wncyr.fd. on input line 426.
+431.
+LaTeX Font Info:    No file T1wncyr.fd. on input line 431.
 
 LaTeX Font Warning: Font shape `T1/wncyr/m/n' undefined
-(Font)              using `T1/cmr/m/n' instead on input line 426.
+(Font)              using `T1/cmr/m/n' instead on input line 431.
 
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-26.
+31.
 ("C:\Program Files\MiKTeX\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<res/haar_features.png, id=348, 335.2525pt x 203.76125pt>
+<res/haar_features.png, id=351, 335.2525pt x 203.76125pt>
 File: res/haar_features.png Graphic file (type png)
 <use res/haar_features.png>
-Package pdftex.def Info: res/haar_features.png  used on input line 430.
+Package pdftex.def Info: res/haar_features.png  used on input line 435.
 (pdftex.def)             Requested size: 201.15305pt x 122.25768pt.
-<res/168.jpg, id=354, 855.195pt x 481.8pt>
+<res/168.jpg, id=358, 855.195pt x 481.8pt>
 File: res/168.jpg Graphic file (type jpg)
 <use res/168.jpg>
-Package pdftex.def Info: res/168.jpg  used on input line 443.
+Package pdftex.def Info: res/168.jpg  used on input line 448.
 (pdftex.def)             Requested size: 179.59625pt x 101.18098pt.
-<res/169.jpg, id=355, 855.195pt x 481.8pt>
+<res/169.jpg, id=359, 855.195pt x 481.8pt>
 File: res/169.jpg Graphic file (type jpg)
 <use res/169.jpg>
-Package pdftex.def Info: res/169.jpg  used on input line 450.
+Package pdftex.def Info: res/169.jpg  used on input line 455.
 (pdftex.def)             Requested size: 179.59625pt x 101.18098pt.
-<res/170.jpg, id=356, 855.195pt x 481.8pt>
+<res/170.jpg, id=360, 855.195pt x 481.8pt>
 File: res/170.jpg Graphic file (type jpg)
 <use res/170.jpg>
-Package pdftex.def Info: res/170.jpg  used on input line 459.
+Package pdftex.def Info: res/170.jpg  used on input line 464.
 (pdftex.def)             Requested size: 179.59625pt x 101.18098pt.
-<res/171.jpg, id=357, 855.195pt x 481.8pt>
+<res/171.jpg, id=361, 855.195pt x 481.8pt>
 File: res/171.jpg Graphic file (type jpg)
 <use res/171.jpg>
-Package pdftex.def Info: res/171.jpg  used on input line 466.
+Package pdftex.def Info: res/171.jpg  used on input line 471.
 (pdftex.def)             Requested size: 179.59625pt x 101.18098pt.
  [12
 
  <./res/haar_kernels.png>] [13 <./res/haar_features.png (PNG copy)>]
-<res/facial_landmarks_68markup.jpg, id=385, 770.88pt x 621.32124pt>
+<res/facial_landmarks_68markup.jpg, id=389, 770.88pt x 621.32124pt>
 File: res/facial_landmarks_68markup.jpg Graphic file (type jpg)
 <use res/facial_landmarks_68markup.jpg>
 Package pdftex.def Info: res/facial_landmarks_68markup.jpg  used on input line 
-480.
+485.
 (pdftex.def)             Requested size: 192.71953pt x 155.32993pt.
-<res/168lm.jpg, id=389, 855.195pt x 481.8pt>
+<res/168lm.jpg, id=393, 855.195pt x 481.8pt>
 File: res/168lm.jpg Graphic file (type jpg)
 <use res/168lm.jpg>
-Package pdftex.def Info: res/168lm.jpg  used on input line 491.
+Package pdftex.def Info: res/168lm.jpg  used on input line 496.
 (pdftex.def)             Requested size: 128.27371pt x 72.26688pt.
-<res/169lm.jpg, id=390, 855.195pt x 481.8pt>
+<res/169lm.jpg, id=394, 855.195pt x 481.8pt>
 File: res/169lm.jpg Graphic file (type jpg)
 <use res/169lm.jpg>
-Package pdftex.def Info: res/169lm.jpg  used on input line 498.
+Package pdftex.def Info: res/169lm.jpg  used on input line 503.
 (pdftex.def)             Requested size: 128.27371pt x 72.26688pt.
-<res/170lm.jpg, id=391, 855.195pt x 481.8pt>
+<res/170lm.jpg, id=395, 855.195pt x 481.8pt>
 File: res/170lm.jpg Graphic file (type jpg)
 <use res/170lm.jpg>
-Package pdftex.def Info: res/170lm.jpg  used on input line 507.
+Package pdftex.def Info: res/170lm.jpg  used on input line 512.
 (pdftex.def)             Requested size: 128.27371pt x 72.26688pt.
-<res/171lm.jpg, id=392, 855.195pt x 481.8pt>
+<res/171lm.jpg, id=396, 855.195pt x 481.8pt>
 File: res/171lm.jpg Graphic file (type jpg)
 <use res/171lm.jpg>
-Package pdftex.def Info: res/171lm.jpg  used on input line 514.
+Package pdftex.def Info: res/171lm.jpg  used on input line 519.
 (pdftex.def)             Requested size: 128.27371pt x 72.26688pt.
  [14 <./res/168.jpg> <./res/169.jpg> <./res/170.jpg> <./res/171.jpg>] [15 <./re
 s/facial_landmarks_68markup.jpg> <./res/168lm.jpg> <./res/169lm.jpg> <./res/170
 lm.jpg> <./res/171lm.jpg>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 523.
+(hyperref)                removing `math shift' on input line 528.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 523.
+(hyperref)                removing `math shift' on input line 528.
 
-<res/Scan3DMM.png, id=437, 405.31425pt x 114.4275pt>
+<res/Scan3DMM.png, id=441, 405.31425pt x 114.4275pt>
 File: res/Scan3DMM.png Graphic file (type png)
 <use res/Scan3DMM.png>
-Package pdftex.def Info: res/Scan3DMM.png  used on input line 538.
+Package pdftex.def Info: res/Scan3DMM.png  used on input line 543.
 (pdftex.def)             Requested size: 283.71803pt x 80.0987pt.
 [16]
-<res/168_3D.jpg, id=460, 436.69531pt x 246.02553pt>
+<res/168_3D.jpg, id=464, 436.69531pt x 246.02553pt>
 File: res/168_3D.jpg Graphic file (type jpg)
 <use res/168_3D.jpg>
-Package pdftex.def Info: res/168_3D.jpg  used on input line 552.
+Package pdftex.def Info: res/168_3D.jpg  used on input line 557.
 (pdftex.def)             Requested size: 131.0096pt x 73.80821pt.
-<res/169_3D.jpg, id=461, 436.69531pt x 246.02553pt>
+<res/169_3D.jpg, id=465, 436.69531pt x 246.02553pt>
 File: res/169_3D.jpg Graphic file (type jpg)
 <use res/169_3D.jpg>
-Package pdftex.def Info: res/169_3D.jpg  used on input line 559.
+Package pdftex.def Info: res/169_3D.jpg  used on input line 564.
 (pdftex.def)             Requested size: 131.0096pt x 73.80821pt.
-<res/170_3D.jpg, id=462, 436.69531pt x 246.02553pt>
+<res/170_3D.jpg, id=466, 436.69531pt x 246.02553pt>
 File: res/170_3D.jpg Graphic file (type jpg)
 <use res/170_3D.jpg>
-Package pdftex.def Info: res/170_3D.jpg  used on input line 568.
+Package pdftex.def Info: res/170_3D.jpg  used on input line 573.
 (pdftex.def)             Requested size: 131.0096pt x 73.80821pt.
-<res/171_3D.jpg, id=463, 436.69531pt x 246.02553pt>
+<res/171_3D.jpg, id=467, 436.69531pt x 246.02553pt>
 File: res/171_3D.jpg Graphic file (type jpg)
 <use res/171_3D.jpg>
-Package pdftex.def Info: res/171_3D.jpg  used on input line 575.
+Package pdftex.def Info: res/171_3D.jpg  used on input line 580.
 (pdftex.def)             Requested size: 131.0096pt x 73.80821pt.
 
-Underfull \hbox (badness 5862) in paragraph at lines 580--580
+Underfull \hbox (badness 5862) in paragraph at lines 585--585
 []\OT2/wncyr/m/n/10.95 Slika 2.7: |Pri-kaz ge-ne-ri-sa-nih $\OT1/wncyr/m/n/10.9
 5 3\OML/cmm/m/it/10.95 D$ \OT2/wncyr/m/n/10.95 mo-de-la li-ca iz frej-mo-vi-ma 
 vi-dea
  []
 
-<res/verteksi.png, id=465, 965.5272pt x 508.0581pt>
+<res/verteksi.png, id=469, 965.5272pt x 508.0581pt>
 File: res/verteksi.png Graphic file (type png)
 <use res/verteksi.png>
-Package pdftex.def Info: res/verteksi.png  used on input line 637.
+Package pdftex.def Info: res/verteksi.png  used on input line 642.
 (pdftex.def)             Requested size: 434.48323pt x 228.62402pt.
 [17 <./res/Scan3DMM.png> <./res/168_3D.jpg> <./res/169_3D.jpg> <./res/170_3D.jp
 g> <./res/171_3D.jpg>] [18 <./res/verteksi.png>]
 Glava 3.
 
-Package xcolor Warning: Incompatible color definition on input line 642.
+Package xcolor Warning: Incompatible color definition on input line 647.
 
-LaTeX Font Info:    Trying to load font information for U+euf on input line 747
+LaTeX Font Info:    Trying to load font information for U+euf on input line 752
 .
 ("C:\Program Files\MiKTeX\tex/latex/amsfonts\ueuf.fd"
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
@@ -1978,13 +1982,13 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 
 ] [20] [21] [22]
 [23]
-Overfull \hbox (0.89816pt too wide) in paragraph at lines 906--907
+Overfull \hbox (0.89816pt too wide) in paragraph at lines 911--912
 []\OT2/wncyr/m/n/10.95 Najuspeshnija ar-hi-tek-tu-ra re-ku-renn-tih ne-u-ral-ni
 h mrez-ha ko-ja pre-va-zi-la-zi pro-
  []
 
 
-Overfull \hbox (3.1079pt too wide) in paragraph at lines 906--907
+Overfull \hbox (3.1079pt too wide) in paragraph at lines 911--912
 \OT2/wncyr/m/n/10.95 uvo-di ar-hi-tek-tu-ru bi-di-rek-ci-o-nih re-ku-rent-nih n
 e-u-ral-nih mrez-ha (eng. [][][]$\OML/cmm/m/it/10.95 Bidirectional$
  []
@@ -1992,276 +1996,276 @@ e-u-ral-nih mrez-ha (eng. [][][]$\OML/cmm/m/it/10.95 Bidirectional$
 [24]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 907.
+(hyperref)                removing `math shift' on input line 912.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 907.
+(hyperref)                removing `math shift' on input line 912.
 
 LaTeX Font Info:    Trying to load font information for OT2+wncyss on input lin
-e 963.
+e 968.
 (C:\Users\vseselj\AppData\Roaming\MiKTeX\tex/latex/cyrillic\ot2wncyss.fd
 File: ot2wncyss.fd 1999/12/17 v3.2a Computer Modern Cyrillic font definitions
 )
-Overfull \hbox (3.05922pt too wide) in paragraph at lines 910--1019
+Overfull \hbox (3.05922pt too wide) in paragraph at lines 915--1024
 []|   [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--1024
+Underfull \hbox (badness 10000) in paragraph at lines 913--1029
 
  []
 
 [25] [26]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1382.
+(hyperref)                removing `math shift' on input line 1387.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1382.
+(hyperref)                removing `math shift' on input line 1387.
 
 [27] [28]
 Glava 4.
 
-Package xcolor Warning: Incompatible color definition on input line 1416.
+Package xcolor Warning: Incompatible color definition on input line 1421.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1422.
+(hyperref)                removing `math shift' on input line 1427.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1422.
+(hyperref)                removing `math shift' on input line 1427.
 
 [29
 
 ]
-<res/SingleLayerLSTM_30units_train.png, id=673, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_30units_train.png, id=679, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_30units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_30units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_30units_train.png  used on input l
-ine 1429.
+ine 1434.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SingleLayerLSTM_30units_validation.png, id=676, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_30units_validation.png, id=682, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_30units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_30units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_30units_validation.png  used on in
-put line 1436.
+put line 1441.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SingleLayerLSTM_60units_train.png, id=681, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_60units_train.png, id=687, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_60units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_60units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_60units_train.png  used on input l
-ine 1448.
+ine 1453.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SingleLayerLSTM_60units_validation.png, id=684, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_60units_validation.png, id=690, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_60units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_60units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_60units_validation.png  used on in
-put line 1455.
+put line 1460.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SingleLayerLSTM_90units_train.png, id=689, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_90units_train.png, id=695, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_90units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_90units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_90units_train.png  used on input l
-ine 1467.
+ine 1472.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SingleLayerLSTM_90units_validation.png, id=692, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_90units_validation.png, id=698, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_90units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_90units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_90units_validation.png  used on in
-put line 1474.
+put line 1479.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
  [30 <./res/SingleLayerLSTM_30units_train.png> <./res/SingleLayerLSTM_30units_v
 alidation.png> <./res/SingleLayerLSTM_60units_train.png> <./res/SingleLayerLSTM
 _60units_validation.png> <./res/SingleLayerLSTM_90units_train.png> <./res/Singl
 eLayerLSTM_90units_validation.png>]
-<res/SingleLayerLSTM_120units_train.png, id=710, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_120units_train.png, id=716, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_120units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_120units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_120units_train.png  used on input 
-line 1487.
+line 1492.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SingleLayerLSTM_120units_validation.png, id=713, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_120units_validation.png, id=719, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_120units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_120units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_120units_validation.png  used on i
-nput line 1494.
+nput line 1499.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SingleLayerLSTM_150units_train.png, id=718, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_150units_train.png, id=724, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_150units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_150units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_150units_train.png  used on input 
-line 1506.
+line 1511.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SingleLayerLSTM_150units_validation.png, id=721, 462.528pt x 346.896pt>
+<res/SingleLayerLSTM_150units_validation.png, id=727, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_150units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_150units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_150units_validation.png  used on i
-nput line 1513.
+nput line 1518.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1521.
+(hyperref)                removing `math shift' on input line 1526.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1521.
+(hyperref)                removing `math shift' on input line 1526.
 
 [31 <./res/SingleLayerLSTM_120units_train.png> <./res/SingleLayerLSTM_120units_
 validation.png> <./res/SingleLayerLSTM_150units_train.png> <./res/SingleLayerLS
 TM_150units_validation.png>]
-<res/SL_BLSTM_30units_d00_train.png, id=740, 462.528pt x 346.896pt>
+<res/SL_BLSTM_30units_d00_train.png, id=746, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_30units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_30units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_30units_d00_train.png  used on input line
- 1528.
+ 1533.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SL_BLSTM_30units_d00_validation.png, id=743, 462.528pt x 346.896pt>
+<res/SL_BLSTM_30units_d00_validation.png, id=749, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_30units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_30units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_30units_d00_validation.png  used on input
- line 1535.
+ line 1540.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SL_BLSTM_60units_d00_train.png, id=748, 462.528pt x 346.896pt>
+<res/SL_BLSTM_60units_d00_train.png, id=754, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_60units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_60units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_60units_d00_train.png  used on input line
- 1547.
+ 1552.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SL_BLSTM_60units_d00_validation.png, id=751, 462.528pt x 346.896pt>
+<res/SL_BLSTM_60units_d00_validation.png, id=757, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_60units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_60units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_60units_d00_validation.png  used on input
- line 1554.
+ line 1559.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SL_BLSTM_90units_d00_train.png, id=756, 462.528pt x 346.896pt>
+<res/SL_BLSTM_90units_d00_train.png, id=762, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_90units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_90units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_90units_d00_train.png  used on input line
- 1566.
+ 1571.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SL_BLSTM_90units_d00_validation.png, id=759, 462.528pt x 346.896pt>
+<res/SL_BLSTM_90units_d00_validation.png, id=765, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_90units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_90units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_90units_d00_validation.png  used on input
- line 1573.
+ line 1578.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
  [32 <./res/SL_BLSTM_30units_d00_train.png> <./res/SL_BLSTM_30units_d00_validat
 ion.png> <./res/SL_BLSTM_60units_d00_train.png> <./res/SL_BLSTM_60units_d00_val
 idation.png> <./res/SL_BLSTM_90units_d00_train.png> <./res/SL_BLSTM_90units_d00
 _validation.png>]
-<res/SL_BLSTM_120units_d00_train.png, id=777, 462.528pt x 346.896pt>
+<res/SL_BLSTM_120units_d00_train.png, id=783, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_120units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_120units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_120units_d00_train.png  used on input lin
-e 1586.
+e 1591.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SL_BLSTM_120units_d00_validation.png, id=780, 462.528pt x 346.896pt>
+<res/SL_BLSTM_120units_d00_validation.png, id=786, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_120units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_120units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_120units_d00_validation.png  used on inpu
-t line 1593.
+t line 1598.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SL_BLSTM_150units_d00_train.png, id=785, 462.528pt x 346.896pt>
+<res/SL_BLSTM_150units_d00_train.png, id=791, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_150units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_150units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_150units_d00_train.png  used on input lin
-e 1605.
+e 1610.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
-<res/SL_BLSTM_150units_d00_validation.png, id=788, 462.528pt x 346.896pt>
+<res/SL_BLSTM_150units_d00_validation.png, id=794, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_150units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_150units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_150units_d00_validation.png  used on inpu
-t line 1612.
+t line 1617.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
  [33 <./res/SL_BLSTM_120units_d00_train.png> <./res/SL_BLSTM_120units_d00_valid
 ation.png> <./res/SL_BLSTM_150units_d00_train.png> <./res/SL_BLSTM_150units_d00
 _validation.png>]
-<res/SL_BLSTM_30units_d01_train.png, id=809, 462.528pt x 346.896pt>
+<res/SL_BLSTM_30units_d01_train.png, id=815, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_30units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_30units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_30units_d01_train.png  used on input line
- 1626.
+ 1631.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
-<res/SL_BLSTM_30units_d01_validation.png, id=812, 462.528pt x 346.896pt>
+<res/SL_BLSTM_30units_d01_validation.png, id=818, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_30units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_30units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_30units_d01_validation.png  used on input
- line 1633.
+ line 1638.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
-<res/SL_BLSTM_60units_d01_train.png, id=817, 462.528pt x 346.896pt>
+<res/SL_BLSTM_60units_d01_train.png, id=823, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_60units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_60units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_60units_d01_train.png  used on input line
- 1645.
+ 1650.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
-<res/SL_BLSTM_60units_d01_validation.png, id=820, 462.528pt x 346.896pt>
+<res/SL_BLSTM_60units_d01_validation.png, id=826, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_60units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_60units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_60units_d01_validation.png  used on input
- line 1652.
+ line 1657.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
-<res/SL_BLSTM_90units_d01_train.png, id=825, 462.528pt x 346.896pt>
+<res/SL_BLSTM_90units_d01_train.png, id=831, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_90units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_90units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_90units_d01_train.png  used on input line
- 1664.
+ 1669.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
-<res/SL_BLSTM_90units_d01_validation.png, id=828, 462.528pt x 346.896pt>
+<res/SL_BLSTM_90units_d01_validation.png, id=834, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_90units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_90units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_90units_d01_validation.png  used on input
- line 1671.
+ line 1676.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
  [34 <./res/SL_BLSTM_30units_d01_train.png> <./res/SL_BLSTM_30units_d01_validat
 ion.png> <./res/SL_BLSTM_60units_d01_train.png> <./res/SL_BLSTM_60units_d01_val
 idation.png> <./res/SL_BLSTM_90units_d01_train.png> <./res/SL_BLSTM_90units_d01
 _validation.png>]
-<res/SL_BLSTM_120units_d01_train.png, id=846, 462.528pt x 346.896pt>
+<res/SL_BLSTM_120units_d01_train.png, id=852, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_120units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_120units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_120units_d01_train.png  used on input lin
-e 1684.
+e 1689.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
-<res/SL_BLSTM_120units_d01_validation.png, id=849, 462.528pt x 346.896pt>
+<res/SL_BLSTM_120units_d01_validation.png, id=855, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_120units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_120units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_120units_d01_validation.png  used on inpu
-t line 1691.
+t line 1696.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
-<res/SL_BLSTM_150units_d01_train.png, id=854, 462.528pt x 346.896pt>
+<res/SL_BLSTM_150units_d01_train.png, id=860, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_150units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_150units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_150units_d01_train.png  used on input lin
-e 1703.
+e 1708.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
-<res/SL_BLSTM_150units_d01_validation.png, id=857, 462.528pt x 346.896pt>
+<res/SL_BLSTM_150units_d01_validation.png, id=863, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_150units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_150units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_150units_d01_validation.png  used on inpu
-t line 1710.
+t line 1715.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 [35 <./res/SL_BLSTM_120units_d01_train.png> <./res/SL_BLSTM_120units_d01_valida
 tion.png> <./res/SL_BLSTM_150units_d01_train.png> <./res/SL_BLSTM_150units_d01_
 validation.png>]
 Glava 5.
 
-Package xcolor Warning: Incompatible color definition on input line 1719.
+Package xcolor Warning: Incompatible color definition on input line 1724.
 
 [36
 
 ]
 Glava 6.
 
-Package xcolor Warning: Incompatible color definition on input line 1723.
+Package xcolor Warning: Incompatible color definition on input line 1728.
 
 [37
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1744--1745
+Underfull \hbox (badness 10000) in paragraph at lines 1749--1750
 [][][]$\T1/cmtt/m/n/10.95 http : / / practicalcryptography . com / miscellaneou
 s / machine-[]learning /
  []
@@ -2274,7 +2278,7 @@ File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 (C:\Users\vseselj\AppData\Roaming\MiKTeX\tex/latex/ucs\uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-Overfull \hbox (44.38676pt too wide) in paragraph at lines 1818--1819
+Overfull \hbox (44.38676pt too wide) in paragraph at lines 1823--1824
 [][][]$\T1/cmtt/m/n/10.95 https : / / machinelearningmastery . com / dropout-[]
 for-[]regularizing-[]deep-[]neural-[]networks/$[][] 
  []
@@ -2309,11 +2313,11 @@ dea $\OML/cmm/m/it/10.95 Weekly Address$\OT2/wncyr/m/n/10.95 :
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1828.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1828.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1837.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1837.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1828.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1828.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1837.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1837.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1C795B1DAC5B7A9E1EB4682F7EB35A5F;1889.
@@ -2323,10 +2327,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 65239 strings out of 481212
- 1580562 string characters out of 2915721
- 2295965 words of memory out of 3000000
- 79428 multiletter control sequences out of 15000+200000
+ 65243 strings out of 481212
+ 1580588 string characters out of 2915721
+ 2297005 words of memory out of 3000000
+ 79430 multiletter control sequences out of 15000+200000
  573594 words of font info for 167 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,21n,98p,1757b,1164s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2360,9 +2364,9 @@ TeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Program Files/MiKTeX/fonts
 public/amsfonts/cyrillic/wncyb10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
 c/amsfonts/cyrillic/wncyr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/ams
 fonts/cyrillic/wncyss10.pfb>
-Output written on main.pdf (44 pages, 2611938 bytes).
+Output written on main.pdf (44 pages, 2729650 bytes).
 PDF statistics:
- 1419 PDF objects out of 1440 (max. 8388607)
- 245 named destinations out of 1000 (max. 500000)
+ 1430 PDF objects out of 1440 (max. 8388607)
+ 247 named destinations out of 1000 (max. 500000)
  616 words of extra memory for PDF output out of 10000 (max. 10000000)
 
