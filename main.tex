@@ -296,7 +296,7 @@ c_s[n] &= \boldsymbol{\mathcal{F}^{-1}}(\log(|\boldsymbol{\mathcal{F}}(s[n])|)\\
 Zbog ovog svojstva, chesto se umesto inverzne \acrshort{DFT} koristi diskretna kosinusna transformacija radi smanjenja kompleksnosti izrachunavanja.
 
 \section{Mel-frekvencijski kepstralni koeficijenti}
-Prethodno opisani postupci se koriste u primenama vezanim za automat\-sko prepoznavanje govora. U cilju oponashanja ljudskog nachina dozhivljavanja razlichitih uchestanosti u fonetima i primenjujuc1i kepstralnu analizu nastaju \acrlong{MFKK} (\acrshort{MFKK}). 
+Prethodno opisani postupci se koriste u primenama vezanim za automat\-sko prepoznavanje govora. U cilju oponashanja ljudskog nachina dozhivljavanja razli\-chitih uchestanosti u fonetima i primenjujuc1i kepstralnu analizu nastaju \acrlong{MFKK} (\acrshort{MFKK}). 
 \subsection{Melova frekvencijska skala}
 Mel-skala je uskladjena sa ljudskim osec1ajem visine glasa odnosno njegove uchestanosti. Njeno dobijanje se vrshi eksperimentalno, slushaocu se reprodukuje ton uchestanosti $\SI{1000}{Hz}$ i kao njegovo zapazhanje o visini ovog tona se belezhi vrednost $\SI{1000}{mel}$. Ova vrednost se koristi kao mera uporedjivanja za dalje dobijanje mel skale. Zatim se uchestanost povec1ava sve dok slushalac ne primeti da ton koji slusha ima duplo vec1u visinu od uporedne vrednosti i ta visina se oznachava vrednosh\-c1u od $\SI{2000}{mel}$. Ovaj se princip za dobijanje ostalih vrednosti skale. Eksperimenti su ipak pokazali da je medjusobna zavisnost mela i herca lienarna do $\SI{500}{Hz}$, dok iznad ove uchestanosti jednakim promenama mela odgovara sve vec1a promena u hercima. Za konvertovanje frekvencije u melovu skalu i nazad mogu se koristiti formule
 \begin{equation}\label{freq2mel}
@@ -307,7 +307,7 @@ M^{-1}(m) = 700\left(\exp\left(\frac{m}{1125}\right)-1\right)
 \end{equation}
 
 \subsection{Melova banka filtara}
-Postojanje auditornih kritichnih opsega je takodje osobina koja uslovljava ljudski dozhivljaj razlichitih uchestanosti. Ova pojava vezana je za chujni dozhivljaj slushaoca  prilikom slushanja dva razlichita tona na razlichitim uchestanostima. Dakle, ukoliko se slushocu pusti ton uchestanosti $f_1$ koja se nalazi u nekom chujnom opsegu, tada slushalac ima dozhivljaj tona u skladu sa mel sklaom. Ukoliko se pored tog tona pusti drugi ton uchestanosti $f_2$ tada zvuchni dozhivljaj slushaoca zavisi od medjusobne frekventne bliskosti ova dva tona. Naime, ukoliko je frekventni razmak dovoljno mali tako da se nalaze unutar istog kritichnog chujnog opsega dolazi do pojave maskiranja i slushalac chuje ton $f_1$, ali vec1e glasnosti. Ukoliko je frekventni razmak ovih tonova vec1i od shirine chujnog kritichnog opsega tada slushalac chuje dva tona na odgovarajuc1im prethodno pomenutim uchestanostima. Imajuc1i to u vidu frekvencijski opseg govornog signala potrebno je izdeliti na podopsege. Ti opsezi formiraju mel banku filtara. Postupak formitanja melove banke filtara se mozhe izdeliti na korake:
+Postojanje auditornih kritichnih opsega je takodje osobina koja uslovljava ljudski dozhivljaj razlichitih uchestanosti. Ova pojava vezana je za chujni dozhivljaj slushaoca  prilikom slushanja dva razlichita tona na razlichitim uchestanostima. Dakle, ukoliko se slushаocu pusti ton uchestanosti $f_1$ koja se nalazi u nekom chujnom opsegu, tada slushalac ima dozhivljaj tona u skladu sa mel sklaom. Ukoliko se pored tog tona pusti drugi ton uchestanosti $f_2$ tada zvuchni dozhivljaj slushaoca zavisi od medjusobne frekventne bliskosti ova dva tona. Naime, ukoliko je frekventni razmak dovoljno mali tako da se nalaze unutar istog kritichnog chujnog opsega dolazi do pojave maskiranja i slushalac chuje ton $f_1$, ali vec1e glasnosti. Ukoliko je frekventni razmak ovih tonova vec1i od shirine chujnog kritichnog opsega tada slushalac chuje dva tona na odgovarajuc1im prethodno pomenutim uchestanostima. Imajuc1i to u vidu frekvencijski opseg govornog signala potrebno je izdeliti na podopsege. Ti opsezi formiraju mel banku filtara. Postupak formitanja melove banke filtara se mozhe izdeliti na korake:
 \begin{enumerate}
 \item Koristec1i jednachinu \ref{freq2mel} konvertovati donju i gornju granicu govornog signala u melovu skalu. Za donju granicu se mozhe uzeti vrednost od $\SI{0}{Hz}$, dok je gornja frekvencija obichno uslovljena Nikvistovim kreiterijumom. U korish\-c1enom skupu podataka, govorni signal je odabiran sa $\SI{16}{kHz}$, pa je za gornju granicu korish\-c1ena vrednost od $\SI{8}{kHz}$.
 \item Izdeliti opseg govornog signala na melovoj skali na ekvidistantne delove (opsege). Za broj delova se obichno uzima broj iz intervala $[26,\ 40]$. Za $n$ filtara dobijaju se $n+2$ frekvencije na melovoj skali.
@@ -535,9 +535,9 @@ Model se sastoji od dva \acrshort{PCA} modela \footnote{eng. \acrshort{PCA}- \ac
 se sastoji od komponenti $\bar{\mathbf{v}}\in\mathbb{R}^{3N}$, koji predstavljaju srednju vrednost $3D$ poligone mrezhe (eng. $polygonal$ $mesh$), skupa principijalnih komponenti $\mathbf{V}=[\mathbf{v}_1,...,\mathbf{v}_{n-1}]\in\mathbb{R}^{3N\times(n-1)}$ i standardne devijacije $\mathbf{\sigma}\in\mathbb{R}^{n-1}$, gde je $n$ broj $3D$ skenova koji su korish\-c1eni za pravljenje modela. Nova lica se mogu generisati izrachunavanjem
 \begin{equation}
 \mathbf{S} = \bar{\mathbf{v}}+\sum^M_i\mathbf{\alpha}_i\mathbf{\sigma}_i\mathbf{v}_i
-\end{equation}
-za oblik, gde je $M\le n-1$ je broj principjalnih komponenti i $\mathbf{\alpha}in\mathbb{R}^{M}$ su $3D$ koordinate nove instance u \acrshort{PCA} prostoru. Slichan metod se mozhe primeniti i za boju (albedo).\\
-\acrshort{SFM} je obuchen na velikom broju $3D$ skenova visoke rezolucije lica ljudi razlichite starosne dobi i razlichite boje kozhe. Vazhan podatak je da se u samom setu najmanje tamnoputih lica (oko $5\%$), ali zbog neposedovanja drugih \acrshort{3DMM} modela, odlucheno je da se ostane pri \acrshort{SFM}. 
+\end{equation}d
+za oblik, gde je $M\le n-1$ je broj principjalnih komponenti i $\mathbf{\alpha}\in\mathbb{R}^{M}$ su $3D$ koordinate nove instance u \acrshort{PCA} prostoru. Slichan metod se mozhe primeniti i za boju (albedo).\\
+\acrshort{SFM} je obuchen na velikom broju $3D$ skenova visoke rezolucije lica ljudi razli\-chite starosne dobi i razlichite boje kozhe. Vazhan podatak je da se u samom setu najmanje tamnoputih lica (oko $5\%$), ali zbog neposedovanja drugih \acrshort{3DMM} modela, odlucheno je da se ostane pri \acrshort{SFM}. 
 \begin{figure}[h!]
 \centering
   \includegraphics[scale=0.7]{res/Scan3DMM.png}
@@ -1408,7 +1408,8 @@ itemc/.style={item,on chain,join}]
         node[above,item,fill=gray!10] (y\X) {$\mathbf{y}^\X$};
   \draw[very thick,latex-] (A\X.south) -- ++ (0,-2em)
  		node[below,item,fill=gray!10] (x\X) {$\mathbf{x}^\X$};
-  \draw[very thick,-latex](A\X.west) to [out=120,in=-120](y\X.west);}
+  \draw[very thick,-latex](A\X.west) to [out=120,in=-120](y\X.west);
+  \draw[very thick,-latex](x\X.east) to [out=60,in=-60](hb\X.east);}
  \path (x2) -- (xt) node[midway,scale=2,font=\bfseries] {\dots};
  \draw[very thick, latex-] (hb0) --++ (hb1);
  \draw[very thick, latex-] (hb1) --++ (hb2);

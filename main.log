@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.17)  3 SEP 2020 21:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.17)  17 SEP 2020 23:28
 entering extended mode
 **./main.tex
 (main.tex
@@ -1779,7 +1779,9 @@ LaTeX Font Warning: Font shape `OT1/wncyr/m/n' undefined
 
 [6
 
-] [7]
+] [7] (C:\Users\vseselj\AppData\Roaming\MiKTeX\tex/latex/ucs\uni-4.def
+File: uni-4.def 2013/05/13 UCS: Unicode data U+0400..U+04FF
+)
 <res/10filterbank.png, id=264, 875.1897pt x 411.2163pt>
 File: res/10filterbank.png Graphic file (type png)
 <use res/10filterbank.png>
@@ -2028,15 +2030,15 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 [27] [28]
 Glava 4.
 
-Package xcolor Warning: Incompatible color definition on input line 1421.
+Package xcolor Warning: Incompatible color definition on input line 1422.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1427.
+(hyperref)                removing `math shift' on input line 1428.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1427.
+(hyperref)                removing `math shift' on input line 1428.
 
 [29
 
@@ -2045,37 +2047,37 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 File: res/SingleLayerLSTM_30units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_30units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_30units_train.png  used on input l
-ine 1434.
+ine 1435.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SingleLayerLSTM_30units_validation.png, id=682, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_30units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_30units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_30units_validation.png  used on in
-put line 1441.
+put line 1442.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SingleLayerLSTM_60units_train.png, id=687, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_60units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_60units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_60units_train.png  used on input l
-ine 1453.
+ine 1454.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SingleLayerLSTM_60units_validation.png, id=690, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_60units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_60units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_60units_validation.png  used on in
-put line 1460.
+put line 1461.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SingleLayerLSTM_90units_train.png, id=695, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_90units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_90units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_90units_train.png  used on input l
-ine 1472.
+ine 1473.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SingleLayerLSTM_90units_validation.png, id=698, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_90units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_90units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_90units_validation.png  used on in
-put line 1479.
+put line 1480.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
  [30 <./res/SingleLayerLSTM_30units_train.png> <./res/SingleLayerLSTM_30units_v
 alidation.png> <./res/SingleLayerLSTM_60units_train.png> <./res/SingleLayerLSTM
@@ -2085,34 +2087,34 @@ eLayerLSTM_90units_validation.png>]
 File: res/SingleLayerLSTM_120units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_120units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_120units_train.png  used on input 
-line 1492.
+line 1493.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SingleLayerLSTM_120units_validation.png, id=719, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_120units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_120units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_120units_validation.png  used on i
-nput line 1499.
+nput line 1500.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SingleLayerLSTM_150units_train.png, id=724, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_150units_train.png Graphic file (type png)
 <use res/SingleLayerLSTM_150units_train.png>
 Package pdftex.def Info: res/SingleLayerLSTM_150units_train.png  used on input 
-line 1511.
+line 1512.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SingleLayerLSTM_150units_validation.png, id=727, 462.528pt x 346.896pt>
 File: res/SingleLayerLSTM_150units_validation.png Graphic file (type png)
 <use res/SingleLayerLSTM_150units_validation.png>
 Package pdftex.def Info: res/SingleLayerLSTM_150units_validation.png  used on i
-nput line 1518.
+nput line 1519.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1526.
+(hyperref)                removing `math shift' on input line 1527.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1526.
+(hyperref)                removing `math shift' on input line 1527.
 
 [31 <./res/SingleLayerLSTM_120units_train.png> <./res/SingleLayerLSTM_120units_
 validation.png> <./res/SingleLayerLSTM_150units_train.png> <./res/SingleLayerLS
@@ -2121,37 +2123,37 @@ TM_150units_validation.png>]
 File: res/SL_BLSTM_30units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_30units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_30units_d00_train.png  used on input line
- 1533.
+ 1534.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SL_BLSTM_30units_d00_validation.png, id=749, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_30units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_30units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_30units_d00_validation.png  used on input
- line 1540.
+ line 1541.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SL_BLSTM_60units_d00_train.png, id=754, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_60units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_60units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_60units_d00_train.png  used on input line
- 1552.
+ 1553.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SL_BLSTM_60units_d00_validation.png, id=757, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_60units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_60units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_60units_d00_validation.png  used on input
- line 1559.
+ line 1560.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SL_BLSTM_90units_d00_train.png, id=762, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_90units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_90units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_90units_d00_train.png  used on input line
- 1571.
+ 1572.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SL_BLSTM_90units_d00_validation.png, id=765, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_90units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_90units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_90units_d00_validation.png  used on input
- line 1578.
+ line 1579.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
  [32 <./res/SL_BLSTM_30units_d00_train.png> <./res/SL_BLSTM_30units_d00_validat
 ion.png> <./res/SL_BLSTM_60units_d00_train.png> <./res/SL_BLSTM_60units_d00_val
@@ -2161,25 +2163,25 @@ _validation.png>]
 File: res/SL_BLSTM_120units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_120units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_120units_d00_train.png  used on input lin
-e 1591.
+e 1592.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SL_BLSTM_120units_d00_validation.png, id=786, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_120units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_120units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_120units_d00_validation.png  used on inpu
-t line 1598.
+t line 1599.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SL_BLSTM_150units_d00_train.png, id=791, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_150units_d00_train.png Graphic file (type png)
 <use res/SL_BLSTM_150units_d00_train.png>
 Package pdftex.def Info: res/SL_BLSTM_150units_d00_train.png  used on input lin
-e 1610.
+e 1611.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 <res/SL_BLSTM_150units_d00_validation.png, id=794, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_150units_d00_validation.png Graphic file (type png)
 <use res/SL_BLSTM_150units_d00_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_150units_d00_validation.png  used on inpu
-t line 1617.
+t line 1618.
 (pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
  [33 <./res/SL_BLSTM_120units_d00_train.png> <./res/SL_BLSTM_120units_d00_valid
 ation.png> <./res/SL_BLSTM_150units_d00_train.png> <./res/SL_BLSTM_150units_d00
@@ -2188,37 +2190,37 @@ _validation.png>]
 File: res/SL_BLSTM_30units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_30units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_30units_d01_train.png  used on input line
- 1631.
+ 1632.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 <res/SL_BLSTM_30units_d01_validation.png, id=818, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_30units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_30units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_30units_d01_validation.png  used on input
- line 1638.
+ line 1639.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 <res/SL_BLSTM_60units_d01_train.png, id=823, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_60units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_60units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_60units_d01_train.png  used on input line
- 1650.
+ 1651.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 <res/SL_BLSTM_60units_d01_validation.png, id=826, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_60units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_60units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_60units_d01_validation.png  used on input
- line 1657.
+ line 1658.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 <res/SL_BLSTM_90units_d01_train.png, id=831, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_90units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_90units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_90units_d01_train.png  used on input line
- 1669.
+ 1670.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 <res/SL_BLSTM_90units_d01_validation.png, id=834, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_90units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_90units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_90units_d01_validation.png  used on input
- line 1676.
+ line 1677.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
  [34 <./res/SL_BLSTM_30units_d01_train.png> <./res/SL_BLSTM_30units_d01_validat
 ion.png> <./res/SL_BLSTM_60units_d01_train.png> <./res/SL_BLSTM_60units_d01_val
@@ -2228,44 +2230,44 @@ _validation.png>]
 File: res/SL_BLSTM_120units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_120units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_120units_d01_train.png  used on input lin
-e 1689.
+e 1690.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 <res/SL_BLSTM_120units_d01_validation.png, id=855, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_120units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_120units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_120units_d01_validation.png  used on inpu
-t line 1696.
+t line 1697.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 <res/SL_BLSTM_150units_d01_train.png, id=860, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_150units_d01_train.png Graphic file (type png)
 <use res/SL_BLSTM_150units_d01_train.png>
 Package pdftex.def Info: res/SL_BLSTM_150units_d01_train.png  used on input lin
-e 1708.
+e 1709.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 <res/SL_BLSTM_150units_d01_validation.png, id=863, 462.528pt x 346.896pt>
 File: res/SL_BLSTM_150units_d01_validation.png Graphic file (type png)
 <use res/SL_BLSTM_150units_d01_validation.png>
 Package pdftex.def Info: res/SL_BLSTM_150units_d01_validation.png  used on inpu
-t line 1715.
+t line 1716.
 (pdftex.def)             Requested size: 198.88315pt x 149.16237pt.
 [35 <./res/SL_BLSTM_120units_d01_train.png> <./res/SL_BLSTM_120units_d01_valida
 tion.png> <./res/SL_BLSTM_150units_d01_train.png> <./res/SL_BLSTM_150units_d01_
 validation.png>]
 Glava 5.
 
-Package xcolor Warning: Incompatible color definition on input line 1724.
+Package xcolor Warning: Incompatible color definition on input line 1725.
 
 [36
 
 ]
 Glava 6.
 
-Package xcolor Warning: Incompatible color definition on input line 1728.
+Package xcolor Warning: Incompatible color definition on input line 1729.
 
 [37
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1749--1750
+Underfull \hbox (badness 10000) in paragraph at lines 1750--1751
 [][][]$\T1/cmtt/m/n/10.95 http : / / practicalcryptography . com / miscellaneou
 s / machine-[]learning /
  []
@@ -2278,7 +2280,7 @@ File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 (C:\Users\vseselj\AppData\Roaming\MiKTeX\tex/latex/ucs\uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-Overfull \hbox (44.38676pt too wide) in paragraph at lines 1823--1824
+Overfull \hbox (44.38676pt too wide) in paragraph at lines 1824--1825
 [][][]$\T1/cmtt/m/n/10.95 https : / / machinelearningmastery . com / dropout-[]
 for-[]regularizing-[]deep-[]neural-[]networks/$[][] 
  []
@@ -2313,11 +2315,11 @@ dea $\OML/cmm/m/it/10.95 Weekly Address$\OT2/wncyr/m/n/10.95 :
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1837.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1837.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1838.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1838.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1837.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1837.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1838.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1838.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1C795B1DAC5B7A9E1EB4682F7EB35A5F;1889.
@@ -2327,10 +2329,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 65243 strings out of 481212
- 1580588 string characters out of 2915721
- 2297005 words of memory out of 3000000
- 79430 multiletter control sequences out of 15000+200000
+ 66006 strings out of 481212
+ 1588900 string characters out of 2915721
+ 2302115 words of memory out of 3000000
+ 80190 multiletter control sequences out of 15000+200000
  573594 words of font info for 167 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,21n,98p,1757b,1164s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2364,7 +2366,7 @@ TeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Program Files/MiKTeX/fonts
 public/amsfonts/cyrillic/wncyb10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
 c/amsfonts/cyrillic/wncyr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/ams
 fonts/cyrillic/wncyss10.pfb>
-Output written on main.pdf (44 pages, 2729650 bytes).
+Output written on main.pdf (44 pages, 2729875 bytes).
 PDF statistics:
  1430 PDF objects out of 1440 (max. 8388607)
  247 named destinations out of 1000 (max. 500000)
